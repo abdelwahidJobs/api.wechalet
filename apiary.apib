@@ -6,6 +6,997 @@ HOST: http://polls.apiblueprint.org/
 Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 
 
+##  get rules [/api/rules]
+### api/rules [GET]
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                  "data": [
+                    {
+                      "id": "a5fadf08-df0d-4815-ad56-492878044906",
+                      "rule": "Children are welcome (2 to 12 years old)"
+                    },
+                    {
+                      "id": "6b8a7915-0ccf-4803-8899-856ab86d8fed",
+                      "rule": "Pets are welcome"
+                    },
+                    {
+                      "id": "86ba3b54-cdd9-4d1d-8254-c98b9aa13675",
+                      "rule": "Smoking inside is allowed"
+                    },
+                    {
+                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
+                      "rule": "Parties and events are allowed"
+                    }
+                  ]
+                }
+                
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+## property rules [/api/properties/{uuid}/rules]
++ Parameters
+
+    + uuid (required, string) ... ID of the Property
+
+### api/properties/{uuid}/rules [GET]
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                {
+                  "id": "a5fadf08-df0d-4815-ad56-492878044906",
+                  "rule": "Children are welcome (2 to 12 years old)"
+                },
+                {
+                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
+                      "rule": "Parties and events are allowed"
+                }
+              ]
+            }
+            
+
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+### api/properties/{uuid}/rules [PUT]
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "rules" : [
+                "a5fadf08-df0d-4815-ad56-492878044906",
+                "d641b86e-403c-4daa-a76d-8ee96ff756db"
+            ]
+        }
+
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                {
+                  "id": "a5fadf08-df0d-4815-ad56-492878044906",
+                  "rule": "Children are welcome (2 to 12 years old)"
+                },
+                {
+                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
+                      "rule": "Parties and events are allowed"
+                }
+              ]
+            }
+            
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+### api/properties/{uuid}/rules [DELETE]
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "rules" : [
+                "a5fadf08-df0d-4815-ad56-492878044906"
+            ]
+        }
+
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                {
+                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
+                      "rule": "Parties and events are allowed"
+                }
+              ]
+            }
+            
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+## get amenities  [/api/amenities]
+### api/amenities [GET]
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+              "data": [
+                {
+                  "id": "3aa516f8-74eb-4974-8f1a-52c5b67dc923",
+                  "name": "Air conditioning"
+                },
+                {
+                  "id": "4f448d47-80a5-4d61-88f0-83882d40166c",
+                  "name": "Bed linens"
+                },
+                {
+                  "id": "f465d86c-c159-40da-8d51-ca1656e61deb",
+                  "name": "Cable TV"
+                },
+                {
+                  "id": "a181e2ca-13b7-4cc9-8547-6f8397f16623",
+                  "name": "Dryer"
+                },
+                {
+                  "id": "c1e3b67f-4f67-4510-80c2-f4642ba8e8d7",
+                  "name": "DVD \/ Blue Ray"
+                },
+                {
+                  "id": "10d3762a-eb64-4fe9-8eaa-14238e22f242",
+                  "name": "Extra pillows and blankets"
+                },
+                {
+                  "id": "fcfb1f39-1019-4f08-943c-f648b1c81a9c",
+                  "name": "Firewood included"
+                },
+                {
+                  "id": "84627665-5ca4-4a27-a6c4-e3f33b3f7bfe",
+                  "name": "Hair dryer"
+                },
+                {
+                  "id": "676f7be4-462f-42c0-92d8-56e5775b564b",
+                  "name": "Hangers in closets"
+                },
+                {
+                  "id": "6caf4bf5-408a-45a8-806e-6c5f43cf5282",
+                  "name": "Heated floors"
+                },
+                {
+                  "id": "4d1e290a-5e09-4137-a574-98edd720d907",
+                  "name": "Heating"
+                },
+                {
+                  "id": "5406318f-b371-49eb-8c26-cbb88a76ff30",
+                  "name": "Home essentials"
+                },
+                {
+                  "id": "d94c3bba-f33d-4f25-8272-69f2233e4bcf",
+                  "name": "Hot water"
+                },
+                {
+                  "id": "72f6478f-ed9a-410f-a19a-c441575043d9",
+                  "name": "Indoor fireplace"
+                },
+                {
+                  "id": "fc472941-280d-41c0-a3fc-ccac5f5af6f0",
+                  "name": "Iron"
+                },
+                {
+                  "id": "d02b6e95-2f6b-469c-b6a8-656c346afe87",
+                  "name": "Kitchen"
+                },
+                {
+                  "id": "5a634120-0f8e-4231-9611-f1f7788d2ae7",
+                  "name": "Laptop friendly workspace"
+                },
+                {
+                  "id": "b955a1ba-0d7d-46e5-938a-df895617c17b",
+                  "name": "Potable water"
+                },
+                {
+                  "id": "6d43bacd-791b-4a22-8050-8da7b9e4a941",
+                  "name": "Shampoo & soap"
+                },
+                {
+                  "id": "31f5447b-e1ef-417e-b19b-146f888335cf",
+                  "name": "Toilet paper"
+                },
+                {
+                  "id": "9cd4412c-da79-4fa1-8c83-bd7ea25d4713",
+                  "name": "Towels"
+                },
+                {
+                  "id": "0149cb83-1246-401b-ba78-2d44a086f0bd",
+                  "name": "TV"
+                },
+                {
+                  "id": "3bc35ade-dc51-4aa2-b866-f4688ae9fec6",
+                  "name": "Washer"
+                },
+                {
+                  "id": "dea879e3-2e5f-4fda-8824-d8a34b081edd",
+                  "name": "Wireless Internet"
+                },
+                {
+                  "id": "0323cb95-9670-4bc0-9339-22ee1c0f6976",
+                  "name": "Baby bath"
+                },
+                {
+                  "id": "8714a3d8-9987-41ea-b8ac-3aef84649701",
+                  "name": "Baby monitor"
+                },
+                {
+                  "id": "535274f5-2b58-4f6f-92cf-552069b267c9",
+                  "name": "Babysitter referrals"
+                },
+                {
+                  "id": "59646465-2758-411c-9d07-950bf2731686",
+                  "name": "Changing tableBathtub"
+                },
+                {
+                  "id": "1daf9244-6da3-4f0f-a98d-fc5dbc8b2909",
+                  "name": "Children’s books and toys"
+                },
+                {
+                  "id": "abb9cfb1-03a5-4c9b-864f-1e130c641ebf",
+                  "name": "Children’s dinnerware"
+                },
+                {
+                  "id": "9cf13f7c-677a-4859-a915-f194fefc7c31",
+                  "name": "Crib"
+                },
+                {
+                  "id": "c5084b2b-d01a-4567-ba1c-c2c0c395b932",
+                  "name": "Fireplace guards"
+                },
+                {
+                  "id": "8af0db84-7baa-40e4-bebd-cc4fb1278224",
+                  "name": "Foosball table"
+                },
+                {
+                  "id": "c0147122-4de3-404b-ac4c-49ebc13f9f79",
+                  "name": "Game console"
+                },
+                {
+                  "id": "f5fc27b8-a432-4386-a84e-88aab23e4300",
+                  "name": "High chair"
+                },
+                {
+                  "id": "b7e68347-c464-4dc8-9eb9-4be341c96615",
+                  "name": "Outlet covers"
+                },
+                {
+                  "id": "fb441b40-6f81-4ef1-bf54-dd9f4fb30a3c",
+                  "name": "Pack ’n Play\/travel crib"
+                },
+                {
+                  "id": "b9130070-02a2-4607-ae80-c1cf808bd6cd",
+                  "name": "Ping pong table"
+                },
+                {
+                  "id": "1b25b87a-0293-4b02-b4cd-4e0758be69f7",
+                  "name": "Pool table"
+                },
+                {
+                  "id": "8e9f4748-c1a8-4799-b3c5-f26b6fa1708c",
+                  "name": "Room-darkening shades"
+                },
+                {
+                  "id": "1a3c9933-68d1-4024-9eb0-a508989bf477",
+                  "name": "Stair gates"
+                },
+                {
+                  "id": "3db857d0-74c1-443c-aa51-fb5323d837f0",
+                  "name": "Table corner guards"
+                },
+                {
+                  "id": "4d6611ad-1379-4763-bf19-6aeaedd330e1",
+                  "name": "Window guards"
+                },
+                {
+                  "id": "584ca150-628a-43c3-a154-4ef93c2b63b8",
+                  "name": "Coffee maker"
+                },
+                {
+                  "id": "6ece12d6-0d98-4195-bdf6-f98d502c83e4",
+                  "name": "Cooking basics"
+                },
+                {
+                  "id": "718e03fb-1a5c-46ee-b937-e8ecb95b984b",
+                  "name": "Dishes and silverware"
+                },
+                {
+                  "id": "478f28a0-b7de-4b74-a057-3a7114aaf68d",
+                  "name": "Dishwasher"
+                },
+                {
+                  "id": "f841491a-fc55-4f3a-84cf-cd43572cdb56",
+                  "name": "Microwave"
+                },
+                {
+                  "id": "b79d3d99-99fb-406b-aded-77342b7213df",
+                  "name": "Oven"
+                },
+                {
+                  "id": "6fb04b4f-98f4-4246-acb9-15e3a597f738",
+                  "name": "Pots and pans"
+                },
+                {
+                  "id": "6b14303b-e8d8-4035-ab1f-c8491debaf48",
+                  "name": "Refrigerator"
+                },
+                {
+                  "id": "deabbe6f-3455-43bf-b464-4aefefdf381b",
+                  "name": "Stove"
+                },
+                {
+                  "id": "34f9219d-6b48-4002-956c-18633cf84977",
+                  "name": "Access to water"
+                },
+                {
+                  "id": "748a8537-6676-4d0f-bbbc-53761d3f5d00",
+                  "name": "BBQ \/ Grill"
+                },
+                {
+                  "id": "b0c51bc4-cf9b-4406-b41c-ee4c2506ab0a",
+                  "name": "Beach chairs"
+                },
+                {
+                  "id": "70fcc067-d2c2-4b4e-a108-c1ce37d43a29",
+                  "name": "Beachfront"
+                },
+                {
+                  "id": "4f132aab-1c32-4fd2-9c72-095ced33d861",
+                  "name": "By a river"
+                },
+                {
+                  "id": "82af7eb3-1b8b-41bc-a334-556ae9019b31",
+                  "name": "Dock"
+                },
+                {
+                  "id": "fca7cc3a-8b1c-4885-a10a-a0a5522e313d",
+                  "name": "Fire pit"
+                },
+                {
+                  "id": "cb3a5345-c653-445c-8102-7716eb159ff0",
+                  "name": "Garden or backyard"
+                },
+                {
+                  "id": "c66a3a10-a51a-4167-8fe5-680acb4c254f",
+                  "name": "Hamak"
+                },
+                {
+                  "id": "a59e619b-2d58-4b81-83bd-36983f202360",
+                  "name": "Hot tub \/ Spa"
+                },
+                {
+                  "id": "e1401adf-1180-4d14-981c-f79daf61854d",
+                  "name": "Lakefront"
+                },
+                {
+                  "id": "e67da15c-d578-4ce5-8cc7-f7886a2d815a",
+                  "name": "Life jackets"
+                },
+                {
+                  "id": "787b0f9b-cc7c-4e1f-8171-5dbaf6f5a2af",
+                  "name": "Patio furniture"
+                },
+                {
+                  "id": "b9b5b6eb-d144-4a46-ab63-72e0b46efdd3",
+                  "name": "Patio or balcony"
+                },
+                {
+                  "id": "ec584439-e83a-4948-9106-c155835a704f",
+                  "name": "Pool"
+                },
+                {
+                  "id": "055d9288-ae87-4574-a47e-fe9ade2f7d43",
+                  "name": "Sandy beach"
+                },
+                {
+                  "id": "a6157a7a-1437-4623-8a6e-226ca0942ab2",
+                  "name": "Sauna"
+                },
+                {
+                  "id": "4f9dc90b-726d-4fbd-8afc-2a207aa3d8d3",
+                  "name": "Ski in \/ ski out"
+                },
+                {
+                  "id": "c09066c3-b1b4-4810-b859-622465a78f01",
+                  "name": "Volleyball net"
+                },
+                {
+                  "id": "de29dce7-2a04-478c-9376-a78746c6a549",
+                  "name": "Alpine Skiing"
+                },
+                {
+                  "id": "20e1b0fe-c290-4b91-a787-9b1b36bdef3c",
+                  "name": "ATV trail"
+                },
+                {
+                  "id": "d3e1ea47-59de-4427-a232-c5af3986f89d",
+                  "name": "Basketball"
+                },
+                {
+                  "id": "7118cc3a-fd11-4a63-a4ae-b74d12386331",
+                  "name": "Boating"
+                },
+                {
+                  "id": "d7301d6d-9806-4fa7-bd23-a95f20deee9c",
+                  "name": "Parasailing"
+                },
+                {
+                  "id": "a47ee762-eaa0-434d-afa5-e6c5066c42e4",
+                  "name": "Road biking"
+                },
+                {
+                  "id": "51472615-db45-4d8f-962f-09bcf9b039b4",
+                  "name": "Mountain Biking"
+                },
+                {
+                  "id": "fcca7d7e-b390-4e92-8124-acb8e7a030f2",
+                  "name": "Kayaking"
+                },
+                {
+                  "id": "f19fcd22-f85c-4c0d-a9fe-199459ab21f0",
+                  "name": "Jet skiing"
+                },
+                {
+                  "id": "a55f0b15-986e-4d7c-ab2c-0e2fc1849389",
+                  "name": "Ice Climbing"
+                },
+                {
+                  "id": "b06e7760-8bd3-4a9e-a820-fd1a76c108db",
+                  "name": "Horseback riding"
+                },
+                {
+                  "id": "0bd44091-ea14-484b-92e2-ab7d5368d6d9",
+                  "name": "Hockey"
+                },
+                {
+                  "id": "c16114c2-b679-421f-b046-c3207afee938",
+                  "name": "Hiking"
+                },
+                {
+                  "id": "1a60529d-9133-4e1e-af3e-58d2606731ab",
+                  "name": "Golf"
+                },
+                {
+                  "id": "ce87b462-f205-4295-905b-4e34f9fd70bd",
+                  "name": "Fishing"
+                },
+                {
+                  "id": "3e333db6-4b58-4acf-a8d4-a071bc00d2cb",
+                  "name": "Deepsea fishing"
+                },
+                {
+                  "id": "c448351a-d0ba-44c1-afd3-b3d188ee082b",
+                  "name": "Cross-country skiing"
+                },
+                {
+                  "id": "ebe0e493-d95f-4836-892f-30e4d182b14a",
+                  "name": "Caving"
+                },
+                {
+                  "id": "5a74294e-e805-48a0-a6ba-3198223fe20d",
+                  "name": "Canoeing"
+                },
+                {
+                  "id": "8860a439-d000-420d-9af1-4c24eaae0c9f",
+                  "name": "Rock Climbing"
+                },
+                {
+                  "id": "3a219b00-30fd-4ce0-b661-caec2ab34c72",
+                  "name": "Rollerblading"
+                },
+                {
+                  "id": "59ce6591-005a-4aac-ac29-fb79601febfc",
+                  "name": "Running"
+                },
+                {
+                  "id": "8ef822d7-5cd6-4e89-ba47-2db3d78790d5",
+                  "name": "Sailing"
+                },
+                {
+                  "id": "30cc5529-0feb-4554-bb35-4d3078887a91",
+                  "name": "Scuba diving"
+                },
+                {
+                  "id": "90b3127a-658f-4b4f-8ac4-28b19408e954",
+                  "name": "Skating"
+                },
+                {
+                  "id": "0595ab2d-1999-4a69-bcfa-46c2e6448c86",
+                  "name": "Skydiving"
+                },
+                {
+                  "id": "6a4ef537-05a1-45dd-a980-c09fb2fb221b",
+                  "name": "Snorkeling"
+                },
+                {
+                  "id": "9ca6a75f-c123-42a7-adec-7ce8e5dc9de1",
+                  "name": "Snowboarding"
+                },
+                {
+                  "id": "35341c09-43a4-451f-980c-65e2c11507c1",
+                  "name": "Snowmobile trail"
+                },
+                {
+                  "id": "78a43e39-8835-45f1-a42f-969d1e42410d",
+                  "name": "Snowshoeing"
+                },
+                {
+                  "id": "10680e07-9d3f-4f97-93d2-75ff6455e46a",
+                  "name": "Swimming"
+                },
+                {
+                  "id": "a9907048-54d6-47a8-9bbe-aa0d3d4a5d4e",
+                  "name": "Windsurfing"
+                },
+                {
+                  "id": "2454dd8f-af8c-4d33-8223-63113f22fea5",
+                  "name": "Tennis"
+                },
+                {
+                  "id": "3baedead-c38f-4a99-a554-e3167195f360",
+                  "name": "Tree Climbing"
+                },
+                {
+                  "id": "9a64dfbb-5305-447f-9034-0b58e4be7b89",
+                  "name": "Volleyball"
+                },
+                {
+                  "id": "45b08b8f-c8d5-43ce-8850-ed2aee6bce22",
+                  "name": "Water skiing"
+                },
+                {
+                  "id": "1ae98090-ff1a-45d6-84fe-b4f5d7a1a78b",
+                  "name": "Water sliding"
+                },
+                {
+                  "id": "256aca7e-aa6b-41e7-a47b-53b0744a4f5d",
+                  "name": "Whitewater rafting"
+                },
+                {
+                  "id": "2264580c-b79f-49de-8d76-0567abebbf2c",
+                  "name": "Elevator in the building"
+                },
+                {
+                  "id": "692c4e51-6163-4752-9df5-f044e777c578",
+                  "name": "Private entrance"
+                },
+                {
+                  "id": "5ff451af-a530-456a-a7fd-6876f15a1f66",
+                  "name": "Single level home"
+                },
+                {
+                  "id": "fb36e694-e71a-457b-b2e5-35e4673ded2e",
+                  "name": "Wheelchair accessible"
+                },
+                {
+                  "id": "17d5cce4-3a28-43b8-a99c-00f562a1044b",
+                  "name": "Breakfast included"
+                },
+                {
+                  "id": "4771faea-f517-4b1f-a7ae-191dcb29d9da",
+                  "name": "EV charger"
+                },
+                {
+                  "id": "53f35b5a-d970-42fb-92d1-6b848aaa4d6b",
+                  "name": "Free gym \/ Fitness centre"
+                },
+                {
+                  "id": "4cf95ad6-4bfd-447b-b8d4-523ffa74967e",
+                  "name": "Free parking on premises"
+                },
+                {
+                  "id": "095c6327-5ccf-4d5b-b9c2-1d03d2a45d10",
+                  "name": "Guided tours"
+                },
+                {
+                  "id": "b0594956-10ef-4cb8-b1fd-8646af654ac2",
+                  "name": "Maid service included"
+                },
+                {
+                  "id": "e9fd7746-48b0-442c-8bfd-209c1037bd76",
+                  "name": "Restaurant on site"
+                },
+                {
+                  "id": "e5716170-b0a1-476f-9f2a-4f2ac82929d7",
+                  "name": "Spa services"
+                },
+                {
+                  "id": "cba0153e-47fd-476b-bfec-bb1d349c8966",
+                  "name": "Tea & coffee included"
+                },
+                {
+                  "id": "0f95fb01-2cca-4c39-b5ad-c82da76a32a3",
+                  "name": "Art show"
+                },
+                {
+                  "id": "1044cbf4-fbda-4fdf-8608-f4e1ffb2d1a4",
+                  "name": "Bachelor(ette) party"
+                },
+                {
+                  "id": "77804cd1-0fdd-4060-90dc-fbbfcbca3315",
+                  "name": "Birthday party"
+                },
+                {
+                  "id": "6e0e16bd-16d6-42e3-a952-a7e617dc0677",
+                  "name": "Conference"
+                },
+                {
+                  "id": "504993c1-70f1-4652-8080-ae650d4ac2fc",
+                  "name": "Corporate meeting"
+                },
+                {
+                  "id": "a5b1b34a-506c-4c60-ba4b-5ae11ffedd8f",
+                  "name": "Executive retreat"
+                },
+                {
+                  "id": "68149480-2600-4eaa-bb2b-d877b4828431",
+                  "name": "Friends & Family meeting"
+                },
+                {
+                  "id": "978c72b7-486c-48ff-91bf-63b4013b8499",
+                  "name": "Photo & Film Shoot"
+                },
+                {
+                  "id": "59f66ee6-3a09-4b6e-9617-73c74addd138",
+                  "name": "Product launch"
+                },
+                {
+                  "id": "ad7955a5-2592-470a-a3eb-9f7dc35b3aab",
+                  "name": "Seminar & Networking"
+                },
+                {
+                  "id": "76cd45c8-859c-42d6-b6d3-304c76d810a3",
+                  "name": "Sport team training"
+                },
+                {
+                  "id": "557bedfe-0332-45b8-9a2e-6d93dcfe0542",
+                  "name": "Wedding"
+                }
+              ]
+            }       
+  
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+             
+
+## get property amenities [/api/properties/{uuid}/amenities]
++ Parameters
+
+    + uuid (required, string) ... ID of the Property
+
+### api/properties/{uuid}/amenities [GET]
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                {
+                  "id": "3aa516f8-74eb-4974-8f1a-52c5b67dc923",
+                  "name": "Air conditioning"
+                },
+                {
+                  "id": "4f448d47-80a5-4d61-88f0-83882d40166c",
+                  "name": "Bed linens"
+                },
+                {
+                  "id": "a181e2ca-13b7-4cc9-8547-6f8397f16623",
+                  "name": "Dryer"
+                },
+                {
+                  "id": "84627665-5ca4-4a27-a6c4-e3f33b3f7bfe",
+                  "name": "Hair dryer"
+                },
+                {
+                  "id": "5406318f-b371-49eb-8c26-cbb88a76ff30",
+                  "name": "Home essentials"
+                }
+              ]
+            }
+            
+
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+### api/properties/{uuid}/amenities [PUT]
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "amenities" : [
+                  
+                          "3aa516f8-74eb-4974-8f1a-52c5b67dc923",
+                          "4f448d47-80a5-4d61-88f0-83882d40166c",
+                          "c1e3b67f-4f67-4510-80c2-f4642ba8e8d7"
+            ]
+        }
+
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                        {
+                          "id": "3aa516f8-74eb-4974-8f1a-52c5b67dc923",
+                          "name": "Air conditioning"
+                        },
+                        {
+                          "id": "4f448d47-80a5-4d61-88f0-83882d40166c",
+                          "name": "Bed linens"
+                        },
+                        {
+                          "id": "c1e3b67f-4f67-4510-80c2-f4642ba8e8d7",
+                          "name": "DVD \/ Blue Ray"
+                        }
+                      ]
+            }
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+### api/properties/{uuid}/amenities [DELETE]
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "amenities" : [
+                          "3aa516f8-74eb-4974-8f1a-52c5b67dc923",
+                          "4f448d47-80a5-4d61-88f0-83882d40166c",
+                          "c1e3b67f-4f67-4510-80c2-f4642ba8e8d7"
+            ]
+        }
+
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": []
+            }
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
+
+
+## property special prices [/api/properties/{uuid}/special-prices/]
++ Parameters
+
+    + uuid (required, string) ... ID of the Property
+
+
+### api/properties/{uuid}/spacial-prices [GET]
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                       "data": [
+                                    {
+                                      "id": "e530785b-9c51-4da4-9617-2ad62c484aa3",
+                                      "Price": 5,
+                                      "date": "2018-11-29T00:00:00.000000Z"
+                                    },
+                                    {
+                                      "id": "9ba1cb1a-393a-44e8-bd4d-e368f39c7bf9",
+                                      "Price": 5,
+                                      "date": "2018-12-25T00:00:00.000000Z"
+                                    },
+                                    {
+                                      "id": "abb2955b-d633-4b6a-814f-56c51faf4604",
+                                      "Price": 5,
+                                      "date": "2018-12-26T00:00:00.000000Z"
+                                    },
+                                    {
+                                      "id": "a50b24ce-c062-47e0-8c08-ee6d3c6088b1",
+                                      "Price": 5,
+                                      "date": "2018-12-27T00:00:00.000000Z"
+                                    }
+                      ]
+            }
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## api/properties [/api/properties]
 ### api/properties [GET]
@@ -111,60 +1102,8 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
               
             }
             
-## api/amenities  [/api/amenities]
-### api/amenities [GET]
 
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?"
-            }
-        ]
         
-## api/amenities/:uuid  [/api/amenities/uuid]
-### api/amenities/:uuid [GET]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
-
 
 ## api/property-types [/api/property-types]
 ### api/property-types [GET]
@@ -404,28 +1343,6 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
             }
 ### api/special-prices/uuid [DELETE]
 
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-
-
-## api/rules [/api/rules]
-### api/rules [GET]
 + Request (application/json)
 
         {
