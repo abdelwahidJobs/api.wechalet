@@ -1,0 +1,446 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# api.wechalet
+
+Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
+
+
+
+## api/properties [/api/properties]
+### api/properties [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/properties [POST]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+            
+## api/properties/:uuid [/api/properties/uuid]
+### api/properties/:uuid [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/properties/:uuid [PUT]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/properties/:uuid [DELETE]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+            
+## api/amenities  [/api/amenities]
+### api/amenities [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "question": "Favourite programming language?"
+            }
+        ]
+        
+## api/amenities/:uuid  [/api/amenities/uuid]
+### api/amenities/:uuid [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
+
+
+## api/property-types [/api/property-types]
+### api/property-types [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+
+## api/rent-types [/api/rent-types]
+### api/rent-types [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+
+## api/images [/api/images]
+### api/images [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/images [POST]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+ 
+## api/blocked-dates [/api/blocked-dates] 
+### api/blocked-dates [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+            
+            
+## api/blocked-dates/uuid [/api/blocked-dates/uuid]
+### api/blocked-dates/uuid [POST]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/blocked-dates/uuid [PUT]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/blocked-dates/uuid [DELETE]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+
+
+## api/special-prices [/api/special-prices] 
+### api/special-prices [GET]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+            
+            
+## api/special-prices/uuid [/api/special-prices/uuid]
+### api/special-prices/uuid [POST]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/special-prices/uuid [PUT]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+### api/special-prices/uuid [DELETE]
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
+
+
+## api/rules [/api/rules]
+### api/rules [GET]
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?"
+              
+            }
