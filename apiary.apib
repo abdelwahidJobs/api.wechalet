@@ -46,6 +46,7 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
                   "message": "Unauthenticated."
              }
 
+
 ## property rules [/api/properties/{uuid}/rules]
 + Parameters
 
@@ -942,7 +943,7 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
     + Body
 
             {
-              "data": [
+              
                        "data": [
                                     {
                                       "id": "e530785b-9c51-4da4-9617-2ad62c484aa3",
@@ -984,19 +985,289 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
              {
                     "errors": "Resource not found!"
              }
+### api/properties/{uuid}/spacial-prices [PUT]
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "start_date" : "2019-04-20",
+            "end_date" : "2019-04-30",
+            "price" : 421
+        }
 
 
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              
+                       "data": [
+                                    {
+                                      "id": "e530785b-9c51-4da4-9617-2ad62c484aa3",
+                                      "Price": 5,
+                                      "date": "2018-11-29 T00:00:00.000000Z"
+                                    },
+                                    {
+                                      "id": "9ba1cb1a-393a-44e8-bd4d-e368f39c7bf9",
+                                      "Price": 5,
+                                      "date": "2018-12-25 T00:00:00.000000Z"
+                                    },
+                                    {
+                                      "id": "abb2955b-d633-4b6a-814f-56c51faf4604",
+                                      "Price": 5,
+                                      "date": "2018-12-26 T00:00:00.000000Z"
+                                    },
+                                    {
+                                      "id": "a50b24ce-c062-47e0-8c08-ee6d3c6088b1",
+                                      "Price": 5,
+                                      "date": "2018-12-27 T00:00:00.000000Z"
+                                    }
+                      ]
+            }
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+### api/properties/{uuid}/spacial-prices [DELETE]
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "start_date" : "2019-04-20",
+            "end_date" : "2019-04-30",
+            "price" : 421
+        }
 
 
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              
+                 "data": []
+            }
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
 
 
+## property blocked-dates [/api/properties/{uuid}/blocked-dates] 
++ Parameters
+
+    + uuid (required, string) ... ID of the Property
+
+### api/properties/{uuid}/blocked-dates [GET]
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                    {
+                      "id": "9ff9952b-0c24-4fd0-a538-44474a75e128",
+                      "date": "2019-01-03T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "83df06f2-3056-4fd5-a484-379d424af4cb",
+                      "date": "2019-01-04T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "7cfca579-b1ce-40e7-b467-8b8f1ed96d61",
+                      "date": "2019-01-05T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "1f2c5775-ca6d-4baf-913c-37b33921fa52",
+                      "date": "2018-12-30T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "50a947c6-7081-465f-8de8-97b4a20b0879",
+                      "date": "2019-01-24T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+            
+### api/properties/{uuid}/blocked-dates [POST]
 
 
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "start_date" : "2019-01-3",
+            "end_date" : "2019-01-05",
+            "note" : "for cleaning",
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                    {
+                      "id": "9ff9952b-0c24-4fd0-a538-44474a75e128",
+                      "date": "2019-01-03T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "83df06f2-3056-4fd5-a484-379d424af4cb",
+                      "date": "2019-01-04T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "7cfca579-b1ce-40e7-b467-8b8f1ed96d61",
+                      "date": "2019-01-05T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "1f2c5775-ca6d-4baf-913c-37b33921fa52",
+                      "date": "2018-12-30T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "50a947c6-7081-465f-8de8-97b4a20b0879",
+                      "date": "2019-01-24T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+### api/properties/{uuid}/blocked-dates [DELETE]
 
 
++ Request (application/json)
 
+        {
+            "api_token": "",
+            "start_date" : "2019-01-3",
+            "end_date" : "2019-01-05",
+        }
 
++ Response 200 (application/json)
 
+    
+    + Body
+
+            {
+                  "data": [
+                   
+                    {
+                      "id": "1f2c5775-ca6d-4baf-913c-37b33921fa52",
+                      "date": "2018-12-30T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    },
+                    {
+                      "id": "50a947c6-7081-465f-8de8-97b4a20b0879",
+                      "date": "2019-01-24T00:00:00.000000Z",
+                      "note": "for cleaning"
+                    }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
 
 ## api/properties [/api/properties]
 ### api/properties [GET]
@@ -1191,90 +1462,6 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
               
             }
  
-## api/blocked-dates [/api/blocked-dates] 
-### api/blocked-dates [GET]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-            
-            
-## api/blocked-dates/uuid [/api/blocked-dates/uuid]
-### api/blocked-dates/uuid [POST]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/blocked-dates/uuid [PUT]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/blocked-dates/uuid [DELETE]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
 
 
 ## api/special-prices [/api/special-prices] 
