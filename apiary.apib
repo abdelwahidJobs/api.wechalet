@@ -2881,8 +2881,6 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }
              
-             
-             
 ## Property guest expectations [/api/properties/{uuid}/guest-expectations]
 + Parameters
 
@@ -3198,9 +3196,6 @@ Retrieves all rules that the current affiliate has permission to access
                         ]
                   }
             }
-               
-            
-            
             
 ### api/properties/{uuid}/services [DELETE]
 
@@ -3253,9 +3248,6 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }
                 
-                
-
-
 ## property bookings [/api/properties/{uuid}/bookings] 
 + Parameters
 
@@ -3333,8 +3325,6 @@ Retrieves all rules that the current affiliate has permission to access
                     "errors": "Resource not found!"
              }
              
-
-
 ## property reviews [/api/properties/{uuid}/reviews] 
 + Parameters
 
@@ -3388,8 +3378,6 @@ Retrieves all rules that the current affiliate has permission to access
                     "errors": "Resource not found!"
              }
                           
-                      
-
 ## property owner [/api/properties/{uuid}/owner] 
 + Parameters
 
@@ -3547,10 +3535,6 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }
                              
-                 
-                          
-
-                                   
 ## property guests [/api/properties/{uuid}/guests] 
 + Parameters
 
@@ -3691,9 +3675,6 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
-                          
-                                   
-             
                         
 ### api/properties/{uuid}/rooms [PUT]
 
@@ -3801,8 +3782,6 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }            
              
-             
-                       
 ### api/properties/{uuid}/rooms [DELETE]
 
 
@@ -3879,8 +3858,6 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }                        
              
-             
-             
 ## property custom rules [/api/properties/{uuid}/custom-rules] 
 + Parameters
 
@@ -3928,9 +3905,6 @@ Retrieves all rules that the current affiliate has permission to access
                     "errors": "Resource not found!"
              }
                           
-                                   
-             
-                        
 ### api/properties/{uuid}/custom-rules [POST]
 
 
@@ -4002,9 +3976,6 @@ Retrieves all rules that the current affiliate has permission to access
                   }
             }         
              
-             
-
-
 ### api/properties/{uuid}/custom-rules [PUT]
 
 
@@ -4080,8 +4051,6 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }   
              
-             
-                                    
 ### api/properties/{uuid}/custom-rules [DELETE]
 
 
@@ -4137,6 +4106,172 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }                        
              
+## property images [/api/properties/{uuid}/images] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/images [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                    {
+                      "id": "8d8eba03-80bf-4561-b8b6-70adb459eccc",
+                      "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                    },
+                    {
+                      "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
+                      "url": "https:\/\/www.fillmurray.com\/640\/360"
+                    }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                          
+### api/properties/{uuid}/images [POST]
+
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "url" : "https:\/\/www.fillmurray.com\/640\/360"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+        
+                    {
+                      "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
+                      "url": "https:\/\/www.fillmurray.com\/640\/360"
+                    }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "url": [
+                      "The url field is required."
+                    ]
+                  }
+                }
+                                          
+### api/properties/{uuid}/images [DELETE]
+
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "image_id" : "49b44807-336f-4c14-bbb4-7fa54abd3101"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+        
+                    {
+                      "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
+                      "url": "https:\/\/www.fillmurray.com\/640\/360"
+                    }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "image_id": [
+                      "The url field is required."
+                    ]
+                  }
+                }
 
              
 ## user booking [/api/bookings]
@@ -4191,6 +4326,66 @@ Retrieves all rules that the current affiliate has permission to access
                           "phone_number": null
                         }
                       }
+                    }
+                  ]
+              }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                                       
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "custom_rule_id": [
+                      "The custom rule id field is required."
+                    ]
+                  }
+                }                        
+   
+             
+## user reviews [/api/reviews]
+
+### api/reviews [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "api_token"
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                   {
+                      "id": "2be7eaba-52c9-471d-83c1-deb461ba7dea",
+                      "comment": "This is an awesome space and well located. We were near an organic grocery store and close to a     public bike station. The apartment had a great atmosphere surrounded by cool art and lots of natural lighting. Our host was very helpful and attentive. I would recommend anyone to stay here.    ",
+                      "rating": "2"
                     }
                   ]
               }
