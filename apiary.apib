@@ -2880,3 +2880,138 @@ Retrieves all rules that the current affiliate has permission to access
                     ]
                   }
                 }
+             
+             
+             
+## Property guest expectations [/api/properties/{uuid}/guest-expectations]
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
+### /api/properties/{uuid}/guest-expectations [GET]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+           
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data":  {
+                        "must_climb_stairs": false,
+                        "potenial_for_noise": false,
+                        "pets_live_on_property": false,
+                        "no_parking_on_property": false,
+                        "some_spaces_are_shared": false,
+                        "amenity_limitations": false
+                      }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
+### /api/properties/{uuid}/guest-expectations [PUT]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+                    "qualifications" : {
+                               "must_climb_stairs": true,
+                                "potenial_for_noise": false,
+                                "pets_live_on_property": false,
+                                "no_parking_on_property": true,
+                                "some_spaces_are_shared": false,
+                                "amenity_limitations": false
+    
+                                }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "must_climb_stairs": true,
+                "potenial_for_noise": false,
+                "pets_live_on_property": false,
+                "no_parking_on_property": true,
+                "some_spaces_are_shared": false,
+                "amenity_limitations": false
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                     "guest_expectations": [
+                          "The guest expectations field is required."
+                        ],
+                        "guest_expectations.must_climb_stairs": [
+                          "The guest expectations.must climb stairs field is required."
+                        ],
+                        "guest_expectations.potenial_for_noise": [
+                          "The guest expectations.potenial for noise field is required."
+                        ],
+                        "guest_expectations.pets_live_on_property": [
+                          "The guest expectations.pets live on property field is required."
+                        ],
+                        "guest_expectations.no_parking_on_property": [
+                          "The guest expectations.no parking on property field is required."
+                        ],
+                        "guest_expectations.some_spaces_are_shared": [
+                          "The guest expectations.some spaces are shared field is required."
+                        ],
+                        "guest_expectations.amenity_limitations": [
+                          "The guest expectations.amenity limitations field is required."
+                        ]
+                  }
+                }
