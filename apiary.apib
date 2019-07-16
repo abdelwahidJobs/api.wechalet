@@ -66,14 +66,11 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 
             {
               "data": [
-                {
-                  "id": "a5fadf08-df0d-4815-ad56-492878044906",
-                  "rule": "Children are welcome (2 to 12 years old)"
-                },
-                {
-                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
-                      "rule": "Parties and events are allowed"
-                }
+                "children_are_welcome_2_to_12_years_old": false,
+                "infants_under_2_years_old_are_welcome": false,
+                "pets_are_welcome": true,
+                "smoking_inside_is_allowed": true,
+                "parties_and_events_are_allowed": true
               ]
             }
             
@@ -98,13 +95,16 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 ### api/properties/{uuid}/rules [PUT]
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "rules" : [
-                "a5fadf08-df0d-4815-ad56-492878044906",
-                "d641b86e-403c-4daa-a76d-8ee96ff756db"
-            ]
-        }
+            {
+                "api_token": "",
+                "rules": {
+                        "children_are_welcome_2_to_12_years_old" : true,
+                        "infants_under_2_years_old_are_welcome": true,
+                        "pets_are_welcome" : false,
+                        "smoking_inside_is_allowed" : false,
+                        "parties_and_events_are_allowed" : false
+                        }
+            }
 
 
 + Response 200 (application/json)
@@ -113,24 +113,14 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
     + Body
 
             {
-              "data": [
-                {
-                  "id": "a5fadf08-df0d-4815-ad56-492878044906",
-                  "rule": "Children are welcome (2 to 12 years old)"
-                },
-                {
-                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
-                      "rule": "Parties and events are allowed"
-                }
-              ]
+              "data": {
+                          "children_are_welcome_2_to_12_years_old": true,
+                            "infants_under_2_years_old_are_welcome": true,
+                            "pets_are_welcome": false,
+                            "smoking_inside_is_allowed": false,
+                            "parties_and_events_are_allowed": false
+                      }
             }
-            
-
-+ Request (application/json)
-
-        {
-            "api_token": ""
-        }
 
 + Response 400 (application/json)
 
@@ -148,53 +138,33 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
              {
                     "errors": "Resource not found!"
              }
-### api/properties/{uuid}/rules [DELETE]
-+ Request (application/json)
-
-        {
-            "api_token": "",
-            "rules" : [
-                "a5fadf08-df0d-4815-ad56-492878044906"
-            ]
-        }
-
-
-+ Response 200 (application/json)
-
-    
-    + Body
-
-            {
-              "data": [
-                {
-                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
-                      "rule": "Parties and events are allowed"
-                }
-              ]
-            }
-            
-
-+ Request (application/json)
-
-        {
-            "api_token": ""
-        }
-
-+ Response 400 (application/json)
+             
++ Response 422 (application/json)
 
     + Body
 
              {
-                  "message": "Unauthenticated."
-             }
-                
-
-+ Response 404 (application/json)
-
-    + Body
-
-             {
-                    "errors": "Resource not found!"
+                    "message": "The given data was invalid.",
+                      "errors": {
+                        "rules": [
+                          "The rules field is required."
+                        ],
+                        "rules.children_are_welcome_2_to_12_years_old": [
+                          "The rules.children are welcome 2 to 12 years old field is required."
+                        ],
+                        "rules.infants_under_2_years_old_are_welcome": [
+                          "The rules.infants under 2 years old are welcome field is required."
+                        ],
+                        "rules.pets_are_welcome": [
+                          "The rules.pets are welcome field is required."
+                        ],
+                        "rules.smoking_inside_is_allowed": [
+                          "The rules.smoking inside is allowed field is required."
+                        ],
+                        "rules.parties_and_events_are_allowed": [
+                          "The rules.parties and events are allowed field is required."
+                        ]
+                      }
              }
              
 ## get amenities  [/api/amenities]
@@ -1268,283 +1238,180 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
                     "errors": "Resource not found!"
              }
              
+             
+             
+             
+## property descriptions [/api/properties/{uuid}/descriptions] 
++ Parameters
 
-## api/properties [/api/properties]
-### api/properties [GET]
+    + uuid (required, string) ... ID of the Property
 
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/properties [POST]
+### api/properties/{uuid}/descriptions [GET]
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?"
+            "api_token": ""
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
-    + Headers
-
-            Location: /questions/2
-
+    
     + Body
 
             {
-                "question": "Favourite programming language?"
-              
+              "data":[
+                    {
+                      "id": "367298fc-9495-45fc-aa1a-8c35663bd4f7",
+                      "language": "english",
+                      "title": "nagpur test property",
+                      "about_this_property": "lora lpsm doller content sit amit.",
+                      "home_access": "lora lpsm doller content sit amit.",
+                      "host_availibility": "lora lpsm doller content sit amit.",
+                      "other_things_to_know": "lora lpsm doller content sit amit.",
+                      "birds_eye_view": "lora lpsm doller content sit amit.",
+                      "travelling_around": "lora lpsm doller content sit amit.",
+                      "description": "lora lpsm doller content sit amit."
+                    },
+                    {
+                      "id": "1e1a7c36-ddc6-44e9-b7da-85a1240c42e5",
+                      "language": "frensh",
+                      "title": "nagpur test property",
+                      "about_this_property": "lora lpsm doller content sit amit.",
+                      "home_access": "lora lpsm doller content sit amit.",
+                      "host_availibility": "lora lpsm doller content sit amit.",
+                      "other_things_to_know": "lora lpsm doller content sit amit.",
+                      "birds_eye_view": "lora lpsm doller content sit amit.",
+                      "travelling_around": "lora lpsm doller content sit amit.",
+                      "description": "lora lpsm doller content sit amit."
+                    }
+                  ]
             }
-            
-## api/properties/:uuid [/api/properties/uuid]
-### api/properties/:uuid [GET]
 
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/properties/:uuid [PUT]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/properties/:uuid [DELETE]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
             
 
-        
++ Response 400 (application/json)
 
-## api/property-types [/api/property-types]
-### api/property-types [GET]
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+
+### api/properties/{uuid}/descriptions [PUT]
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?"
+            "api_token": "",
+            "language": "english",
+            "title": "nagpur test property",
+            "about_this_property": "lora lpsm doller content sit amit.",
+            "home_access": "lora lpsm doller content sit amit.",
+            "host_availibility": "lora lpsm doller content sit amit.",
+            "other_things_to_know": "lora lpsm doller content sit amit.",
+            "birds_eye_view": "lora lpsm doller content sit amit.",
+            "travelling_around": "lora lpsm doller content sit amit.",
+            "description": "lora lpsm doller content sit amit."
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
-    + Headers
-
-            Location: /questions/2
-
+    
     + Body
 
             {
-                "question": "Favourite programming language?"
-              
+              "data":[
+                    {
+                      "id": "367298fc-9495-45fc-aa1a-8c35663bd4f7",
+                      "language": "english",
+                      "title": "nagpur test property",
+                      "about_this_property": "lora lpsm doller content sit amit.",
+                      "home_access": "lora lpsm doller content sit amit.",
+                      "host_availibility": "lora lpsm doller content sit amit.",
+                      "other_things_to_know": "lora lpsm doller content sit amit.",
+                      "birds_eye_view": "lora lpsm doller content sit amit.",
+                      "travelling_around": "lora lpsm doller content sit amit.",
+                      "description": "lora lpsm doller content sit amit."
+                    }
+                  ]
             }
 
-## api/rent-types [/api/rent-types]
-### api/rent-types [GET]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-
-## api/images [/api/images]
-### api/images [GET]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/images [POST]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
- 
-
-
-## api/special-prices [/api/special-prices] 
-### api/special-prices [GET]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
             
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+### api/properties/{uuid}/descriptions [DELETE]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "description_id": "367298fc-9495-45fc-aa1a-8c35663bd4f7",
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data":[
+                    {
+                      "id": "367298fc-9495-45fc-aa1a-8c35663bd4f7",
+                      "language": "english",
+                      "title": "nagpur test property",
+                      "about_this_property": "lora lpsm doller content sit amit.",
+                      "home_access": "lora lpsm doller content sit amit.",
+                      "host_availibility": "lora lpsm doller content sit amit.",
+                      "other_things_to_know": "lora lpsm doller content sit amit.",
+                      "birds_eye_view": "lora lpsm doller content sit amit.",
+                      "travelling_around": "lora lpsm doller content sit amit.",
+                      "description": "lora lpsm doller content sit amit."
+                    }
+                  ]
+            }
+
             
-## api/special-prices/uuid [/api/special-prices/uuid]
-### api/special-prices/uuid [POST]
 
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
++ Response 400 (application/json)
 
     + Body
 
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/special-prices/uuid [PUT]
+             {
+                  "message": "Unauthenticated."
+             }
+                
 
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
++ Response 404 (application/json)
 
     + Body
 
-            {
-                "question": "Favourite programming language?"
-              
-            }
-### api/special-prices/uuid [DELETE]
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?"
-              
-            }
+             {
+                    "errors": "Resource not found!"
+             }
