@@ -3015,3 +3015,596 @@ Retrieves all rules that the current affiliate has permission to access
                         ]
                   }
                 }
+             
+             
+## property services [/api/properties/{uuid}/services] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/services [GET]
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                         {
+                          "id": "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
+                          "name": "cleaning dearing stay",
+                          "price": "20",
+                          "type": "night"
+                        }
+                        ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+            
+### api/properties/{uuid}/services [POST]
+
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "name": "cleaning dearing stay",
+            "price": "20",
+            "type": "night"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                    {
+                          "id": "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
+                          "name": "cleaning dearing stay",
+                          "price": "20",
+                          "type": "night"
+                        }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
++ Response 422 (application/json)
+
+    + Body
+
+            {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                        "name": [
+                          "The name field is required."
+                        ],
+                        "value": [
+                          "The value field is required."
+                        ],
+                        "type": [
+                          "The type field is required."
+                        ]
+                  }
+            }
+            
+### api/properties/{uuid}/services [PUT]
+
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "service_id" : "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
+            "name": "cleaning dearing stay",
+            "price": "17",
+            "type": "night"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                          "id": "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
+                          "name": "cleaning dearing stay",
+                          "price": "17",
+                          "type": "night"
+                        }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
++ Response 422 (application/json)
+
+    + Body
+
+            {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                   "name": [
+                          "The name field is required."
+                        ],
+                        "name": [
+                          "The name field is required."
+                        ],
+                        "value": [
+                          "The value field is required."
+                        ],
+                        "type": [
+                          "The type field is required."
+                        ]
+                  }
+            }
+               
+            
+            
+            
+### api/properties/{uuid}/services [DELETE]
+
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "service_id" : "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "message": "success"
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
++ Response 422 (application/json)
+
+    + Body
+
+            {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "service_id": [
+                      "The selected service id is invalid."
+                    ]
+                  }
+                }
+                
+                
+
+
+## property bookings [/api/properties/{uuid}/bookings] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/bookings [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data" : [
+                  {
+                      "id": "3485cc19-5e39-4252-a846-814b7ae6e284",
+                      "status": "confirmed",
+                      "guests_count": 1,
+                      "request_date": true,
+                      "checkin": "Mon, May 20th 2019",
+                      "checkout": "Wed, May 22th 2019",
+                      "response": null,
+                      "response_time": "2019-04-01 09:16:40",
+                      "nights_count": null,
+                      "nights_cost": 0,
+                      "day_price": 0,
+                      "discount": 0,
+                      "service_fee": 13.5,
+                      "cleaning_fee": 0,
+                      "security_deposit": 0,
+                      "total_fee": 0,
+                      "total": 105.5,
+                      "property": {
+                        "name": "test booking new",
+                        "image": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
+                        "address": "2600,rue du centre,le sud ouest",
+                        "owner": {
+                          "id": "f3231d88-2370-4a80-b48c-66a5c058c73f",
+                          "firstname": "Imran",
+                          "lastname": "Imran",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
+                          "email": "fudugo.imran@gmail.com",
+                          "phone_number": null
+                        }
+                      }
+                    }
+                  ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+
+
+## property reviews [/api/properties/{uuid}/reviews] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/reviews [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data" : [
+                   {
+                      "id": "ce1c4d3a-d476-45b6-81e6-e6f06599622e",
+                      "comment": "Superbe lieu qui marie rusticité et rénovations contemporaines.",
+                      "rating": "4"
+                    },
+                    {
+                      "id": "a1663948-2b1d-4ac5-ac3b-0c218b0bf4b1",
+                      "comment": "Le chalet est vraiment charmant, très propre et accueillant. On a passé un très bon séjour entre amis avec nos enfants. Dany est très disponible et nous a super bien aidés pour notre arrivée. N'hésitez pas à le réserver!",
+                      "rating": "2"
+                    }
+                  ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                          
+                      
+
+## property owner [/api/properties/{uuid}/owner] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/owner [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "id": "80d90abb-4d0d-4e23-99b8-e7b35013ec33",
+                "profile": {
+                  "firstname": "Dany",
+                  "lastname": "Dany",
+                  "birthdate": null,
+                  "language": "en",
+                  "gender": "male",
+                  "location": "Earth",
+                  "about_me": "Bonjour! Mon nom est Dany et je suis à l'origine d'un cinéaste entrepreneur qui aime rencontrer les gens et voyager dans le monde.
+                  "secondary_email": null,
+                  "secondary_phone": null,
+                  "payout_email": null,
+                  "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
+                },
+                "email": "dany@airbnbsecrets.com"
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+### api/properties/{uuid}/owner [PUT]
+
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "firstname": "Dany",
+              "lastname": "Dany",
+              "birthdate": null,
+              "language": "en",
+              "gender": "male",
+              "location": "Earth",
+              "about_me": "Bonjour! Mon nom est Dany",
+              "secondary_email": null,
+              "secondary_phone": null,
+              "payout_email": null,
+            "email": "dany@airbnbsecrets.com"
+       
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "id": "80d90abb-4d0d-4e23-99b8-e7b35013ec33",
+                "profile": {
+                  "firstname": "Dany",
+                  "lastname": "Dany",
+                  "birthdate": null,
+                  "language": "en",
+                  "gender": "male",
+                  "location": "Earth",
+                  "about_me": "Bonjour! Mon nom est Dany et je suis à l'origine d'un cinéaste entrepreneur qui aime rencontrer les gens et voyager dans le monde.
+                  "secondary_email": null,
+                  "secondary_phone": null,
+                  "payout_email": null,
+                  "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
+                },
+                "email": "dany@airbnbsecrets.com"
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+             
+                 
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "firstname": [
+                      "The firstname field is required."
+                    ],
+                    "lastname": [
+                      "The lastname field is required."
+                    ],
+                    "birthdate": [
+                      "The birthdate field is required."
+                    ],
+                    "language": [
+                      "The language field is required."
+                    ],
+                    "gender": [
+                      "The gender field is required."
+                    ],
+                    "email": [
+                      "The email field is required."
+                    ],
+                    "password": [
+                      "The password field is required."
+                    ]
+                  }
+                }
+                             
+                 
+                          
+
+                                   
+## property guests [/api/properties/{uuid}/guests] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/guests [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "id": "80d90abb-4d0d-4e23-99b8-e7b35013ec33",
+                "profile": {
+                  "firstname": "Dany",
+                  "lastname": "Dany",
+                  "birthdate": null,
+                  "language": "en",
+                  "gender": "male",
+                  "location": "Earth",
+                  "about_me": "Bonjour! Mon nom est Dany et je suis à l'origine d'un cinéaste entrepreneur qui aime rencontrer les gens et voyager dans le monde.
+                  "secondary_email": null,
+                  "secondary_phone": null,
+                  "payout_email": null,
+                  "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
+                },
+                "email": "dany@airbnbsecrets.com"
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
