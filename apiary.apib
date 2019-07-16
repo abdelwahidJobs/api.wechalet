@@ -7,7 +7,7 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 
 
 ##  rules [/api/rules]
-Retrieves all rules that the current affiliate has permission to access
+Retrieve all rules
 ### api/rules [GET]
 + Request (application/json)
 
@@ -49,6 +49,7 @@ Retrieves all rules that the current affiliate has permission to access
 
 
 ## property rules [/api/properties/{uuid}/rules]
+Retrieve and edit rules associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -168,7 +169,8 @@ Retrieves all rules that the current affiliate has permission to access
                       }
              }
              
-## get amenities  [/api/amenities]
+## amenities [/api/amenities]
+Retrieve all the amenities
 ### api/amenities [GET]
 + Request (application/json)
 
@@ -1003,13 +1005,15 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
-             
-             
+        
 
-## get property amenities [/api/properties/{uuid}/amenities]
+## property amenities [/api/properties/{uuid}/amenities]
+Retrieve and edit amenities associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
+    
+
 
 ### api/properties/{uuid}/amenities [GET]
 + Request (application/json)
@@ -1885,6 +1889,7 @@ Retrieves all rules that the current affiliate has permission to access
                 }
 
 ## property special prices [/api/properties/{uuid}/special-prices/]
+Retrieve and edit special prices associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2082,6 +2087,7 @@ Retrieves all rules that the current affiliate has permission to access
                 }
 
 ## property blocked-dates [/api/properties/{uuid}/blocked-dates] 
+Retrieve and edit blocked dates associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2300,6 +2306,7 @@ Retrieves all rules that the current affiliate has permission to access
              
              
 ## property descriptions [/api/properties/{uuid}/descriptions] 
+Retrieve and edit descriptions with both language french and english associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2364,8 +2371,6 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
-             
-
 ### api/properties/{uuid}/descriptions [PUT]
 
 + Request (application/json)
@@ -2423,7 +2428,6 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
-             
 ### api/properties/{uuid}/descriptions [DELETE]
 
 + Request (application/json)
@@ -2475,12 +2479,12 @@ Retrieves all rules that the current affiliate has permission to access
              }
              
              
-## Property Address  [/api/properties/{uuid}/location]       
+## Property location  [/api/properties/{uuid}/location]       
+Retrieve and edit location associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-             
 ### api/properties/{uuid}/location [GET]
 
 + Request (application/json)
@@ -2524,8 +2528,6 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
-                          
-             
 ### api/properties/{uuid}/location [PUT]
 
 + Request (application/json)
@@ -2599,6 +2601,7 @@ Retrieves all rules that the current affiliate has permission to access
             }  
              
 ## Property category [/api/properties/{uuid}/category] 
+Edit the category associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2656,6 +2659,7 @@ Retrieves all rules that the current affiliate has permission to access
              
 
 ## Property rent type [/api/properties/{uuid}/rent-type] 
+Edit the rent type associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2709,11 +2713,12 @@ Retrieves all rules that the current affiliate has permission to access
                 ]
               }
             }
+
 ## Property currency [/api/properties/{uuid}/currency] 
+Edit the currency associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
-
 
 ### /api/properties/{uuid}/currency [PUT]
 
@@ -2765,8 +2770,9 @@ Retrieves all rules that the current affiliate has permission to access
               }
             }
              
+## instant booking qualifications [/api/properties/{uuid}/instant-booking-qualification]
+Retrieve and edit Instant booking qualifications  associated to the provided property id
 
-## Property Instant booking qualification [/api/properties/{uuid}/instant-booking-qualification]
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2812,8 +2818,6 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
-
-
 ### /api/properties/{uuid}/instant-booking-qualification [PUT]
 
 + Request (application/json)
@@ -2881,11 +2885,11 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }
              
-## Property guest expectations [/api/properties/{uuid}/guest-expectations]
+## guest expectations [/api/properties/{uuid}/guest-expectations]
+Retrieve and edit guest expectations associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
-
 
 ### /api/properties/{uuid}/guest-expectations [GET]
 
@@ -2930,7 +2934,6 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
-
 
 ### /api/properties/{uuid}/guest-expectations [PUT]
 
@@ -3014,8 +3017,9 @@ Retrieves all rules that the current affiliate has permission to access
                   }
                 }
              
-             
-## property services [/api/properties/{uuid}/services] 
+## property services [/api/properties/{uuid}/services]
+Retrieve and edit services associated to the provided property id
+
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3249,6 +3253,7 @@ Retrieves all rules that the current affiliate has permission to access
                 }
                 
 ## property bookings [/api/properties/{uuid}/bookings] 
+Retrieve  bookings associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3326,6 +3331,7 @@ Retrieves all rules that the current affiliate has permission to access
              }
              
 ## property reviews [/api/properties/{uuid}/reviews] 
+Retrieve  reviwes associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3379,6 +3385,7 @@ Retrieves all rules that the current affiliate has permission to access
              }
                           
 ## property owner [/api/properties/{uuid}/owner] 
+Retrieve and edit informations of the owner associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3536,6 +3543,7 @@ Retrieves all rules that the current affiliate has permission to access
                 }
                              
 ## property guests [/api/properties/{uuid}/guests] 
+Retrieve  guests associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3613,6 +3621,7 @@ Retrieves all rules that the current affiliate has permission to access
              }
              
 ## property rooms [/api/properties/{uuid}/rooms] 
+Retrieve  and edit rooms associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3859,6 +3868,7 @@ Retrieves all rules that the current affiliate has permission to access
                 }                        
              
 ## property custom rules [/api/properties/{uuid}/custom-rules] 
+Retrieve and edit custom rules associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -4107,6 +4117,7 @@ Retrieves all rules that the current affiliate has permission to access
                 }                        
              
 ## property images [/api/properties/{uuid}/images] 
+Retrieve and edit images associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -4275,6 +4286,7 @@ Retrieves all rules that the current affiliate has permission to access
 
              
 ## user booking [/api/bookings]
+Retrieves all bookings that the current affiliate has make
 
 ### api/bookings [GET]
 
@@ -4282,7 +4294,7 @@ Retrieves all rules that the current affiliate has permission to access
 + Request (application/json)
 
         {
-          "api_token": "api_token"
+          "api_token": ""
         }
             
 
@@ -4340,38 +4352,18 @@ Retrieves all rules that the current affiliate has permission to access
                   "message": "Unauthenticated."
              }
                 
-
-+ Response 404 (application/json)
-
-    + Body
-
-             {
-                    "errors": "Resource not found!"
-             }
-                                       
-+ Response 422 (application/json)
-
-    + Body
-
-             {
-                  "message": "The given data was invalid.",
-                  "errors": {
-                    "custom_rule_id": [
-                      "The custom rule id field is required."
-                    ]
-                  }
-                }                        
+                   
    
              
 ## user reviews [/api/reviews]
-
+Retrieves all reviews that the current affiliate has make
 ### api/reviews [GET]
 
 
 + Request (application/json)
 
         {
-          "api_token": "api_token"
+          "api_token": ""
         }
             
 
@@ -4401,23 +4393,271 @@ Retrieves all rules that the current affiliate has permission to access
              }
                 
 
-+ Response 404 (application/json)
 
+## currency [/api/currencies]
+Retrieves all currencies 
+
+### api/currencies [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": ""
+        }
+            
+
++ Response 200 (application/json)
+
+    
     + Body
 
-             {
-                    "errors": "Resource not found!"
-             }
-                                       
-+ Response 422 (application/json)
+            {
+                  "data": [
+                        {
+                          "id": "3bc91b78-172b-48d4-aa5b-01f06b5923fb",
+                          "name": "CAD"
+                        },
+                        {
+                          "id": "d7b1d705-9eea-4bf9-b620-73f61354983a",
+                          "name": "EUR"
+                        },
+                        {
+                          "id": "8ab26f2b-08b0-436f-90a2-ddf1ce5bca55",
+                          "name": "USD"
+                        }
+                      ]
+              }
 
+## rent types [/api/rent-types]
+Retrieves all rent types 
+
+### api/rent-types [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": ""
+        }
+            
+
++ Response 200 (application/json)
+
+    
     + Body
 
-             {
-                  "message": "The given data was invalid.",
-                  "errors": {
-                    "custom_rule_id": [
-                      "The custom rule id field is required."
-                    ]
-                  }
-                }
+            {
+                  "data": [
+                        {
+                          "id": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+                          "name": "Entire home",
+                          "slug": "entire_home"
+                        },
+                        {
+                          "id": "b4fbdf3c-5b0a-4d41-a30c-c6ce8350cbf8",
+                          "name": "Private room",
+                          "slug": "private_room"
+                        },
+                        {
+                          "id": "fb758944-36e2-4936-bdd2-11c16409d541",
+                          "name": "Shared room",
+                          "slug": "shared_room"
+                        }
+                      ]
+              }
+
+
+## listing categories [/api/property-types]
+Retrieves all listing categories 
+
+### api/property-types [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": ""
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                            {
+                                  "id": "e9bab115-a094-4c04-90ca-74f4eab31161",
+                                  "name": "House",
+                                  "slug": "house"
+                                },
+                                {
+                                  "id": "0ad982a3-f60d-4af9-8392-b7a69e80b92e",
+                                  "name": "Home",
+                                  "slug": "home"
+                                },
+                                {
+                                  "id": "f9f3a87b-0fb2-4a01-946e-a387cb746007",
+                                  "name": "B & B",
+                                  "slug": "b_and_b"
+                                },
+                                {
+                                  "id": "0b9fc489-ed6b-48c1-9196-f3e2e38d8bf5",
+                                  "name": "Apartment",
+                                  "slug": "apartment"
+                                },
+                                {
+                                  "id": "7e5ae4c5-c640-418b-aba4-717507a08120",
+                                  "name": "Cabin",
+                                  "slug": "cabin"
+                                },
+                                {
+                                  "id": "b1828891-70c3-4042-8ca2-d5e2a6de2de6",
+                                  "name": "Castle",
+                                  "slug": "castle"
+                                },
+                                {
+                                  "id": "a7a6bbfc-43df-401e-911e-24ba243f20fe",
+                                  "name": "Cave",
+                                  "slug": "cave"
+                                },
+                                {
+                                  "id": "4a71bd93-1242-4913-9602-ca701f7eb20a",
+                                  "name": "Chalet",
+                                  "slug": "chalet"
+                                },
+                                {
+                                  "id": "586d1d5b-de2d-496b-a370-6ae164b95efa",
+                                  "name": "Condo",
+                                  "slug": "condo"
+                                },
+                                {
+                                  "id": "03ff8322-a4e7-482a-8b18-4359549df6de",
+                                  "name": "Cottage",
+                                  "slug": "cottage"
+                                },
+                                {
+                                  "id": "508a0a3e-b163-4ced-bb0d-1c46c217d1fc",
+                                  "name": "Country home",
+                                  "slug": "country_home"
+                                },
+                                {
+                                  "id": "ac2a8846-e9a1-4daf-b7ee-f27451766b54",
+                                  "name": "Dorm",
+                                  "slug": "dorm"
+                                },
+                                {
+                                  "id": "02d04ee0-9fd5-4a29-b5f5-6f6418a65400",
+                                  "name": "Farm home",
+                                  "slug": "farm_home"
+                                },
+                                {
+                                  "id": "764bc866-4c1e-4c0e-b0b6-a34dd2830f42",
+                                  "name": "Guest suite",
+                                  "slug": "guest_suite"
+                                },
+                                {
+                                  "id": "2050c20e-c8c8-4e14-b924-d928b25ed1bf",
+                                  "name": "Guesthouse",
+                                  "slug": "guesthouse"
+                                },
+                                {
+                                  "id": "119e5a34-be56-478d-b6d9-f45e54c835c1",
+                                  "name": "Hostel",
+                                  "slug": "hostel"
+                                },
+                                {
+                                  "id": "26644c5d-3a84-4d86-a68e-90a472ece357",
+                                  "name": "Hut",
+                                  "slug": "hut"
+                                },
+                                {
+                                  "id": "43edeee1-3f8f-4522-bad8-9850784c22fc",
+                                  "name": "Inn",
+                                  "slug": "inn"
+                                },
+                                {
+                                  "id": "d3a197f3-323d-4d74-8e91-2590fdcfd5d1",
+                                  "name": "Island",
+                                  "slug": "island"
+                                },
+                                {
+                                  "id": "98808835-4095-4c34-b44d-ced112450ded",
+                                  "name": "Loft",
+                                  "slug": "loft"
+                                },
+                                {
+                                  "id": "486d93ca-516a-430c-a28e-d1874ec91c07",
+                                  "name": "Nature lodge",
+                                  "slug": "nature_lodge"
+                                },
+                                {
+                                  "id": "cc8bf2c3-cbb8-4a6f-801f-04c880d59a8a",
+                                  "name": "Other",
+                                  "slug": "other"
+                                },
+                                {
+                                  "id": "b10c9df7-9948-4f25-b5d6-3907c1f76d59",
+                                  "name": "Shelter",
+                                  "slug": "shelter"
+                                },
+                                {
+                                  "id": "2e39882d-b876-448e-abc4-3b88c9042c6c",
+                                  "name": "Timeshare",
+                                  "slug": "timeshare"
+                                },
+                                {
+                                  "id": "2d29f94c-f56b-4df7-be18-f80d83a793ee",
+                                  "name": "Tree house",
+                                  "slug": "tree_house"
+                                },
+                                {
+                                  "id": "ff312888-d8f1-47ee-b304-23ca547b3fec",
+                                  "name": "Vacation home",
+                                  "slug": "vacation_home"
+                                },
+                                {
+                                  "id": "b48eb885-0481-4f52-9284-62fa8497f612",
+                                  "name": "Villa",
+                                  "slug": "villa"
+                                },
+                                {
+                                  "id": "81dba374-5c9b-4872-88ea-08582b19dbcb",
+                                  "name": "Beach house",
+                                  "slug": "beach_house"
+                                },
+                                {
+                                  "id": "c9347a78-b72e-444e-9b38-5e6d9a22d6a9",
+                                  "name": "Boat",
+                                  "slug": "boat"
+                                },
+                                {
+                                  "id": "8f59cc56-8606-4c72-9f98-be1dc74167c6",
+                                  "name": "Boutique hotel",
+                                  "slug": "boutique_hotel"
+                                },
+                                {
+                                  "id": "bbba7ed2-9954-4b20-b9f6-63e0b86044b8",
+                                  "name": "Camper\/RV",
+                                  "slug": "camper"
+                                },
+                                {
+                                  "id": "8a9f0bd6-471d-4641-9105-c8c4c0906201",
+                                  "name": "Tent",
+                                  "slug": "tent"
+                                },
+                                {
+                                  "id": "ac743487-2026-4711-934a-9d115d0cf683",
+                                  "name": "Townhouse",
+                                  "slug": "townhouse"
+                                },
+                                {
+                                  "id": "89df8861-f28e-4518-bbac-ddb72605ece0",
+                                  "name": "Yurt",
+                                  "slug": "yurt"
+                                }
+                             
+                      ]
+              }
