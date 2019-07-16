@@ -3571,22 +3571,390 @@ Retrieves all rules that the current affiliate has permission to access
     + Body
 
             {
-              "data": {
-                "id": "80d90abb-4d0d-4e23-99b8-e7b35013ec33",
-                "profile": {
-                  "firstname": "Dany",
-                  "lastname": "Dany",
-                  "birthdate": null,
-                  "language": "en",
-                  "gender": "male",
-                  "location": "Earth",
-                  "about_me": "Bonjour! Mon nom est Dany et je suis à l'origine d'un cinéaste entrepreneur qui aime rencontrer les gens et voyager dans le monde.
-                  "secondary_email": null,
-                  "secondary_phone": null,
-                  "payout_email": null,
-                  "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
+              "data": [
+              {
+                  "id": "f3231d88-2370-4a80-b48c-66a5c058c73f",
+                  "profile": {
+                    "firstname": "Imran",
+                    "lastname": "Imran",
+                    "birthdate": null,
+                    "language": "en",
+                    "gender": "male",
+                    "location": "Earth",
+                    "about_me": "hbuhui",
+                    "secondary_email": null,
+                    "secondary_phone": null,
+                    "payout_email": null,
+                    "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
+                  },
+                  "email": "fudugo.imran@gmail.com"
                 },
-                "email": "dany@airbnbsecrets.com"
+                {
+                  "id": "5100549a-330a-480b-925e-63a0f70e11d7",
+                  "profile": {
+                    "firstname": "Pravin",
+                    "lastname": "Pravin",
+                    "birthdate": null,
+                    "language": "en",
+                    "gender": "male",
+                    "location": "Earth",
+                    "about_me": "",
+                    "secondary_email": null,
+                    "secondary_phone": null,
+                    "payout_email": null,
+                    "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
+                  },
+                  "email": "pravinfwork@gmail.com"
+                }
+            ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+## property rooms [/api/properties/{uuid}/rooms] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/rooms [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+              {
+                  "id": "d8e5c0d4-0cc1-4717-8326-b3ee3a31df3d",
+                  "name": "bedroom_1",
+                  "beds": {
+                    "queen": "1",
+                    "double": "1",
+                    "single": "1",
+                    "bunk_bed": "0",
+                    "sofa_bed": "0"
+                  }
+                },
+                {
+                  "id": "5171bfb4-6476-4661-8269-dd1175035213",
+                  "name": "common_spaces",
+                  "beds": {
+                    "couch": "0",
+                    "single": "0",
+                    "sofa_bed": "1",
+                    "floor_mattress": "0"
+                  }
+                }
+            ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                          
+                                   
+             
+                        
+### api/properties/{uuid}/rooms [PUT]
+
+
++ Request (application/json)
+
+        {
+              "api_token": "",
+              "bedrooms": [
+                {
+                  "name": "bedroom_1",
+                  "queen": "2",
+                  "double": "2",
+                  "single": "2",
+                  "sofa_bed": "2"
+                },
+                {
+                  "name": "common_spaces",
+                  "couch": "0",
+                  "sofa_bed": "0",
+                  "floor_mattress": "0"
+                },
+                {
+                  "name": "bedroom_3",
+                  "queen": "2",
+                  "double": "2",
+                  "single": "2",
+                  "sofa_bed": "2"
+                }
+              ]
+            }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                    {
+                      "id": "840eda2b-d1dd-47a3-a6c7-a3930b52cd7f",
+                      "name": "0",
+                      "beds": {
+                        "name": "bedroom_1",
+                        "queen": "2",
+                        "double": "2",
+                        "single": "2",
+                        "sofa_bed": "2"
+                      }
+                    },
+                    {
+                      "id": "fb111ea7-24b8-4a63-b4f5-0301b1a96e0b",
+                      "name": "1",
+                      "beds": {
+                        "name": "common_spaces",
+                        "couch": "0",
+                        "sofa_bed": "0",
+                        "floor_mattress": "0"
+                      }
+                    },
+                    {
+                      "id": "d58fa2bb-d8db-4504-a2a9-a4ccc14dc879",
+                      "name": "2",
+                      "beds": {
+                        "name": "bedroom_3",
+                        "queen": "2",
+                        "double": "2",
+                        "single": "2",
+                        "sofa_bed": "2"
+                      }
+                    }
+                  ]
+                }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                                       
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "bedrooms": [
+                      "The bedrooms field is required."
+                    ]
+                  }
+                }            
+             
+             
+                       
+### api/properties/{uuid}/rooms [DELETE]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "api_token",
+          "bedrooms": [
+            "d8e5c0d4-0cc1-4717-8326-b3ee3a31df3d"
+          ]
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                {
+                  "id": "fb111ea7-24b8-4a63-b4f5-0301b1a96e0b",
+                  "name": "1",
+                  "beds": {
+                    "name": "common_spaces",
+                    "couch": "0",
+                    "sofa_bed": "0",
+                    "floor_mattress": "0"
+                  }
+                },
+                {
+                  "id": "d58fa2bb-d8db-4504-a2a9-a4ccc14dc879",
+                  "name": "2",
+                  "beds": {
+                    "name": "bedroom_3",
+                    "queen": "2",
+                    "double": "2",
+                    "single": "2",
+                    "sofa_bed": "2"
+                  }
+                }
+              ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                                       
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "bedrooms": [
+                      "The bedrooms field is required."
+                    ]
+                  }
+                }                        
+             
+             
+             
+## property custom rules [/api/properties/{uuid}/custom-rules] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/custom-rules [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": [
+                 {
+                  "id": "51c24fac-c479-450d-ae21-c0a30c224fa9",
+                  "custom_rule": "During Feb 4, 2019 - Feb 4, 2019, guests stay for minimum 20 nights. They can only check in on 2019-02-04"
+                }
+            ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                          
+                                   
+             
+                        
+### api/properties/{uuid}/custom-rules [POST]
+
+
++ Request (application/json)
+
+        {
+              "api_token": "",
+              "start_date": "2019-02-04",
+              "end_date": "2019-02-24",
+              "min_stay": 20,
+              "miv_stay_count": "nights",
+              "checkin_day": "2019-02-04",
+            }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "id": "7c8072b9-e6f5-4324-98d1-7ea9363e8d66",
+                "custom_rule": "During Feb 4, 2019 - Feb 4, 2019, guests stay for minimum 20 nights. They can only check in on 2019-02-04"
               }
             }
 
@@ -3608,3 +3976,253 @@ Retrieves all rules that the current affiliate has permission to access
              {
                     "errors": "Resource not found!"
              }
+                                       
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "start_date": [
+                      "The start date field is required."
+                    ],
+                    "end_date": [
+                      "The end date field is required."
+                    ],
+                    "min_stay": [
+                      "The min stay field is required."
+                    ],
+                    "min_stay_type": [
+                      "The min stay type field is required."
+                    ],
+                    "checkin_day": [
+                      "The checkin day field is required."
+                    ]
+                  }
+            }         
+             
+             
+
+
+### api/properties/{uuid}/custom-rules [PUT]
+
+
++ Request (application/json)
+
+        {
+              "api_token": "",
+              "custom_rule_id" : "7c8072b9-e6f5-4324-98d1-7ea9363e8d66" , 
+              "start_date": "2019-02-04",
+              "end_date": "2019-02-24",
+              "min_stay": 20,
+              "miv_stay_count": "nights",
+              "checkin_day": "2019-02-04",
+            }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "id": "7c8072b9-e6f5-4324-98d1-7ea9363e8d66",
+                "custom_rule": "During Feb 4, 2019 - Feb 4, 2019, guests stay for minimum 20 nights. They can only check in on 2019-02-04"
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                                       
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "custom_rule_id": [
+                      "The custom rule id field is required."
+                    ],
+                    "start_date": [
+                      "The start date field is required."
+                    ],
+                    "end_date": [
+                      "The end date field is required."
+                    ],
+                    "min_stay": [
+                      "The min stay field is required."
+                    ],
+                    "min_stay_type": [
+                      "The min stay type field is required."
+                    ],
+                    "checkin_day": [
+                      "The checkin day field is required."
+                    ]
+                  }
+                }   
+             
+             
+                                    
+### api/properties/{uuid}/custom-rules [DELETE]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "api_token",
+          "custom_rule_id" : "7c8072b9-e6f5-4324-98d1-7ea9363e8d66" 
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                    "id": "51c24fac-c479-450d-ae21-c0a30c224fa9",
+                    "custom_rule": "During Feb 4, 2019 - Feb 8, 2019, guests stay for minimum 80 weeks. They can only check in on 2019-02-04"
+                  }
+              }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                                       
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "custom_rule_id": [
+                      "The custom rule id field is required."
+                    ]
+                  }
+                }                        
+             
+
+             
+## user booking [/api/bookings]
+
+### api/bookings [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "api_token"
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                   {
+                      "id": "96a7b176-efee-4843-87a5-ad756d137adf",
+                      "status": "pending",
+                      "guests_count": 1,
+                      "request_date": true,
+                      "checkin": "Thu, Apr 18th 2019",
+                      "checkout": "Sat, Apr 20th 2019",
+                      "response": null,
+                      "response_time": "2019-04-09 13:13:02",
+                      "nights_count": null,
+                      "nights_cost": 0,
+                      "day_price": 0,
+                      "discount": 0,
+                      "service_fee": 89.85,
+                      "cleaning_fee": 0,
+                      "security_deposit": 0,
+                      "total_fee": 0,
+                      "total": 700.85,
+                      "property": {
+                        "name": "Stylish COUNTRY HOME by the Lake",
+                        "image": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
+                        "address": "150 Chemin Cooledge",
+                        "owner": {
+                          "id": "88feba29-17cc-442b-80dd-70655801fc95",
+                          "firstname": "Dany",
+                          "lastname": "Dany",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
+                          "email": "dany@wechalet.com",
+                          "phone_number": null
+                        }
+                      }
+                    }
+                  ]
+              }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                                       
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "custom_rule_id": [
+                      "The custom rule id field is required."
+                    ]
+                  }
+                }
