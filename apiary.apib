@@ -6,7 +6,8 @@ HOST: http://polls.apiblueprint.org/
 Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 
 
-##  get rules [/api/rules]
+##  rules [/api/rules]
+Retrieves all rules that the current affiliate has permission to access
 ### api/rules [GET]
 + Request (application/json)
 
@@ -50,7 +51,7 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 ## property rules [/api/properties/{uuid}/rules]
 + Parameters
 
-    + uuid (required, string) ... ID of the Property
+    + uuid (required, string) ... The unique id of the property
 
 ### api/properties/{uuid}/rules [GET]
 + Request (application/json)
@@ -1008,7 +1009,7 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 ## get property amenities [/api/properties/{uuid}/amenities]
 + Parameters
 
-    + uuid (required, string) ... ID of the Property
+    + uuid (required, string) ... The unique id of the property
 
 ### api/properties/{uuid}/amenities [GET]
 + Request (application/json)
@@ -1886,7 +1887,7 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 ## property special prices [/api/properties/{uuid}/special-prices/]
 + Parameters
 
-    + uuid (required, string) ... ID of the Property
+    + uuid (required, string) ... The unique id of the property
 
 
 ### api/properties/{uuid}/spacial-prices [GET]
@@ -2004,6 +2005,27 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
              {
                     "errors": "Resource not found!"
              }
+             
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "start_date": [
+                      "The start date field is required."
+                    ],
+                    "end_date": [
+                      "The end date field is required."
+                    ],
+                    "price": [
+                      "The price field is required."
+                    ]
+                  }
+                }
+                
+                
 ### api/properties/{uuid}/spacial-prices [DELETE]
 + Request (application/json)
 
@@ -2042,12 +2064,27 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
              {
                     "errors": "Resource not found!"
              }
+             
++ Response 422 (application/json)
 
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "start_date": [
+                      "The start date field is required."
+                    ],
+                    "end_date": [
+                      "The end date field is required."
+                    ]
+                  }
+                }
 
 ## property blocked-dates [/api/properties/{uuid}/blocked-dates] 
 + Parameters
 
-    + uuid (required, string) ... ID of the Property
+    + uuid (required, string) ... The unique id of the property
 
 ### api/properties/{uuid}/blocked-dates [GET]
 
@@ -2177,6 +2214,22 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
                     "errors": "Resource not found!"
              }
              
++ Response 422 (application/json)
+
+    + Body
+
+            {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "start_date": [
+                      "The start date field is required."
+                    ],
+                    "end_date": [
+                      "The end date field is required."
+                    ]
+                  }
+            }
+            
 ### api/properties/{uuid}/blocked-dates [DELETE]
 
 
@@ -2228,13 +2281,28 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
                     "errors": "Resource not found!"
              }
              
++ Response 422 (application/json)
+
+    + Body
+
+            {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "start_date": [
+                      "The start date field is required."
+                    ],
+                    "end_date": [
+                      "The end date field is required."
+                    ]
+                  }
+            }
              
              
              
 ## property descriptions [/api/properties/{uuid}/descriptions] 
 + Parameters
 
-    + uuid (required, string) ... ID of the Property
+    + uuid (required, string) ... The unique id of the property
 
 ### api/properties/{uuid}/descriptions [GET]
 
@@ -2405,3 +2473,410 @@ Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
              {
                     "errors": "Resource not found!"
              }
+             
+             
+## Property Address  [/api/properties/{uuid}/location]       
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+             
+### api/properties/{uuid}/location [GET]
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "id": "8cbb2ee7-006b-4758-8c0b-5b60aca1f9bf",
+                "country": "Canada",
+                "state": "QuéBec",
+                "city": "QuéBec",
+                "address": "rue fortier",
+                "zip_code": "J0B2T0",
+                "suite_building": "lora lpsm doller"
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+                          
+             
+### api/properties/{uuid}/location [PUT]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "country": "Canada",
+            "state": "QuéBec",
+            "city": "QuéBec",
+            "address": "rue fortier",
+            "zip_code": "J0B2T0"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "id": "8cbb2ee7-006b-4758-8c0b-5b60aca1f9bf",
+                "country": "Canada",
+                "state": "QuéBec",
+                "city": "QuéBec",
+                "address": "rue fortier",
+                "zip_code": "J0B2T0",
+                "suite_building": "lora lpsm doller"
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
++ Response 422 (application/json)
+
+    + Body
+
+            {
+              "message": "The given data was invalid.",
+              "errors": {
+                "country": [
+                  "The country field is required."
+                ],
+                "state": [
+                  "The state field is required."
+                ],
+                "city": [
+                  "The city field is required."
+                ],
+                "address": [
+                  "The address field is required."
+                ]
+              }
+            }  
+             
+## Property category [/api/properties/{uuid}/category] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### /api/properties/{uuid}/category [PUT]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "listing_category" : "camper"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "message": "success"
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+              "message": "The given data was invalid.",
+              "errors": {
+                "listing_category": [
+                  "The selected listing category is invalid."
+                ]
+              }
+            }
+             
+
+## Property rent type [/api/properties/{uuid}/rent-type] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### /api/properties/{uuid}/rent-type [PUT]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "rent_type" : "shared_room"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "message": "success"
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
++ Response 422 (application/json)
+
+    + Body
+
+             {
+              "message": "The given data was invalid.",
+              "errors": {
+                "rent_type": [
+                  "The selected rent type is invalid."
+                ]
+              }
+            }
+## Property currency [/api/properties/{uuid}/currency] 
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
+### /api/properties/{uuid}/currency [PUT]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+            "currency" : "USD"
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "message": "success"
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+              "message": "The given data was invalid.",
+              "errors": {
+                "rent_type": [
+                  "The selected currency is invalid."
+                ]
+              }
+            }
+             
+
+## Property Instant booking qualification [/api/properties/{uuid}/instant-booking-qualification]
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
+### /api/properties/{uuid}/instant-booking-qualification [GET]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+           
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                    "the_guest_needs_to_have_a_valid_payment_option": false,
+                    "the_guest_needs_to_have_a_verified_email_and_phone_number": false,
+                    "the_guest_needs_to_have_profile_photo": false
+                  }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+
+### /api/properties/{uuid}/instant-booking-qualification [PUT]
+
++ Request (application/json)
+
+        {
+            "api_token": "",
+                    "qualifications" : {
+                                "the_guest_needs_to_have_a_valid_payment_option": false,
+                                "the_guest_needs_to_have_a_verified_email_and_phone_number": false,
+                                "the_guest_needs_to_have_profile_photo": true
+                        
+                                }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+              "data": {
+                "the_guest_needs_to_have_a_valid_payment_option": false,
+                "the_guest_needs_to_have_a_verified_email_and_phone_number": false,
+                "the_guest_needs_to_have_profile_photo": true
+              }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "qualifications": [
+                      "The qualifications field is required."
+                    ],
+                    "qualifications.the_guest_needs_to_have_a_valid_payment_option": [
+                      "The qualifications.the guest needs to have a valid payment option field is required."
+                    ],
+                    "qualifications.the_guest_needs_to_have_a_verified_email_and_phone_number": [
+                      "The qualifications.the guest needs to have a verified email and phone number field is required."
+                    ],
+                    "qualifications.the_guest_needs_to_have_profile_photo": [
+                      "The qualifications.the guest needs to have profile photo field is required."
+                    ]
+                  }
+                }
