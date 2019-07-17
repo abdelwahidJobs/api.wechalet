@@ -4660,4 +4660,1148 @@ Retrieves all listing categories
                                 }
                              
                       ]
+              }            
+
+
+## properties [/api/properties]
+Retrieves all properties associated to the provided property id
+
+### api/properties [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": ""
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                   {
+                          "id": "32947fd1-63c2-4630-8b6f-d2cae2c283f7",
+                          "name": "this is just test",
+                          "space": {
+                            "type_of_rent": "fb758944-36e2-4936-bdd2-11c16409d541",
+                            "only_for_guests": false,
+                            "guests_count": 1,
+                            "listing_type": "hotel",
+                            "listing_category": "bbba7ed2-9954-4b20-b9f6-63e0b86044b8",
+                            "bedrooms_count": 1,
+                            "beds_count": 4,
+                            "washrooms_count": 1,
+                            "bedrooms": [
+                              {
+                                "id": "fb111ea7-24b8-4a63-b4f5-0301b1a96e0b",
+                                "name": "1",
+                                "beds": {
+                                  "name": "common_spaces",
+                                  "couch": "0",
+                                  "sofa_bed": "0",
+                                  "floor_mattress": "0"
+                                }
+                              },
+                              {
+                                "id": "d58fa2bb-d8db-4504-a2a9-a4ccc14dc879",
+                                "name": "2",
+                                "beds": {
+                                  "name": "bedroom_3",
+                                  "queen": "2",
+                                  "double": "2",
+                                  "single": "2",
+                                  "sofa_bed": "2"
+                                }
+                              }
+                            ]
+                          },
+                          "location": {
+                            "country": "Canada",
+                            "state": "QuéBec",
+                            "city": "QuéBec",
+                            "address": "rue fortier",
+                            "zip_code": "J0B2T0",
+                            "suite_building": ""
+                          },
+                          "amenities": [
+                            "463dc946-4c8c-4271-8f8f-717e80168302",
+                            "5afcd6c1-92db-47ef-89dc-67fe87b6cdae",
+                            "d27fffb0-f6a1-42c4-970c-795b1f0c831f"
+                          ],
+                          "photos_url": [
+                            {
+                              "id": "8d8eba03-80bf-4561-b8b6-70adb459eccc",
+                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                            },
+                            {
+                              "id": "cba6a089-1fbe-4fe3-b8af-1180381ab196",
+                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                            },
+                            {
+                              "id": "a6f1fd75-df8a-4f49-812a-31c3e3034835",
+                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                            },
+                            {
+                              "id": "5cd14503-f0e1-4c0f-ad47-6241b3ce062b",
+                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                            },
+                            {
+                              "id": "476c62fa-7d06-4235-adb3-c74c4e1b1605",
+                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                            },
+                            {
+                              "id": "9a7f7571-8c9b-441e-9b57-9845c9f1eeaa",
+                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                            },
+                            {
+                              "id": "231150a0-aa01-4667-a07b-7044c535f7ca",
+                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
+                            },
+                            {
+                              "id": "c86d3ced-6a80-45de-9dc1-5b4f02fb93cc",
+                              "url": "https:\/\/www.fillmurray.com\/640\/360"
+                            },
+                            {
+                              "id": "e9647ce1-714a-4130-a870-55f8c1aaab2d",
+                              "url": "https:\/\/www.fillmurray.com\/640\/360"
+                            },
+                            {
+                              "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
+                              "url": "https:\/\/www.fillmurray.com\/640\/360"
+                            }
+                          ],
+                          "photos": [
+                            {
+                              "id": 1,
+                              "caption": null,
+                              "url": "http:\/\/localhost\/storage\/1\/360.jpeg",
+                              "name": "360",
+                              "is_main": true
+                            },
+                            {
+                              "id": 2,
+                              "caption": null,
+                              "url": "http:\/\/localhost\/storage\/2\/360.jpeg",
+                              "name": "360",
+                              "is_main": true
+                            },
+                            {
+                              "id": 3,
+                              "caption": null,
+                              "url": "http:\/\/localhost\/storage\/3\/360.jpeg",
+                              "name": "360",
+                              "is_main": true
+                            }
+                          ],
+                          "description": {
+                            "about_this_property_en": "lora lpsm doller content sit amit.",
+                            "about_this_property_fr": "lora lpsm doller content sit amit.",
+                            "birds_eye_view_en": "lora lpsm doller content sit amit.",
+                            "birds_eye_view_fr": "lora lpsm doller content sit amit.",
+                            "description_en": "lora lpsm doller content sit amit.",
+                            "description_fr": "lora lpsm doller content sit amit.",
+                            "home_access_en": "lora lpsm doller content sit amit.",
+                            "home_access_fr": "lora lpsm doller content sit amit.",
+                            "host_availibility_en": "lora lpsm doller content sit amit.",
+                            "host_availibility_fr": "lora lpsm doller content sit amit.",
+                            "other_things_to_know_en": "lora lpsm doller content sit amit.",
+                            "other_things_to_know_fr": "lora lpsm doller content sit amit.",
+                            "title_en": "nagpur test property",
+                            "title_fr": "nagpur test property",
+                            "travelling_around_en": "lora lpsm doller content sit amit.",
+                            "travelling_around_fr": "lora lpsm doller content sit amit."
+                          },
+                          "booking_settings": {
+                            "instant_booking": false,
+                            "guest_qualifications": {
+                              "guest_photo": true,
+                              "guest_email": true,
+                              "guest_payement": true
+                            },
+                            "house_rules": {
+                              "allow_childrens": true,
+                              "allow_infants": true,
+                              "allow_pets": false,
+                              "allow_smoking": false,
+                              "allow_parties": false,
+                              "other_rules": "other rules"
+                            },
+                            "guest_expectations": {
+                              "must_climb_stairs": true,
+                              "potential_for_noise": false,
+                              "pet_live_on_property": false,
+                              "no_parking_on_property": true,
+                              "some_spaces_are_shared": false,
+                              "amenity_limitations": false
+                            },
+                            "check_in_hour": 0,
+                            "check_out_hour": 0,
+                            "min_stay_count": 1,
+                            "max_stay_count": 0,
+                            "min_stay_type": "Nights",
+                            "max_stay_type": "Nights",
+                            "booking_window": "0",
+                            "cancellation": "Flexible"
+                          },
+                          "calendar": {
+                            "dates": [
+                              {
+                                "uuid": "f15f9178-f98c-4ebe-91d8-45e5e78ec218",
+                                "price": 25,
+                                "start_date": "2019-04-10 00:00:00",
+                                "isBlocked": false
+                              },
+                              {
+                                "uuid": "d49635d7-a179-46fb-a6d4-622727322a29",
+                                "price": 25,
+                                "start_date": "2019-04-11 00:00:00",
+                                "isBlocked": false
+                              },
+                              {
+                                "uuid": "14bd34bb-c8c2-48a2-ba2f-1deededad997",
+                                "price": 25,
+                                "start_date": "2019-04-12 00:00:00",
+                                "isBlocked": false
+                              },
+                              {
+                                "uuid": "071cc1c9-ac2c-496b-b841-e77dbf70cab3",
+                                "price": 25,
+                                "start_date": "2019-04-13 00:00:00",
+                                "isBlocked": false
+                              }
+                            ]
+                          },
+                          "pricing": {
+                            "cleaning_fee": 0,
+                            "security_deposit": 0,
+                            "currency": "USD",
+                            "extra_guest_count": 0,
+                            "extra_guest_price": 10,
+                            "base_price": 10,
+                            "price_per_weekend": 0,
+                            "monthly_discount": 30,
+                            "weekly_discount": 10
+                          },
+                          "guest_material": {
+                            "wifi_name": "",
+                            "wifi_password": "",
+                            "house_manual": "",
+                            "self_checking": false,
+                            "smart_lock": false,
+                            "keypad": false,
+                            "lockbox": false,
+                            "doorman": false
+                          },
+                          "status": "published"
+                        }
+                      
+                  ]
               }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+### api/properties [POST]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "",
+          "name": "this is a new name",
+          "space": {
+            "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+            "only_for_guests": false,
+            "guests_count": 1,
+            "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
+            "bedrooms_count": 1,
+            "beds_count": 1,
+            "washrooms_count": 1
+          },
+          "booking_settings": {
+            "instant_booking": false,
+            "check_in_hour": 7,
+            "check_out_hour": 0,
+            "min_stay_count": 1,
+            "max_stay_count": 0,
+            "min_stay_type": "nights",
+            "max_stay_type": "nights",
+            "booking_window": "9_months_into_the_future",
+            "cancellation": "flexible"
+          },
+          "pricing": {
+            "cleaning_fee": 222,
+            "security_deposit": 0,
+            "currency": "CAD",
+            "extra_guest_count": 0,
+            "extra_guest_price": 0,
+            "base_price": 222,
+            "price_per_weekend": 222,
+            "monthly_discount": 30,
+            "weekly_discount": 10
+          },
+          "guest_material": {
+            "wifi_name": null,
+            "wifi_password": null,
+            "house_manual": null,
+            "self_checking": false,
+            "smart_lock": true,
+            "keypad": false,
+            "lockbox": false,
+            "doorman": false
+          }
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                    "id": "f5904c11-1f34-4b28-99c8-38f65f982b1c",
+                    "name": "this is a new name",
+                    "space": {
+                      "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+                      "only_for_guests": true,
+                      "guests_count": 1,
+                      "listing_type": "hotel",
+                      "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
+                      "bedrooms_count": 1,
+                      "beds_count": 1,
+                      "washrooms_count": 1,
+                      "bedrooms": []
+                    },
+                    "location": {
+                      "country": "",
+                      "state": "",
+                      "city": "",
+                      "address": "",
+                      "zip_code": "",
+                      "suite_building": ""
+                    },
+                    "amenities": [],
+                    "photos_url": [],
+                    "photos": [],
+                    "description": {
+                      "about_this_property_en": "",
+                      "about_this_property_fr": "",
+                      "birds_eye_view_en": "",
+                      "birds_eye_view_fr": "",
+                      "description_en": "",
+                      "description_fr": "",
+                      "home_access_en": "",
+                      "home_access_fr": "",
+                      "host_availibility_en": "",
+                      "host_availibility_fr": "",
+                      "other_things_to_know_en": "",
+                      "other_things_to_know_fr": "",
+                      "title_en": "",
+                      "title_fr": "",
+                      "travelling_around_en": "",
+                      "travelling_around_fr": ""
+                    },
+                    "booking_settings": {
+                      "instant_booking": false,
+                      "guest_qualifications": {
+                        "guest_photo": false,
+                        "guest_email": false,
+                        "guest_payement": false
+                      },
+                      "house_rules": {
+                        "allow_childrens": false,
+                        "allow_infants": false,
+                        "allow_pets": false,
+                        "allow_smoking": false,
+                        "allow_parties": false,
+                        "other_rules": "other rules"
+                      },
+                      "guest_expectations": {
+                        "must_climb_stairs": false,
+                        "potential_for_noise": false,
+                        "pet_live_on_property": false,
+                        "no_parking_on_property": false,
+                        "some_spaces_are_shared": false,
+                        "amenity_limitations": false
+                      },
+                      "check_in_hour": 7,
+                      "check_out_hour": 0,
+                      "min_stay_count": 1,
+                      "max_stay_count": 0,
+                      "min_stay_type": "nights",
+                      "max_stay_type": "nights",
+                      "booking_window": "9",
+                      "cancellation": "flexible"
+                    },
+                    "calendar": {
+                      "dates": []
+                    },
+                    "pricing": {
+                      "cleaning_fee": 222,
+                      "security_deposit": 0,
+                      "currency": "CAD",
+                      "extra_guest_count": 0,
+                      "extra_guest_price": null,
+                      "base_price": 222,
+                      "price_per_weekend": 222,
+                      "monthly_discount": 30,
+                      "weekly_discount": 10
+                    },
+                    "guest_material": {
+                      "wifi_name": "",
+                      "wifi_password": "",
+                      "house_manual": "",
+                      "self_checking": false,
+                      "smart_lock": false,
+                      "keypad": false,
+                      "lockbox": false,
+                      "doorman": false
+                    },
+                    "status": "paused"
+                  }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+              "message": "The given data was invalid.",
+              "errors": {
+                "name": [
+                  "The name field is required."
+                ],
+                "space.type_of_rent": [
+                  "The space.type of rent field is required."
+                ],
+                "space.only_for_guests": [
+                  "The space.only for guests field is required."
+                ],
+                "space.guests_count": [
+                  "The space.guests count field is required."
+                ],
+                "space.listing_category": [
+                  "The space.listing category field is required."
+                ],
+                "space.bedrooms_count": [
+                  "The space.bedrooms count field is required."
+                ],
+                "space.beds_count": [
+                  "The space.beds count field is required."
+                ],
+                "space.washrooms_count": [
+                  "The space.washrooms count field is required."
+                ],
+                "booking_settings.instant_booking": [
+                  "The booking settings.instant booking field is required."
+                ],
+                "booking_settings.check_in_hour": [
+                  "The booking settings.check in hour field is required."
+                ],
+                "booking_settings.check_out_hour": [
+                  "The booking settings.check out hour field is required."
+                ],
+                "booking_settings.min_stay_count": [
+                  "The booking settings.min stay count field is required."
+                ],
+                "booking_settings.max_stay_count": [
+                  "The booking settings.max stay count field is required."
+                ],
+                "booking_settings.min_stay_type": [
+                  "The booking settings.min stay type field is required."
+                ],
+                "booking_settings.max_stay_type": [
+                  "The booking settings.max stay type field is required."
+                ],
+                "booking_settings.booking_window": [
+                  "The booking settings.booking window field is required."
+                ],
+                "booking_settings.cancellation": [
+                  "The booking settings.cancellation field is required."
+                ],
+                "pricing.cleaning_fee": [
+                  "The pricing.cleaning fee field is required."
+                ],
+                "pricing.security_deposit": [
+                  "The pricing.security deposit field is required."
+                ],
+                "pricing.currency": [
+                  "The pricing.currency field is required."
+                ],
+                "pricing.extra_guest_count": [
+                  "The pricing.extra guest count field is required."
+                ],
+                "pricing.extra_guest_price": [
+                  "The pricing.extra guest price field is required."
+                ],
+                "pricing.base_price": [
+                  "The pricing.base price field is required."
+                ],
+                "pricing.price_per_weekend": [
+                  "The pricing.price per weekend field is required."
+                ],
+                "pricing.monthly_discount": [
+                  "The pricing.monthly discount field is required."
+                ],
+                "pricing.weekly_discount": [
+                  "The pricing.weekly discount field is required."
+                ],
+                "guest_material.self_checking": [
+                  "The guest material.self checking field is required."
+                ],
+                "guest_material.smart_lock": [
+                  "The guest material.smart lock field is required."
+                ],
+                "guest_material.keypad": [
+                  "The guest material.keypad field is required."
+                ],
+                "guest_material.lockbox": [
+                  "The guest material.lockbox field is required."
+                ],
+                "guest_material.doorman": [
+                  "The guest material.doorman field is required."
+                ]
+              }
+            }
+            
+##  property [/api/properties/{uuid}] 
+Retrieve and edit property associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid} [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "",
+         
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                    "id": "f5904c11-1f34-4b28-99c8-38f65f982b1c",
+                    "name": "this is a new name",
+                    "space": {
+                      "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+                      "only_for_guests": true,
+                      "guests_count": 1,
+                      "listing_type": "hotel",
+                      "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
+                      "bedrooms_count": 1,
+                      "beds_count": 1,
+                      "washrooms_count": 1,
+                      "bedrooms": []
+                    },
+                    "location": {
+                      "country": "",
+                      "state": "",
+                      "city": "",
+                      "address": "",
+                      "zip_code": "",
+                      "suite_building": ""
+                    },
+                    "amenities": [],
+                    "photos_url": [],
+                    "photos": [],
+                    "description": {
+                      "about_this_property_en": "",
+                      "about_this_property_fr": "",
+                      "birds_eye_view_en": "",
+                      "birds_eye_view_fr": "",
+                      "description_en": "",
+                      "description_fr": "",
+                      "home_access_en": "",
+                      "home_access_fr": "",
+                      "host_availibility_en": "",
+                      "host_availibility_fr": "",
+                      "other_things_to_know_en": "",
+                      "other_things_to_know_fr": "",
+                      "title_en": "",
+                      "title_fr": "",
+                      "travelling_around_en": "",
+                      "travelling_around_fr": ""
+                    },
+                    "booking_settings": {
+                      "instant_booking": false,
+                      "guest_qualifications": {
+                        "guest_photo": false,
+                        "guest_email": false,
+                        "guest_payement": false
+                      },
+                      "house_rules": {
+                        "allow_childrens": false,
+                        "allow_infants": false,
+                        "allow_pets": false,
+                        "allow_smoking": false,
+                        "allow_parties": false,
+                        "other_rules": "other rules"
+                      },
+                      "guest_expectations": {
+                        "must_climb_stairs": false,
+                        "potential_for_noise": false,
+                        "pet_live_on_property": false,
+                        "no_parking_on_property": false,
+                        "some_spaces_are_shared": false,
+                        "amenity_limitations": false
+                      },
+                      "check_in_hour": 7,
+                      "check_out_hour": 0,
+                      "min_stay_count": 1,
+                      "max_stay_count": 0,
+                      "min_stay_type": "nights",
+                      "max_stay_type": "nights",
+                      "booking_window": "9",
+                      "cancellation": "flexible"
+                    },
+                    "calendar": {
+                      "dates": []
+                    },
+                    "pricing": {
+                      "cleaning_fee": 222,
+                      "security_deposit": 0,
+                      "currency": "CAD",
+                      "extra_guest_count": 0,
+                      "extra_guest_price": null,
+                      "base_price": 222,
+                      "price_per_weekend": 222,
+                      "monthly_discount": 30,
+                      "weekly_discount": 10
+                    },
+                    "guest_material": {
+                      "wifi_name": "",
+                      "wifi_password": "",
+                      "house_manual": "",
+                      "self_checking": false,
+                      "smart_lock": false,
+                      "keypad": false,
+                      "lockbox": false,
+                      "doorman": false
+                    },
+                    "status": "paused"
+                  }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+              "errors": "Resource not found!"
+             
+            }
+            
+### api/properties/{uuid} [PUT]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "",
+          "name": "this is a new name",
+          "space": {
+            "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+            "only_for_guests": false,
+            "guests_count": 1,
+            "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
+            "bedrooms_count": 1,
+            "beds_count": 1,
+            "washrooms_count": 1
+          },
+          "booking_settings": {
+            "instant_booking": false,
+            "check_in_hour": 7,
+            "check_out_hour": 0,
+            "min_stay_count": 1,
+            "max_stay_count": 0,
+            "min_stay_type": "nights",
+            "max_stay_type": "nights",
+            "booking_window": "9_months_into_the_future",
+            "cancellation": "flexible"
+          },
+          "pricing": {
+            "cleaning_fee": 222,
+            "security_deposit": 0,
+            "currency": "CAD",
+            "extra_guest_count": 0,
+            "extra_guest_price": 0,
+            "base_price": 222,
+            "price_per_weekend": 222,
+            "monthly_discount": 30,
+            "weekly_discount": 10
+          },
+          "guest_material": {
+            "wifi_name": null,
+            "wifi_password": null,
+            "house_manual": null,
+            "self_checking": false,
+            "smart_lock": true,
+            "keypad": false,
+            "lockbox": false,
+            "doorman": false
+          }
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                    "id": "f5904c11-1f34-4b28-99c8-38f65f982b1c",
+                    "name": "this is a new name",
+                    "space": {
+                      "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+                      "only_for_guests": true,
+                      "guests_count": 1,
+                      "listing_type": "hotel",
+                      "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
+                      "bedrooms_count": 1,
+                      "beds_count": 1,
+                      "washrooms_count": 1,
+                      "bedrooms": []
+                    },
+                    "location": {
+                      "country": "",
+                      "state": "",
+                      "city": "",
+                      "address": "",
+                      "zip_code": "",
+                      "suite_building": ""
+                    },
+                    "amenities": [],
+                    "photos_url": [],
+                    "photos": [],
+                    "description": {
+                      "about_this_property_en": "",
+                      "about_this_property_fr": "",
+                      "birds_eye_view_en": "",
+                      "birds_eye_view_fr": "",
+                      "description_en": "",
+                      "description_fr": "",
+                      "home_access_en": "",
+                      "home_access_fr": "",
+                      "host_availibility_en": "",
+                      "host_availibility_fr": "",
+                      "other_things_to_know_en": "",
+                      "other_things_to_know_fr": "",
+                      "title_en": "",
+                      "title_fr": "",
+                      "travelling_around_en": "",
+                      "travelling_around_fr": ""
+                    },
+                    "booking_settings": {
+                      "instant_booking": false,
+                      "guest_qualifications": {
+                        "guest_photo": false,
+                        "guest_email": false,
+                        "guest_payement": false
+                      },
+                      "house_rules": {
+                        "allow_childrens": false,
+                        "allow_infants": false,
+                        "allow_pets": false,
+                        "allow_smoking": false,
+                        "allow_parties": false,
+                        "other_rules": "other rules"
+                      },
+                      "guest_expectations": {
+                        "must_climb_stairs": false,
+                        "potential_for_noise": false,
+                        "pet_live_on_property": false,
+                        "no_parking_on_property": false,
+                        "some_spaces_are_shared": false,
+                        "amenity_limitations": false
+                      },
+                      "check_in_hour": 7,
+                      "check_out_hour": 0,
+                      "min_stay_count": 1,
+                      "max_stay_count": 0,
+                      "min_stay_type": "nights",
+                      "max_stay_type": "nights",
+                      "booking_window": "9",
+                      "cancellation": "flexible"
+                    },
+                    "calendar": {
+                      "dates": []
+                    },
+                    "pricing": {
+                      "cleaning_fee": 222,
+                      "security_deposit": 0,
+                      "currency": "CAD",
+                      "extra_guest_count": 0,
+                      "extra_guest_price": null,
+                      "base_price": 222,
+                      "price_per_weekend": 222,
+                      "monthly_discount": 30,
+                      "weekly_discount": 10
+                    },
+                    "guest_material": {
+                      "wifi_name": "",
+                      "wifi_password": "",
+                      "house_manual": "",
+                      "self_checking": false,
+                      "smart_lock": false,
+                      "keypad": false,
+                      "lockbox": false,
+                      "doorman": false
+                    },
+                    "status": "paused"
+                  }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                  "errors": "Resource not found!"
+             }
+             
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+              "message": "The given data was invalid.",
+              "errors": {
+                "name": [
+                  "The name field is required."
+                ],
+                "space.type_of_rent": [
+                  "The space.type of rent field is required."
+                ],
+                "space.only_for_guests": [
+                  "The space.only for guests field is required."
+                ],
+                "space.guests_count": [
+                  "The space.guests count field is required."
+                ],
+                "space.listing_category": [
+                  "The space.listing category field is required."
+                ],
+                "space.bedrooms_count": [
+                  "The space.bedrooms count field is required."
+                ],
+                "space.beds_count": [
+                  "The space.beds count field is required."
+                ],
+                "space.washrooms_count": [
+                  "The space.washrooms count field is required."
+                ],
+                "booking_settings.instant_booking": [
+                  "The booking settings.instant booking field is required."
+                ],
+                "booking_settings.check_in_hour": [
+                  "The booking settings.check in hour field is required."
+                ],
+                "booking_settings.check_out_hour": [
+                  "The booking settings.check out hour field is required."
+                ],
+                "booking_settings.min_stay_count": [
+                  "The booking settings.min stay count field is required."
+                ],
+                "booking_settings.max_stay_count": [
+                  "The booking settings.max stay count field is required."
+                ],
+                "booking_settings.min_stay_type": [
+                  "The booking settings.min stay type field is required."
+                ],
+                "booking_settings.max_stay_type": [
+                  "The booking settings.max stay type field is required."
+                ],
+                "booking_settings.booking_window": [
+                  "The booking settings.booking window field is required."
+                ],
+                "booking_settings.cancellation": [
+                  "The booking settings.cancellation field is required."
+                ],
+                "pricing.cleaning_fee": [
+                  "The pricing.cleaning fee field is required."
+                ],
+                "pricing.security_deposit": [
+                  "The pricing.security deposit field is required."
+                ],
+                "pricing.currency": [
+                  "The pricing.currency field is required."
+                ],
+                "pricing.extra_guest_count": [
+                  "The pricing.extra guest count field is required."
+                ],
+                "pricing.extra_guest_price": [
+                  "The pricing.extra guest price field is required."
+                ],
+                "pricing.base_price": [
+                  "The pricing.base price field is required."
+                ],
+                "pricing.price_per_weekend": [
+                  "The pricing.price per weekend field is required."
+                ],
+                "pricing.monthly_discount": [
+                  "The pricing.monthly discount field is required."
+                ],
+                "pricing.weekly_discount": [
+                  "The pricing.weekly discount field is required."
+                ],
+                "guest_material.self_checking": [
+                  "The guest material.self checking field is required."
+                ],
+                "guest_material.smart_lock": [
+                  "The guest material.smart lock field is required."
+                ],
+                "guest_material.keypad": [
+                  "The guest material.keypad field is required."
+                ],
+                "guest_material.lockbox": [
+                  "The guest material.lockbox field is required."
+                ],
+                "guest_material.doorman": [
+                  "The guest material.doorman field is required."
+                ]
+              }
+            }
+            
+### api/properties/{uuid} [DELETE]
+
+
++ Request (application/json)
+
+        {
+          "api_token": ""
+         
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                    "id": "f5904c11-1f34-4b28-99c8-38f65f982b1c",
+                    "name": "this is a new name",
+                    "space": {
+                      "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+                      "only_for_guests": true,
+                      "guests_count": 1,
+                      "listing_type": "hotel",
+                      "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
+                      "bedrooms_count": 1,
+                      "beds_count": 1,
+                      "washrooms_count": 1,
+                      "bedrooms": []
+                    },
+                    "location": {
+                      "country": "",
+                      "state": "",
+                      "city": "",
+                      "address": "",
+                      "zip_code": "",
+                      "suite_building": ""
+                    },
+                    "amenities": [],
+                    "photos_url": [],
+                    "photos": [],
+                    "description": {
+                      "about_this_property_en": "",
+                      "about_this_property_fr": "",
+                      "birds_eye_view_en": "",
+                      "birds_eye_view_fr": "",
+                      "description_en": "",
+                      "description_fr": "",
+                      "home_access_en": "",
+                      "home_access_fr": "",
+                      "host_availibility_en": "",
+                      "host_availibility_fr": "",
+                      "other_things_to_know_en": "",
+                      "other_things_to_know_fr": "",
+                      "title_en": "",
+                      "title_fr": "",
+                      "travelling_around_en": "",
+                      "travelling_around_fr": ""
+                    },
+                    "booking_settings": {
+                      "instant_booking": false,
+                      "guest_qualifications": {
+                        "guest_photo": false,
+                        "guest_email": false,
+                        "guest_payement": false
+                      },
+                      "house_rules": {
+                        "allow_childrens": false,
+                        "allow_infants": false,
+                        "allow_pets": false,
+                        "allow_smoking": false,
+                        "allow_parties": false,
+                        "other_rules": "other rules"
+                      },
+                      "guest_expectations": {
+                        "must_climb_stairs": false,
+                        "potential_for_noise": false,
+                        "pet_live_on_property": false,
+                        "no_parking_on_property": false,
+                        "some_spaces_are_shared": false,
+                        "amenity_limitations": false
+                      },
+                      "check_in_hour": 7,
+                      "check_out_hour": 0,
+                      "min_stay_count": 1,
+                      "max_stay_count": 0,
+                      "min_stay_type": "nights",
+                      "max_stay_type": "nights",
+                      "booking_window": "9",
+                      "cancellation": "flexible"
+                    },
+                    "calendar": {
+                      "dates": []
+                    },
+                    "pricing": {
+                      "cleaning_fee": 222,
+                      "security_deposit": 0,
+                      "currency": "CAD",
+                      "extra_guest_count": 0,
+                      "extra_guest_price": null,
+                      "base_price": 222,
+                      "price_per_weekend": 222,
+                      "monthly_discount": 30,
+                      "weekly_discount": 10
+                    },
+                    "guest_material": {
+                      "wifi_name": "",
+                      "wifi_password": "",
+                      "house_manual": "",
+                      "self_checking": false,
+                      "smart_lock": false,
+                      "keypad": false,
+                      "lockbox": false,
+                      "doorman": false
+                    },
+                    "status": "paused"
+                  }
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+              "errors": "Resource not found!"
+             
+            }
+            
+
+##  property status [/api/properties/{uuid}/set-status] 
+Edit property  status 
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+### api/properties/{uuid}/set-status [PUT]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "",
+          "status" : "published"
+         
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "message": "success"  
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+              "errors": "Resource not found!"
+             
+            }
