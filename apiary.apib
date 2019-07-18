@@ -6,7 +6,7 @@ HOST: https://wechalet.amalyet.com/
 Rest API for wechalet a cabin rental agency in Austin, Quebec, Canada.
 
 
-##  rules [/api/rules]
+## rules [/api/rules GET]
 Retrieve all rules
 ### api/rules [GET]
 + Request (application/json)
@@ -48,14 +48,16 @@ Retrieve all rules
              }
 
 
-## property rules [/api/properties/{uuid}/rules]
-Retrieve and edit rules associated to the provided property id
+## Get property rules [/api/properties/{uuid}/rules GET]
+Retrieve rules associated to the provided property id
+with a value attached for each rule 
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
 ### api/properties/{uuid}/rules [GET]
 + Request (application/json)
+
 
         {
             "api_token": ""
@@ -93,9 +95,31 @@ Retrieve and edit rules associated to the provided property id
 
              {
                     "errors": "Resource not found!"
+
              }
+             
+## Set property rules [/api/properties/{uuid}/rules POST]
+Edit rules associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+    
+
+    
 ### api/properties/{uuid}/rules [PUT]
+
 + Request (application/json)
+
+    The request must contient all the rules. .
+
+    + Rules
+    + `children_are_welcome_2_to_12_years_old` boolean.
+    + `infants_under_2_years_old_are_welcome` boolean.
+    + `pets_are_welcome` boolean.
+    + `smoking_inside_is_allowed` boolean.
+    + `parties_and_events_are_allowed` boolean.
+
+    + Body
 
             {
                 "api_token": "",
@@ -1007,9 +1031,9 @@ Retrieve all the amenities
              }
         
 
-## property amenities [/api/properties/{uuid}/amenities]
+## Get property amenities [/api/properties/{uuid}/amenities GET]
 
-Retrieve and edit amenities associated to the provided property id
+Retrieve amenities associated to the provided property id
 
 + Parameters
 
@@ -1183,8 +1207,29 @@ Retrieve and edit amenities associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+             
+## Set property amenities [/api/properties/{uuid}/amenities PUT]
+Edit amenities associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+    
+
 ### api/properties/{uuid}/amenities [PUT]
+
 + Request (application/json)
+    
+     The request must contient all the rules. .
+
+    + Rules
+    + `children_are_welcome_2_to_12_years_old` boolean.
+    + `infants_under_2_years_old_are_welcome` boolean.
+    + `pets_are_welcome` boolean.
+    + `smoking_inside_is_allowed` boolean.
+    + `parties_and_events_are_allowed` boolean.
+
+
 
         {
             "api_token": "",
@@ -1890,8 +1935,8 @@ Retrieve and edit amenities associated to the provided property id
                   }
                 }
 
-## property special prices [/api/properties/{uuid}/special-prices/]
-Retrieve and edit special prices associated to the provided property id
+## Get property special prices [/api/properties/{uuid}/special-prices GET]
+Retrieve special prices associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -1953,6 +1998,13 @@ Retrieve and edit special prices associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+
+## Set property special prices [/api/properties/{uuid}/special-prices PUT]
+Edit special prices associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
              
 ### api/properties/{uuid}/spacial-prices [PUT]
 + Request (application/json)
@@ -2033,7 +2085,14 @@ Retrieve and edit special prices associated to the provided property id
                   }
                 }
                 
-                
+
+## Delete property special prices [/api/properties/{uuid}/special-prices DELETE]
+Delete special prices associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+                          
 ### api/properties/{uuid}/spacial-prices [DELETE]
 + Request (application/json)
 
@@ -2090,8 +2149,8 @@ Retrieve and edit special prices associated to the provided property id
                 }
 
 
-## property blocked-dates [/api/properties/{uuid}/blocked-dates] 
-Retrieve and edit blocked dates associated to the provided property id
+## GET property blocked-dates [/api/properties/{uuid}/blocked-dates GET] 
+Retrieve blocked dates associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2157,8 +2216,15 @@ Retrieve and edit blocked dates associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+
+## Set property blocked-dates [/api/properties/{uuid}/blocked-dates PUT] 
+Edit blocked dates associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
             
-### api/properties/{uuid}/blocked-dates [POST]
+### api/properties/{uuid}/blocked-dates [PUT]
 
 
 + Request (application/json)
@@ -2239,6 +2305,14 @@ Retrieve and edit blocked dates associated to the provided property id
                     ]
                   }
             }
+
+
+## Delete property blocked-dates [/api/properties/{uuid}/blocked-dates DELETE] 
+Delete blocked dates associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
             
 ### api/properties/{uuid}/blocked-dates [DELETE]
 
@@ -2309,8 +2383,8 @@ Retrieve and edit blocked dates associated to the provided property id
              
              
              
-## property descriptions [/api/properties/{uuid}/descriptions] 
-Retrieve and edit descriptions with both language french and english associated to the provided property id
+## Get property descriptions [/api/properties/{uuid}/descriptions GET] 
+Retrieve descriptions with both language french and english associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2376,6 +2450,14 @@ Retrieve and edit descriptions with both language french and english associated 
              {
                     "errors": "Resource not found!"
              }
+             
+## Set property descriptions [/api/properties/{uuid}/descriptions PUT] 
+Edit description french or english associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
 ### api/properties/{uuid}/descriptions [PUT]
 
 + Request (application/json)
@@ -2433,6 +2515,14 @@ Retrieve and edit descriptions with both language french and english associated 
              {
                     "errors": "Resource not found!"
              }
+
+## Delete property descriptions [/api/properties/{uuid}/descriptions DELETE] 
+DELETE description associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
 ### api/properties/{uuid}/descriptions [DELETE]
 
 + Request (application/json)
@@ -2484,8 +2574,8 @@ Retrieve and edit descriptions with both language french and english associated 
              }
              
              
-## Property location  [/api/properties/{uuid}/location]       
-Retrieve and edit location associated to the provided property id
+## Get property location  [/api/properties/{uuid}/location GET]       
+Retrieve location associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2533,6 +2623,13 @@ Retrieve and edit location associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+
+## PUT property location  [/api/properties/{uuid}/location PUT]       
+Edit location associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
 ### api/properties/{uuid}/location [PUT]
 
 + Request (application/json)
@@ -2605,7 +2702,7 @@ Retrieve and edit location associated to the provided property id
               }
             }  
              
-## Property category [/api/properties/{uuid}/category] 
+## set property category [/api/properties/{uuid}/category PUT] 
 Edit the category associated to the provided property id
 + Parameters
 
@@ -2663,7 +2760,7 @@ Edit the category associated to the provided property id
             }
              
 
-## Property rent type [/api/properties/{uuid}/rent-type] 
+## Set roperty rent type [/api/properties/{uuid}/rent-type PUT] 
 Edit the rent type associated to the provided property id
 + Parameters
 
@@ -2719,7 +2816,7 @@ Edit the rent type associated to the provided property id
               }
             }
 
-## Property currency [/api/properties/{uuid}/currency] 
+## Set roperty currency [/api/properties/{uuid}/currency PUT] 
 Edit the currency associated to the provided property id
 + Parameters
 
@@ -2775,8 +2872,8 @@ Edit the currency associated to the provided property id
               }
             }
              
-## instant booking qualifications [/api/properties/{uuid}/instant-booking-qualification]
-Retrieve and edit Instant booking qualifications  associated to the provided property id
+## Get instant booking qualifications [/api/properties/{uuid}/instant-booking-qualification GET]
+Retrieve Instant booking qualifications  associated to the provided property id
 
 + Parameters
 
@@ -2823,6 +2920,15 @@ Retrieve and edit Instant booking qualifications  associated to the provided pro
              {
                     "errors": "Resource not found!"
              }
+
+## Set instant booking qualifications [/api/properties/{uuid}/instant-booking-qualification PUT]
+Edit Instant booking qualifications  associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
 ### /api/properties/{uuid}/instant-booking-qualification [PUT]
 
 + Request (application/json)
@@ -2890,8 +2996,8 @@ Retrieve and edit Instant booking qualifications  associated to the provided pro
                   }
                 }
              
-## guest expectations [/api/properties/{uuid}/guest-expectations]
-Retrieve and edit guest expectations associated to the provided property id
+## Get guest expectations [/api/properties/{uuid}/guest-expectations GET]
+Retrieve guest expectations associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2939,6 +3045,13 @@ Retrieve and edit guest expectations associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+             
+## Set guest expectations [/api/properties/{uuid}/guest-expectations PUT]
+Edit guest expectations associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
 
 ### /api/properties/{uuid}/guest-expectations [PUT]
 
@@ -3022,8 +3135,8 @@ Retrieve and edit guest expectations associated to the provided property id
                   }
                 }
              
-## property services [/api/properties/{uuid}/services]
-Retrieve and edit services associated to the provided property id
+## Get property services [/api/properties/{uuid}/services GET]
+Retrieve services associated to the provided property id
 
 + Parameters
 
@@ -3071,6 +3184,14 @@ Retrieve and edit services associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+
+## Create property service [/api/properties/{uuid}/services POST]
+Create service associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
             
 ### api/properties/{uuid}/services [POST]
 
@@ -3137,6 +3258,14 @@ Retrieve and edit services associated to the provided property id
                         ]
                   }
             }
+ 
+## Set property service [/api/properties/{uuid}/services PUT]
+Edit service associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
             
 ### api/properties/{uuid}/services [PUT]
 
@@ -3205,6 +3334,14 @@ Retrieve and edit services associated to the provided property id
                         ]
                   }
             }
+
+## Delete property service [/api/properties/{uuid}/services Delete]
+Delete service associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
             
 ### api/properties/{uuid}/services [DELETE]
 
@@ -3257,7 +3394,8 @@ Retrieve and edit services associated to the provided property id
                   }
                 }
                 
-## property bookings [/api/properties/{uuid}/bookings] 
+                
+## Get property bookings [/api/properties/{uuid}/bookings GET] 
 Retrieve  bookings associated to the provided property id
 + Parameters
 
@@ -3335,7 +3473,8 @@ Retrieve  bookings associated to the provided property id
                     "errors": "Resource not found!"
              }
              
-## property reviews [/api/properties/{uuid}/reviews] 
+             
+## Get property reviews [/api/properties/{uuid}/reviews GET] 
 Retrieve  reviwes associated to the provided property id
 + Parameters
 
@@ -3389,8 +3528,8 @@ Retrieve  reviwes associated to the provided property id
                     "errors": "Resource not found!"
              }
                           
-## property owner [/api/properties/{uuid}/owner] 
-Retrieve and edit informations of the owner associated to the provided property id
+## GET property owner [/api/properties/{uuid}/owner GET] 
+Retrieve  informations of the owner associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3447,6 +3586,13 @@ Retrieve and edit informations of the owner associated to the provided property 
              {
                     "errors": "Resource not found!"
              }
+
+## Set property owner [/api/properties/{uuid}/owner PUT] 
+Edit informations of the owner associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
 
 ### api/properties/{uuid}/owner [PUT]
 
@@ -3547,7 +3693,7 @@ Retrieve and edit informations of the owner associated to the provided property 
                   }
                 }
                              
-## property guests [/api/properties/{uuid}/guests] 
+## Get property guests [/api/properties/{uuid}/guests GET] 
 Retrieve  guests associated to the provided property id
 + Parameters
 
@@ -3625,7 +3771,7 @@ Retrieve  guests associated to the provided property id
                     "errors": "Resource not found!"
              }
              
-## property rooms [/api/properties/{uuid}/rooms] 
+## Get property rooms [/api/properties/{uuid}/rooms GET] 
 Retrieve  and edit rooms associated to the provided property id
 + Parameters
 
@@ -3689,6 +3835,13 @@ Retrieve  and edit rooms associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+
+## Set property rooms [/api/properties/{uuid}/rooms PUT] 
+Edit rooms associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
                         
 ### api/properties/{uuid}/rooms [PUT]
 
@@ -3795,6 +3948,13 @@ Retrieve  and edit rooms associated to the provided property id
                     ]
                   }
                 }            
+
+## Delete property room [/api/properties/{uuid}/rooms DELETE] 
+Delete  and edit rooms associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
              
 ### api/properties/{uuid}/rooms [DELETE]
 
@@ -3872,8 +4032,8 @@ Retrieve  and edit rooms associated to the provided property id
                   }
                 }                        
              
-## property custom rules [/api/properties/{uuid}/custom-rules] 
-Retrieve and edit custom rules associated to the provided property id
+## Get property custom rules [/api/properties/{uuid}/custom-rules GET] 
+Retrieve custom rules associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -3919,7 +4079,15 @@ Retrieve and edit custom rules associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
-                          
+ 
+
+## Create property custom rule [/api/properties/{uuid}/custom-rules POST] 
+Create custom rule associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+                         
 ### api/properties/{uuid}/custom-rules [POST]
 
 
@@ -3990,6 +4158,14 @@ Retrieve and edit custom rules associated to the provided property id
                     ]
                   }
             }         
+
+
+## Set property custom rule [/api/properties/{uuid}/custom-rules PUT] 
+Edit custom rule associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
              
 ### api/properties/{uuid}/custom-rules [PUT]
 
@@ -4065,6 +4241,13 @@ Retrieve and edit custom rules associated to the provided property id
                     ]
                   }
                 }   
+
+## Delete property custom rule [/api/properties/{uuid}/custom-rules DELETE] 
+Delete custom rule associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
              
 ### api/properties/{uuid}/custom-rules [DELETE]
 
@@ -4121,8 +4304,8 @@ Retrieve and edit custom rules associated to the provided property id
                   }
                 }                        
              
-## property images [/api/properties/{uuid}/images] 
-Retrieve and edit images associated to the provided property id
+## Get property images [/api/properties/{uuid}/images GET] 
+Retrieve images associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -4172,6 +4355,14 @@ Retrieve and edit images associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+
+## Create property images [/api/properties/{uuid}/images POST] 
+Create image associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
                           
 ### api/properties/{uuid}/images [POST]
 
@@ -4230,7 +4421,15 @@ Retrieve and edit images associated to the provided property id
                     ]
                   }
                 }
-                                          
+                
+## Delete property images [/api/properties/{uuid}/images DELETE] 
+Delete image associated to the provided property id
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
+
+                                            
 ### api/properties/{uuid}/images [DELETE]
 
 
@@ -4290,7 +4489,7 @@ Retrieve and edit images associated to the provided property id
                 }
 
              
-## user booking [/api/bookings]
+## Get user booking [/api/bookings GET]
 Retrieves all bookings that the current affiliate has make
 
 ### api/bookings [GET]
@@ -4360,7 +4559,7 @@ Retrieves all bookings that the current affiliate has make
                    
    
              
-## user reviews [/api/reviews]
+## Get user reviews [/api/reviews GET]
 Retrieves all reviews that the current affiliate has make
 ### api/reviews [GET]
 
@@ -4399,7 +4598,7 @@ Retrieves all reviews that the current affiliate has make
                 
 
 
-## currency [/api/currencies]
+## Get currency [/api/currencies GET]
 Retrieves all currencies 
 
 ### api/currencies [GET]
@@ -4434,7 +4633,7 @@ Retrieves all currencies
                       ]
               }
 
-## rent types [/api/rent-types]
+## Get rent-types [/api/rent-types GET]
 Retrieves all rent types 
 
 ### api/rent-types [GET]
@@ -4473,7 +4672,7 @@ Retrieves all rent types
               }
 
 
-## listing categories [/api/property-types]
+## Get listing-categories [/api/property-types GET]
 Retrieves all listing categories 
 
 ### api/property-types [GET]
@@ -4668,8 +4867,8 @@ Retrieves all listing categories
               }            
 
 
-## properties [/api/properties]
-Retrieves all properties associated to the provided property id
+## Get properties [/api/properties GET]
+Retrieves all properties
 
 ### api/properties [GET]
 
@@ -4916,6 +5115,9 @@ Retrieves all properties associated to the provided property id
              {
                   "message": "Unauthenticated."
              }
+
+## Create properties [/api/properties POST]
+Create propertie 
 
 ### api/properties [POST]
 
@@ -5194,8 +5396,8 @@ Retrieves all properties associated to the provided property id
             
             
             
-##  property [/api/properties/{uuid}] 
-Retrieve and edit property associated to the provided property id
+## Get property [/api/properties/{uuid} GET] 
+Show property associated to the provided property id
 
 + Parameters
 
@@ -5340,6 +5542,14 @@ Retrieve and edit property associated to the provided property id
               "errors": "Resource not found!"
              
             }
+
+## Set property [/api/properties/{uuid} PUT] 
+Edit property associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
             
 ### api/properties/{uuid} [PUT]
 
@@ -5623,6 +5833,14 @@ Retrieve and edit property associated to the provided property id
                 ]
               }
             }
+
+## Delte property [/api/properties/{uuid} Delete] 
+Delete property associated to the provided property id
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the property
+
             
 ### api/properties/{uuid} [DELETE]
 
@@ -5765,7 +5983,7 @@ Retrieve and edit property associated to the provided property id
             }
             
 
-##  property status [/api/properties/{uuid}/set-status] 
+## Set property status [/api/properties/{uuid}/set-status PUT] 
 Edit property  status 
 
 + Parameters
