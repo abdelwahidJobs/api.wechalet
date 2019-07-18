@@ -3301,7 +3301,7 @@ Edit guest expectations associated to the provided property id
 
     
 
-    + qualifications
+    + guest_expectations
     + `must_climb_stairs` required string.
     + `potenial_for_noise`  required string. 
     + `pets_live_on_property`  required string.
@@ -3313,7 +3313,7 @@ Edit guest expectations associated to the provided property id
 
             {
               "api_token": "",
-              "qualifications" : {
+              "guest_expectations" : {
                                 "must_climb_stairs": false,
                                 "potenial_for_noise": false,
                                 "pets_live_on_property": true,
@@ -3451,16 +3451,27 @@ Create service associated to the provided property id
 
             
 ### api/properties/{uuid}/services [POST]
-
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "name": "cleaning dearing stay",
-            "price": "20",
-            "type": "night"
-        }
+    
+
+    + service
+    + `name` required unique string.
+    + `price`  required numeric. 
+    + `type`  required string .
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "name": "cleaning dearing stay",
+              "price": "20",
+              "type": "nights",
+                                
+            }
+            
+
 
 + Response 200 (application/json)
 
@@ -3525,13 +3536,34 @@ Edit service associated to the provided property id
 
             
 ### api/properties/{uuid}/services [PUT]
++ Request (application/json)
 
+    
+
+    + service
+    + `service_id` required string.
+    + `name` required unique string.
+    + `price`  required numeric. 
+    + `type`  required string .
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "service_id" : "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
+              "name": "cleaning dearing stay",
+              "price": "20",
+              "type": "nights",
+                                
+            }
+            
 
 + Request (application/json)
 
         {
             "api_token": "",
-            "service_id" : "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
+            
             "name": "cleaning dearing stay",
             "price": "17",
             "type": "night"
@@ -3601,14 +3633,23 @@ Delete service associated to the provided property id
 
             
 ### api/properties/{uuid}/services [DELETE]
-
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "service_id" : "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
-        }
+    
+
+    + service
+    + `service_id` required string.
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "service_id" : "3b89b95a-9dc3-4316-a9f5-1c5b226d7188"
+                                
+            }
+            
+
 
 + Response 200 (application/json)
 
@@ -3852,13 +3893,30 @@ Edit informations of the owner associated to the provided property id
 
 
 ### api/properties/{uuid}/owner [PUT]
-
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "firstname": "Dany",
+    
+
+    + owner
+    + `firstname` required string.
+    + `lastname`  required string.
+    + `birthdate` required date.
+    + `language` required string.
+    + `gender`   string.
+    + `location`   string.
+    + `about_me`  string.
+    + `secondary_email`  email.
+    + `secondary_phone` string.
+    + `payout_email`  email.
+    + `email`required email.
+    
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "firstname": "Dany",
               "lastname": "Dany",
               "birthdate": null,
               "language": "en",
@@ -3868,9 +3926,10 @@ Edit informations of the owner associated to the provided property id
               "secondary_email": null,
               "secondary_phone": null,
               "payout_email": null,
-            "email": "dany@airbnbsecrets.com"
-       
-        }
+              "email": "dany@airbnbsecrets.com"
+                                
+            }
+            
 
 + Response 200 (application/json)
 
@@ -4102,10 +4161,11 @@ Edit rooms associated to the provided property id
                         
 ### api/properties/{uuid}/rooms [PUT]
 
-
 + Request (application/json)
 
-        {
+    + Body
+
+            {
               "api_token": "",
               "bedrooms": [
                 {
@@ -4129,7 +4189,10 @@ Edit rooms associated to the provided property id
                   "sofa_bed": "2"
                 }
               ]
+                                
             }
+            
+
             
 
 + Response 200 (application/json)
@@ -4215,6 +4278,24 @@ Delete  and edit rooms associated to the provided property id
              
 ### api/properties/{uuid}/rooms [DELETE]
 
++ Request (application/json)
+
+    
+
+    + bedrooms
+    + `bedrooms` required array.
+    
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "bedrooms": [
+                "d8e5c0d4-0cc1-4717-8326-b3ee3a31df3d"
+              ]
+                                
+            }
 
 + Request (application/json)
 
@@ -4346,19 +4427,31 @@ Create custom rule associated to the provided property id
 
                          
 ### api/properties/{uuid}/custom-rules [POST]
-
-
 + Request (application/json)
 
-        {
+    
+
+    + custom rule
+    + `start_date` required date.
+    + `end_date` required date.
+    + `min_stay` required numeric
+    + `min_stay_type` required string.
+    + `checkin_day` required date.
+    
+    
+
+    + Body
+
+            {
               "api_token": "",
               "start_date": "2019-02-04",
               "end_date": "2019-02-24",
               "min_stay": 20,
-              "miv_stay_count": "nights",
-              "checkin_day": "2019-02-04",
+              "min_stay_type": "nights",
+              "checkin_day": "2019-02-04"
+                                
             }
-            
+
 
 + Response 200 (application/json)
 
@@ -4426,17 +4519,29 @@ Edit custom rule associated to the provided property id
              
 ### api/properties/{uuid}/custom-rules [PUT]
 
-
 + Request (application/json)
 
-        {
+    + custom rule
+    + `custom_rule_id` required string.
+    + `start_date` required date.
+    + `end_date` required date.
+    + `min_stay` required numeric
+    + `min_stay_type` required string.
+    + `checkin_day` required date.
+    
+    
+
+    + Body
+
+            {
               "api_token": "",
-              "custom_rule_id" : "7c8072b9-e6f5-4324-98d1-7ea9363e8d66" , 
+              "custom_rule_id" : "7c8072b9-e6f5-4324-98d1-7ea9363e8d66" ,
               "start_date": "2019-02-04",
               "end_date": "2019-02-24",
               "min_stay": 20,
-              "miv_stay_count": "nights",
-              "checkin_day": "2019-02-04",
+              "min_stay_type": "nights",
+              "checkin_day": "2019-02-04"
+                                
             }
             
 
@@ -4507,15 +4612,22 @@ Delete custom rule associated to the provided property id
 
              
 ### api/properties/{uuid}/custom-rules [DELETE]
-
-
 + Request (application/json)
 
-        {
-          "api_token": "api_token",
-          "custom_rule_id" : "7c8072b9-e6f5-4324-98d1-7ea9363e8d66" 
-        }
+    + custom rule
+    + `custom_rule_id` required string.
+     
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "custom_rule_id" : "7c8072b9-e6f5-4324-98d1-7ea9363e8d66" 
+                                
+            }
             
+  
 
 + Response 200 (application/json)
 
@@ -4622,14 +4734,21 @@ Create image associated to the provided property id
 
                           
 ### api/properties/{uuid}/images [POST]
-
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "url" : "https:\/\/www.fillmurray.com\/640\/360"
-        }
+    + image
+    + `url` required url.
+     
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "url" : "https:\/\/www.fillmurray.com\/640\/360" 
+                                
+            }
+            
 
 + Response 200 (application/json)
 
@@ -4688,14 +4807,22 @@ Delete image associated to the provided property id
 
                                             
 ### api/properties/{uuid}/images [DELETE]
-
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "image_id" : "49b44807-336f-4c14-bbb4-7fa54abd3101"
-        }
+    + image
+    + `image_id` required string.
+     
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "image_id" : "49b44807-336f-4c14-bbb4-7fa54abd3101" 
+                                
+            }
+            
+
 
 + Response 200 (application/json)
 
