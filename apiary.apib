@@ -2128,6 +2128,7 @@ Retrieve special prices associated to the provided property id
 
 ## Set property special prices [/api/properties/{uuid}/special-prices PUT]
 Edit special prices associated to the provided property id
+The start and end dates are included in the period of the special price.
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
@@ -2136,19 +2137,22 @@ Edit special prices associated to the provided property id
 ### api/properties/{uuid}/spacial-prices [PUT]
 + Request (application/json)
 
-        The start and end dates are included in the period of the special price 
-        
-        + `start_date` start date of the period date
-        + `end_date`  end date of the period date
-        + `price` the price for this period numeric
+    
 
-        {
-            "api_token": "",
-            "start_date" : "2019-04-20",
-            "end_date" : "2019-04-30",
-            "price" : 421
-        }
+    + Spacial-prices
+    + `start_date` required date.
+    + `end_date` required date.
+    + `price` required numeric.
 
+    + Body
+
+            {
+              "api_token": "",
+              "start_date" : "2019-04-20",
+              "end_date" : "2019-04-30",
+              "price" : 421
+            }
+            
 
 + Response 200 (application/json)
 
@@ -2228,19 +2232,23 @@ The special prices between the start and end dates are replaced by the base pric
 
                           
 ### api/properties/{uuid}/spacial-prices [DELETE]
-
-
 + Request (application/json)
 
-        + `start_date` required date.
-        + `end_date` required date.
-  
+    
 
-        {
-            "api_token": "",
-            "start_date" : "2019-01-03",
-            "end_date" : "2019-01-05"
-        }
+    + Spacial-prices
+    + `start_date` required date.
+    + `end_date` required date.
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "start_date" : "2019-04-20",
+              "end_date" : "2019-04-30"
+            }
+            
 
 + Response 200 (application/json)
 
@@ -2363,20 +2371,24 @@ Edit blocked dates associated to the provided property id
 
             
 ### api/properties/{uuid}/blocked-dates [PUT]
-
-
 + Request (application/json)
 
-        + `start_date` required date.
-        + `end_date` required date.
-        + `note` string
+    
 
-        {
-            "api_token": "",
-            "start_date" : "2019-01-03",
-            "end_date" : "2019-01-05",
-            "note" : "for cleaning"
-        }
+    + blocked-dates
+    + `start_date` required date.
+    + `end_date` required date.
+    + `note` string
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "start_date" : "2019-04-20",
+              "end_date" : "2019-04-30",
+              "note" : "for clieaning"
+            }
 
 + Response 200 (application/json)
 
@@ -2457,19 +2469,24 @@ Delete blocked dates associated to the provided property id
 
             
 ### api/properties/{uuid}/blocked-dates [DELETE]
-
-
 + Request (application/json)
 
-        + `start_date` required date.
-        + `end_date` required date.
+    
 
-        {
-            "api_token": "",
-            "start_date" : "2019-01-3",
-            "end_date" : "2019-01-05",
-        }
+    + blocked-dates
+    + `start_date` required date.
+    + `end_date` required date.
+    
+    
 
+    + Body
+
+            {
+              "api_token": "",
+              "start_date" : "2019-04-20",
+              "end_date" : "2019-04-30""
+            }
+            
 + Response 200 (application/json)
 
     
@@ -2604,21 +2621,40 @@ Edit description french or english associated to the provided property id
 
 
 ### api/properties/{uuid}/descriptions [PUT]
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "language": "english",
-            "title": "nagpur test property",
-            "about_this_property": "lora lpsm doller content sit amit.",
-            "home_access": "lora lpsm doller content sit amit.",
-            "host_availibility": "lora lpsm doller content sit amit.",
-            "other_things_to_know": "lora lpsm doller content sit amit.",
-            "birds_eye_view": "lora lpsm doller content sit amit.",
-            "travelling_around": "lora lpsm doller content sit amit.",
-            "description": "lora lpsm doller content sit amit."
-        }
+    
+
+    + descriptions
+    + `language` required string frensh or english.
+    + `title` required string.
+    + `about_this_property` string.
+    + `home_access` string.
+    + `host_availibility` string.
+    + `other_things_to_know` string.
+    + `birds_eye_view` string.
+    + `travelling_around` string.
+    + `description` required string
+    
+    
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "language": "english",
+              "title": "nagpur test property",
+              "about_this_property": "lora lpsm doller content sit amit.",
+              "home_access": "lora lpsm doller content sit amit.",
+              "host_availibility": "lora lpsm doller content sit amit.",
+              "other_things_to_know": "lora lpsm doller content sit amit.",
+              "birds_eye_view": "lora lpsm doller content sit amit.",
+              "travelling_around": "lora lpsm doller content sit amit.",
+              "description": "lora lpsm doller content sit amit."
+            }
+            
+
 
 + Response 200 (application/json)
 
@@ -2669,13 +2705,25 @@ DELETE description associated to the provided property id
 
 
 ### api/properties/{uuid}/descriptions [DELETE]
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "description_id": "367298fc-9495-45fc-aa1a-8c35663bd4f7",
-        }
+    
+
+    + descriptions
+    + `description_id` required string.
+   
+    
+    
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "description_id": "367298fc-9495-45fc-aa1a-8c35663bd4f7"
+            }
+            
+
 
 + Response 200 (application/json)
 
@@ -2776,17 +2824,33 @@ Edit location associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
 ### api/properties/{uuid}/location [PUT]
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "country": "Canada",
+    
+
+    + location
+    + `country` required string.
+    + `state` required string.
+    + `city` required string.
+    + `address` required string.
+    + `zip_code`  required string.
+   
+    
+    
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "country": "Canada",
             "state": "QuéBec",
             "city": "QuéBec",
             "address": "rue fortier",
             "zip_code": "J0B2T0"
-        }
+            }
+            
+
 
 + Response 200 (application/json)
 
@@ -2854,13 +2918,20 @@ Edit the category associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
 ### /api/properties/{uuid}/category [PUT]
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "listing_category" : "camper"
-        }
+    
+
+    + listing_category
+    + `listing_category` required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "listing_category": "camper",
+            }
+            
 
 + Response 200 (application/json)
 
@@ -2912,13 +2983,20 @@ Edit the rent type associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
 ### /api/properties/{uuid}/rent-type [PUT]
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "rent_type" : "shared_room"
-        }
+    
+
+    + Rent-type
+    + `rent_type` required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "rent_type": "shared_room",
+            }
+            
 
 + Response 200 (application/json)
 
@@ -2971,10 +3049,19 @@ Edit the currency associated to the provided property id
 
 + Request (application/json)
 
-        {
-            "api_token": "",
-            "currency" : "USD"
-        }
+    
+
+    + Currency
+    + `currency` required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "currency": "USD",
+            }
+            
+            
 
 + Response 200 (application/json)
 
@@ -3078,15 +3165,26 @@ Edit Instant booking qualifications  associated to the provided property id
 
 + Request (application/json)
 
-        {
-            "api_token": "",
-                    "qualifications" : {
+    
+
+    + qualifications
+    + `the_guest_needs_to_have_a_valid_payment_option` required string.
+    + `the_guest_needs_to_have_a_verified_email_and_phone_number`  required string. 
+    + `the_guest_needs_to_have_profile_photo`  required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "qualifications" : {
                                 "the_guest_needs_to_have_a_valid_payment_option": false,
                                 "the_guest_needs_to_have_a_verified_email_and_phone_number": false,
                                 "the_guest_needs_to_have_profile_photo": true
                         
                                 }
-
+            }
+            
+            
 + Response 200 (application/json)
 
     
@@ -3199,20 +3297,34 @@ Edit guest expectations associated to the provided property id
 
 
 ### /api/properties/{uuid}/guest-expectations [PUT]
-
 + Request (application/json)
 
-        {
-            "api_token": "",
-                    "qualifications" : {
-                               "must_climb_stairs": true,
+    
+
+    + qualifications
+    + `must_climb_stairs` required string.
+    + `potenial_for_noise`  required string. 
+    + `pets_live_on_property`  required string.
+    + `no_parking_on_property`  required string.
+    + `some_spaces_are_shared`   required string.
+    + `amenity_limitations` required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "qualifications" : {
+                                "must_climb_stairs": false,
                                 "potenial_for_noise": false,
-                                "pets_live_on_property": false,
+                                "pets_live_on_property": true,
                                 "no_parking_on_property": true,
                                 "some_spaces_are_shared": false,
                                 "amenity_limitations": false
-    
+                        
                                 }
+            }
+            
+
 
 + Response 200 (application/json)
 
