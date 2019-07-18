@@ -5506,7 +5506,7 @@ Create propertie
 ### api/properties [POST]
 + Request (application/json)
 
-    + image
+    + property
     + `name` required string.
     + `type_of_rent`  required string. 
     + `only_for_guests`  required boolean.
@@ -5537,6 +5537,10 @@ Create propertie
     + `smart_lock`  required boolean.
     + `keypad`  required boolean.
     + `lockbox`  required boolean.
+    + `wifi_name` string.
+    + `wifi_password` string.
+    + `house_manual` string.
+    
      
     
 
@@ -5975,55 +5979,92 @@ Edit property associated to the provided property id
 
             
 ### api/properties/{uuid} [PUT]
-
-
 + Request (application/json)
 
-        {
-          "api_token": "",
-          "name": "this is a new name",
-          "space": {
-            "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
-            "only_for_guests": false,
-            "guests_count": 1,
-            "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
-            "bedrooms_count": 1,
-            "beds_count": 1,
-            "washrooms_count": 1
-          },
-          "booking_settings": {
-            "instant_booking": false,
-            "check_in_hour": 7,
-            "check_out_hour": 0,
-            "min_stay_count": 1,
-            "max_stay_count": 0,
-            "min_stay_type": "nights",
-            "max_stay_type": "nights",
-            "booking_window": "9_months_into_the_future",
-            "cancellation": "flexible"
-          },
-          "pricing": {
-            "cleaning_fee": 222,
-            "security_deposit": 0,
-            "currency": "CAD",
-            "extra_guest_count": 0,
-            "extra_guest_price": 0,
-            "base_price": 222,
-            "price_per_weekend": 222,
-            "monthly_discount": 30,
-            "weekly_discount": 10
-          },
-          "guest_material": {
-            "wifi_name": null,
-            "wifi_password": null,
-            "house_manual": null,
-            "self_checking": false,
-            "smart_lock": true,
-            "keypad": false,
-            "lockbox": false,
-            "doorman": false
-          }
-        }
+    + property
+    + `name` required string.
+    + `type_of_rent`  required string. 
+    + `only_for_guests`  required boolean.
+    + `guests_count`  required integer.
+    + `listing_category`  required string.
+    + `bedrooms_count`  required integer.
+    + `beds_count`  required integer.
+    + `washrooms_count`  required integer.
+    + `instant_booking`  required boolean.
+    + `check_in_hour`  required integer.
+    + `check_out_hour`  required integer.
+    + `min_stay_count`  required integer.
+    + `max_stay_count`  required integer
+    + `min_stay_type`  required string.
+    + `max_stay_type`  required string.
+    + `booking_window`  required string.
+    + `cancellation`  required string.
+    + `cleaning_fee`  required numeric.
+    + `security_deposit`  required numeric.
+    + `currency`  required string.
+    + `extra_guest_count`  required integer.
+    + `extra_guest_price`  required numeric.
+    + `base_price`  required numeric.
+    + `price_per_weekend`  required numeric.
+    + `monthly_discount`  required numeric.
+    + `weekly_discount`  required numeric.
+    + `self_checking`  required boolean.
+    + `smart_lock`  required boolean.
+    + `keypad`  required boolean.
+    + `lockbox`  required boolean.
+    + `wifi_name` string.
+    + `wifi_password` string.
+    + `house_manual` string.    
+    
+
+    + Body
+
+            {
+              "api_token": "",
+              "name": "this is a new name",
+              "space": {
+                "type_of_rent": "c16062f8-e04e-4a8e-a4ad-b3b922cb51e6",
+                "only_for_guests": false,
+                "guests_count": 1,
+                "listing_category": "e9bab115-a094-4c04-90ca-74f4eab31161",
+                "bedrooms_count": 1,
+                "beds_count": 1,
+                "washrooms_count": 1
+              },
+              "booking_settings": {
+                "instant_booking": false,
+                "check_in_hour": 7,
+                "check_out_hour": 0,
+                "min_stay_count": 1,
+                "max_stay_count": 0,
+                "min_stay_type": "nights",
+                "max_stay_type": "nights",
+                "booking_window": "9_months_into_the_future",
+                "cancellation": "flexible"
+              },
+             "pricing": {
+                "cleaning_fee": 222,
+                "security_deposit": 0,
+                "currency": "CAD",
+                "extra_guest_count": 0,
+                "extra_guest_price": 0,
+                "base_price": 222,
+                "price_per_weekend": 222,
+                "monthly_discount": 30,
+                "weekly_discount": 10
+              },
+              "guest_material": {
+                "wifi_name": null,
+                "wifi_password": null,
+                "house_manual": null,
+                "self_checking": false,
+                "smart_lock": true,
+                "keypad": false,
+                "lockbox": false,
+                "doorman": false
+              }
+                                
+            }
             
 
 + Response 200 (application/json)
@@ -6414,16 +6455,20 @@ Edit property  status
     + uuid (required, string) ... The unique id of the property
 
 ### api/properties/{uuid}/set-status [PUT]
-
-
 + Request (application/json)
 
-        {
-          "api_token": "",
-          "status" : "published"
-         
-        }
-            
+    
+
+    + Status 
+    + `status` required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "status" : "published"
+            }
+ 
 
 + Response 200 (application/json)
 
