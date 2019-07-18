@@ -110,9 +110,9 @@ Edit rules associated to the provided property id
 
 + Request (application/json)
 
-    The request must contient all the rules. .
+    The request must contient the rules.
 
-    + Rules
+    + rules
     + `children_are_welcome_2_to_12_years_old` boolean.
     + `infants_under_2_years_old_are_welcome` boolean.
     + `pets_are_welcome` boolean.
@@ -1219,155 +1219,282 @@ Edit amenities associated to the provided property id
 ### api/properties/{uuid}/amenities [PUT]
 
 + Request (application/json)
+
     
-     The request must contient all the rules. .
 
-    + Rules
-    + `children_are_welcome_2_to_12_years_old` boolean.
-    + `infants_under_2_years_old_are_welcome` boolean.
-    + `pets_are_welcome` boolean.
-    + `smoking_inside_is_allowed` boolean.
-    + `parties_and_events_are_allowed` boolean.
+    + Amenities
+    + `access_to_water` required. boolean.
+    + `air_conditioning` required. boolean.
+    + `pets_are_welcome` required. boolean.
+    + `alpine_skiing` required. boolean.
+    + `art_show` required. boolean.
+    + `atv_trail` required. boolean.
+    + `baby_bath` required. boolean.
+    + `baby_monitor` required. boolean.
+    + `babysitter_referrals` required. boolean.
+    + `bachelorette_party` required. boolean.
+    + `basketball` required. boolean.
+    + `bbq_grill` required. boolean.
+    + `beach_chairs` required. boolean.
+    + `beachfront` required. boolean.
+    + `bed_linens` required. boolean.
+    + `birthday_party` required. boolean.
+    + `boating` required. boolean.
+    + `breakfast_included` required. boolean.
+    + `by_a_river` required. boolean.
+    + `cable_tv` required. boolean.
+    + `canoeing` required. boolean.
+    + `changing_tablebathtub` required. boolean.
+    + `caving` required. boolean.
+    + `cooking_basics` required. boolean.
+    + `corporate_meeting` required. boolean.
+    + `conference` required. boolean.
+    + `coffee_maker` required. boolean.
+    + `childrens_dinnerware` required. boolean.
+    + `childrens_books_and_toys` required. boolean.
+    + `crib` required. boolean.
+    + `cross_country_skiing` required. boolean.
+    + `deepsea_fishing` required. boolean.
+    + `dishes_and_silverware` required. boolean.
+    + `dishwasher` required. boolean.
+    + `dock` required. boolean.
+    + `dryer` required. boolean.
+    + `dvd_blue_ray` required. boolean.
+    + `ev_charger` required. boolean.
+    + `executive_retreat` required. boolean.
+    + `extra_pillows_and_blankets` required. boolean.
+    + `fire_pit` required. boolean.
+    + `fireplace_guards` required. boolean.
+    + `firewood_included` required. boolean.
+    + `free_gym_fitness_centre` required. boolean.
+    + `free_parking_on_premises` required. boolean.
+    + `friends_family_meeting` required. boolean.
+    + `game_console` required. boolean.
+    + `garden_or_backyard` required. boolean.
+    + `golf` required. boolean.
+    + `guided_tours` required. boolean.
+    + `hair_dryer` required. boolean.
+    + `hamak` required. boolean.
+    + `hangers_in_closets` required. boolean.
+    + `heated_floors` required. boolean.
+    + `heating` required. boolean.
+    + `high_chair` required. boolean.
+    + `hiking` required. boolean.
+    + `hockey` required. boolean.
+    + `home_essentials` required. boolean.
+    + `horseback_riding` required. boolean.
+    + `foosball_table` required. boolean.
+    + `fishing` required. boolean.
+    + `hot_tub_spa` required. boolean.
+    + `hot_water` required. boolean.
+    + `ice_climbing` required. boolean.
+    + `indoor_fireplace` required. boolean.
+    + `iron` required. boolean.
+    + `jet_skiing` required. boolean.
+    + `kayaking` required. boolean.
+    + `kitchen` required. boolean.
+    + `lakefront` required. boolean.
+    + `laptop_friendly_workspace` required. boolean.
+    + `life_jackets` required. boolean.
+    + `maid_service_included` required. boolean.
+    + `microwave` required. boolean.
+    + `mountain_biking` required. boolean.
+    + `outlet_covers` required. boolean.
+    + `oven` required. boolean.
+    + `pack_n_playtravel_crib` required. boolean.
+    + `parasailing` required. boolean.
+    + `patio_furniture` required. boolean.
+    + `patio_or_balcony` required. boolean.
+    + `photo_film_shoot` required. boolean.
+    + `ping_pong_table` required. boolean.
+    + `pool` required. boolean.
+    + `pool_table` required. boolean.
+    + `pots_and_pans` required. boolean.
+    + `private_entrance` required. boolean.
+    + `product_launch` required. boolean.
+    + `refrigerator` required. boolean.
+    + `road_biking` required. boolean.
+    + `rock_climbing` required. boolean.
+    + `rollerblading` required. boolean.
+    + `room_darkening_shades` required. boolean.
+    + `running` required. boolean.
+    + `sailing` required. boolean.
+    + `sandy_beach` required. boolean.
+    + `sauna` required. boolean.
+    + `scuba_diving` required. boolean.
+    + `shampoo_soap` required. boolean.
+    + `single_level_home` required. boolean.
+    + `skating` required. boolean.
+    + `ski_in_ski_out` required. boolean.
+    + `skydiving` required. boolean.
+    + `snorkeling` required. boolean.
+    + `snowboarding` required. boolean.
+    + `snowmobile_trail` required. boolean.
+    + `snowshoeing` required. boolean.
+    + `spa_services` required. boolean.
+    + `sport_team_training` required. boolean.
+    + `stair_gates` required. boolean.
+    + `stove` required. boolean.
+    + `swimming` required. boolean.
+    + `table_corner_guards` required. boolean.
+    + `tea_coffee_included` required. boolean.
+    + `tennis` required. boolean.
+    + `toilet_paper` required. boolean.
+    + `towels` required. boolean.
+    + `tree_climbing` required. boolean.
+    + `tv` required. boolean.
+    + `volleyball` required. boolean.
+    + `volleyball_net` required. boolean.
+    + `washer` required. boolean.
+    + `water_skiing` required. boolean.
+    + `water_sliding` required. boolean.
+    + `wedding` required. boolean.
+    + `wheelchair_accessible` required. boolean.
+    + `whitewater_rafting` required. boolean.
+    + `window_guards` required. boolean.
+    + `windsurfing` required. boolean.
+    + `wireless_internet` required. boolean. 
+    
+   
 
+    + Body
 
-
-        {
-            "api_token": "",
-            "amenities" :
-                            {
-                            "access_to_water": true,
-                            "air_conditioning": true,
-                            "pets_are_welcome": false,
-                            "alpine_skiing": false,
-                            "art_show": false,
-                            "atv_trail": false,
-                            "baby_bath": false,
-                            "baby_monitor": false,
-                            "babysitter_referrals": false,
-                            "bachelorette_party": false,
-                            "basketball": false,
-                            "bbq_grill": false,
-                            "beach_chairs": false,
-                            "beachfront": false,
-                            "bed_linens": false,
-                            "birthday_party": false,
-                            "boating": false,
-                            "breakfast_included": false,
-                            "by_a_river": false,
-                            "cable_tv": false,
-                            "canoeing": false,
-                            "changing_tablebathtub": false,
-                            "caving": false,
-                            "cooking_basics": false,
-                            "corporate_meeting": false,
-                            "conference": false,
-                            "coffee_maker": false,
-                            "childrens_dinnerware": false,
-                            "childrens_books_and_toys": false,
-                            "crib": false,
-                            "cross_country_skiing": false,
-                            "deepsea_fishing": false,
-                            "dishes_and_silverware": false,
-                            "dishwasher": false,
-                            "dock": false,
-                            "dryer": false,
-                            "dvd_blue_ray": false,
-                            "ev_charger": false,
-                            "executive_retreat": false,
-                            "extra_pillows_and_blankets": false,
-                            "fire_pit": false,
-                            "fireplace_guards": false,
-                            "firewood_included": false,
-                            "free_gym_fitness_centre": false,
-                            "free_parking_on_premises": false,
-                            "friends_family_meeting": false,
-                            "game_console": false,
-                            "garden_or_backyard": false,
-                            "golf": false,
-                            "guided_tours": false,
-                            "hair_dryer": false,
-                            "hamak": false,
-                            "hangers_in_closets": false,
-                            "heated_floors": false,
-                            "heating": false,
-                            "high_chair": false,
-                            "hiking": false,
-                            "hockey": false,
-                            "home_essentials": false,
-                            "horseback_riding": false,
-                            "foosball_table": false,
-                            "fishing": false,
-                            "hot_tub_spa": false,
-                            "hot_water": false,
-                            "ice_climbing": false,
-                            "indoor_fireplace": false,
-                            "iron": false,
-                            "jet_skiing": false,
-                            "kayaking": false,
-                            "kitchen": false,
-                            "lakefront": false,
-                            "laptop_friendly_workspace": false,
-                            "life_jackets": false,
-                            "maid_service_included": false,
-                            "microwave": false,
-                            "mountain_biking": false,
-                            "outlet_covers": false,
-                            "oven": false,
-                            "pack_n_playtravel_crib": false,
-                            "parasailing": false,
-                            "patio_furniture": false,
-                            "patio_or_balcony": false,
-                            "photo_film_shoot": false,
-                            "ping_pong_table": false,
-                            "pool": false,
-                            "pool_table": false,
-                            "pots_and_pans": false,
-                            "private_entrance": false,
-                            "product_launch": false,
-                            "refrigerator": false,
-                            "road_biking": false,
-                            "rock_climbing": false,
-                            "rollerblading": false,
-                            "room_darkening_shades": false,
-                            "running": false,
-                            "sailing": false,
-                            "sandy_beach": false,
-                            "sauna": false,
-                            "scuba_diving": false,
-                            "shampoo_soap": false,
-                            "single_level_home": false,
-                            "skating": false,
-                            "ski_in_ski_out": false,
-                            "skydiving": false,
-                            "snorkeling": false,
-                            "snowboarding": false,
-                            "snowmobile_trail": false,
-                            "snowshoeing": false,
-                            "spa_services": false,
-                            "sport_team_training": false,
-                            "stair_gates": false,
-                            "stove": false,
-                            "swimming": false,
-                            "table_corner_guards": false,
-                            "tea_coffee_included": false,
-                            "tennis": false,
-                            "toilet_paper": false,
-                            "towels": false,
-                            "tree_climbing": false,
-                            "tv": false,
-                            "volleyball": false,
-                            "volleyball_net": false,
-                            "washer": false,
-                            "water_skiing": false,
-                            "water_sliding": false,
-                            "wedding": false,
-                            "wheelchair_accessible": false,
-                            "whitewater_rafting": false,
-                            "window_guards": false,
-                            "windsurfing": false,
-                            "wireless_internet": true
-        }
-
+            {
+              "api_token": "",
+              "amenities" : {
+                       "access_to_water": true,
+                        "air_conditioning": true,
+                        "pets_are_welcome": false,
+                        "alpine_skiing": false,
+                        "art_show": false,
+                        "atv_trail": false,
+                        "baby_bath": false,
+                        "baby_monitor": false,
+                        "babysitter_referrals": false,
+                        "bachelorette_party": false,
+                        "basketball": false,
+                        "bbq_grill": false,
+                        "beach_chairs": false,
+                        "beachfront": false,
+                        "bed_linens": false,
+                        "birthday_party": false,
+                        "boating": false,
+                        "breakfast_included": false,
+                        "by_a_river": false,
+                        "cable_tv": false,
+                        "canoeing": false,
+                        "changing_tablebathtub": false,
+                        "caving": false,
+                        "cooking_basics": false,
+                        "corporate_meeting": false,
+                        "conference": false,
+                        "coffee_maker": false,
+                        "childrens_dinnerware": false,
+                        "childrens_books_and_toys": false,
+                        "crib": false,
+                        "cross_country_skiing": false,
+                        "deepsea_fishing": false,
+                        "dishes_and_silverware": false,
+                        "dishwasher": false,
+                        "dock": false,
+                        "dryer": false,
+                        "dvd_blue_ray": false,
+                        "ev_charger": false,
+                        "executive_retreat": false,
+                        "extra_pillows_and_blankets": false,
+                        "fire_pit": false,
+                        "fireplace_guards": false,
+                        "firewood_included": false,
+                        "free_gym_fitness_centre": false,
+                        "free_parking_on_premises": false,
+                        "friends_family_meeting": false,
+                        "game_console": false,
+                        "garden_or_backyard": false,
+                        "golf": false,
+                        "guided_tours": false,
+                        "hair_dryer": false,
+                        "hamak": false,
+                        "hangers_in_closets": false,
+                        "heated_floors": false,
+                        "heating": false,
+                        "high_chair": false,
+                        "hiking": false,
+                        "hockey": false,
+                        "home_essentials": false,
+                        "horseback_riding": false,
+                        "foosball_table": false,
+                        "fishing": false,
+                        "hot_tub_spa": false,
+                        "hot_water": false,
+                        "ice_climbing": false,
+                        "indoor_fireplace": false,
+                        "iron": false,
+                        "jet_skiing": false,
+                        "kayaking": false,
+                        "kitchen": false,
+                        "lakefront": false,
+                        "laptop_friendly_workspace": false,
+                        "life_jackets": false,
+                        "maid_service_included": false,
+                        "microwave": false,
+                        "mountain_biking": false,
+                        "outlet_covers": false,
+                        "oven": false,
+                        "pack_n_playtravel_crib": false,
+                        "parasailing": false,
+                        "patio_furniture": false,
+                        "patio_or_balcony": false,
+                        "photo_film_shoot": false,
+                        "ping_pong_table": false,
+                        "pool": false,
+                        "pool_table": false,
+                        "pots_and_pans": false,
+                        "private_entrance": false,
+                        "product_launch": false,
+                        "refrigerator": false,
+                        "road_biking": false,
+                        "rock_climbing": false,
+                        "rollerblading": false,
+                        "room_darkening_shades": false,
+                        "running": false,
+                        "sailing": false,
+                        "sandy_beach": false,
+                        "sauna": false,
+                        "scuba_diving": false,
+                        "shampoo_soap": false,
+                        "single_level_home": false,
+                        "skating": false,
+                        "ski_in_ski_out": false,
+                        "skydiving": false,
+                        "snorkeling": false,
+                        "snowboarding": false,
+                        "snowmobile_trail": false,
+                        "snowshoeing": false,
+                        "spa_services": false,
+                        "sport_team_training": false,
+                        "stair_gates": false,
+                        "stove": false,
+                        "swimming": false,
+                        "table_corner_guards": false,
+                        "tea_coffee_included": false,
+                        "tennis": false,
+                        "toilet_paper": false,
+                        "towels": false,
+                        "tree_climbing": false,
+                        "tv": false,
+                        "volleyball": false,
+                        "volleyball_net": false,
+                        "washer": false,
+                        "water_skiing": false,
+                        "water_sliding": false,
+                        "wedding": false,
+                        "wheelchair_accessible": false,
+                        "whitewater_rafting": false,
+                        "window_guards": false,
+                        "windsurfing": false,
+                        "wireless_internet": true                
+                            }
+            }
 
 + Response 200 (application/json)
 
@@ -2009,6 +2136,12 @@ Edit special prices associated to the provided property id
 ### api/properties/{uuid}/spacial-prices [PUT]
 + Request (application/json)
 
+        The start and end dates are included in the period of the special price 
+        
+        + `start_date` start date of the period date
+        + `end_date`  end date of the period date
+        + `price` the price for this period numeric
+
         {
             "api_token": "",
             "start_date" : "2019-04-20",
@@ -2087,22 +2220,27 @@ Edit special prices associated to the provided property id
                 
 
 ## Delete property special prices [/api/properties/{uuid}/special-prices DELETE]
-Delete special prices associated to the provided property id
+Delete special prices associated to the provided property id.
+The special prices between the start and end dates are replaced by the base price
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
                           
 ### api/properties/{uuid}/spacial-prices [DELETE]
+
+
 + Request (application/json)
+
+        + `start_date` required date.
+        + `end_date` required date.
+  
 
         {
             "api_token": "",
-            "start_date" : "2019-04-20",
-            "end_date" : "2019-04-30",
-            "price" : 421
+            "start_date" : "2019-01-03",
+            "end_date" : "2019-01-05"
         }
-
 
 + Response 200 (application/json)
 
@@ -2229,11 +2367,15 @@ Edit blocked dates associated to the provided property id
 
 + Request (application/json)
 
+        + `start_date` required date.
+        + `end_date` required date.
+        + `note` string
+
         {
             "api_token": "",
-            "start_date" : "2019-01-3",
+            "start_date" : "2019-01-03",
             "end_date" : "2019-01-05",
-            "note" : "for cleaning",
+            "note" : "for cleaning"
         }
 
 + Response 200 (application/json)
@@ -2318,6 +2460,9 @@ Delete blocked dates associated to the provided property id
 
 
 + Request (application/json)
+
+        + `start_date` required date.
+        + `end_date` required date.
 
         {
             "api_token": "",
