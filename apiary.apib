@@ -3797,16 +3797,21 @@ Retrieve  reviwes associated to the provided property id
                    {
                       "id": "ce1c4d3a-d476-45b6-81e6-e6f06599622e",
                       "comment": "Superbe lieu qui marie rusticité et rénovations contemporaines.",
-                      "rating": "4"
+                      "rating": "4",
+                      "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                      "creator_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "created_at": "2019-08-13T12:56:25.000000Z"
                     },
                     {
                       "id": "a1663948-2b1d-4ac5-ac3b-0c218b0bf4b1",
                       "comment": "Le chalet est vraiment charmant, très propre et accueillant. On a passé un très bon séjour entre amis avec nos enfants. Dany est très disponible et nous a super bien aidés pour notre arrivée. N'hésitez pas à le réserver!",
-                      "rating": "2"
+                      "rating": "2",
+                      "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                      "creator_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "created_at": "2019-08-13T12:56:25.000000Z"
                     }
                   ]
             }
-
             
 
 + Response 400 (application/json)
@@ -3825,6 +3830,101 @@ Retrieve  reviwes associated to the provided property id
              {
                     "errors": "Resource not found!"
              }
+             
+             
+## Get user reviews [/api/reviews GET] 
+Retrieve  reviwes associated to the current user
+
+### api/reviews [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data" : [
+                   {
+                      "id": "ce1c4d3a-d476-45b6-81e6-e6f06599622e",
+                      "comment": "Superbe lieu qui marie rusticité et rénovations contemporaines.",
+                      "rating": "4",
+                      "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                      "creator_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "created_at": "2019-08-13T12:56:25.000000Z"
+                    }
+                  ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
+
+## Create user reviews [/api/reviews POST] 
+Create review for a booking
+
+### api/reviews [POST]
+
+
+    + body 
+    +`booking_id` required string.
+    +`comment` required string.
+    +`rating` required integer.
+    
++ Request (application/json)
+
+        {
+            "api_token": "", 
+            "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1", 
+            "comment": "This is an awesome space and well located.",
+            "rating": 4
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data" : [
+                   {
+                      "id": "ce1c4d3a-d476-45b6-81e6-e6f06599622e",
+                      "comment": "Superbe lieu qui marie rusticité et rénovations contemporaines.",
+                      "rating": "4",
+                      "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                      "creator_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "created_at": "2019-08-13T12:56:25.000000Z"
+                    }
+                  ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+                
+             
+             
                           
 ## GET property owner [/api/properties/{uuid}/owner GET] 
 Retrieve  informations of the owner associated to the provided property id
@@ -4942,44 +5042,6 @@ Retrieves all bookings that the current affiliate has make
                 
                    
    
-             
-## Get user reviews [/api/reviews GET]
-Retrieves all reviews that the current affiliate has make
-### api/reviews [GET]
-
-
-+ Request (application/json)
-
-        {
-          "api_token": ""
-        }
-            
-
-+ Response 200 (application/json)
-
-    
-    + Body
-
-            {
-                  "data": [
-                   {
-                      "id": "2be7eaba-52c9-471d-83c1-deb461ba7dea",
-                      "comment": "This is an awesome space and well located. We were near an organic grocery store and close to a     public bike station. The apartment had a great atmosphere surrounded by cool art and lots of natural lighting. Our host was very helpful and attentive. I would recommend anyone to stay here.    ",
-                      "rating": "2"
-                    }
-                  ]
-              }
-
-            
-
-+ Response 400 (application/json)
-
-    + Body
-
-             {
-                  "message": "Unauthenticated."
-             }
-                
 
 
 ## Get currency [/api/currencies GET]
@@ -6498,3 +6560,526 @@ Edit property  status
               "errors": "Resource not found!"
              
             }
+            
+
+##Retrieve current host account data [/api/hosts/me GET] 
+Retrieve current host account data
+
+
+### api/hosts/me [GET]
++ Request (application/json)
+
+    
+    + Body
+
+            {
+              "api_token": ""
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                 "data": {
+                    "id": "799ea91a-5d51-4ef6-8e02-02f930447227",
+                    "firstname": "wechalet",
+                    "lastname": "wechalet",
+                    "birthdate": "1993/12/10",
+                    "language": "en",
+                    "gender": "male",
+                    "location": "Earth",
+                    "about_me": "host",
+                    "secondary_email": null,
+                    "secondary_phone": null,
+                    "payout_email": null,
+                    "avatar": "",
+                    "email": "wechalet@wechalet.com",
+                    "country_code": null,
+                    "email_verified_at": null,
+                    "phone_number": null,
+                    "phone_number_verified_at": null
+                  }  
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
+
+##guests for a host account [/api/guests GET] 
+Retrieve all the guests for a host account
+
+
+### api/hosts/me [GET]
++ Request (application/json)
+
+    
+    + Body
+
+            {
+              "api_token": ""
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                 "data": [ 
+                     {
+                    "id": "799ea91a-5d51-4ef6-8e02-02f930447227",
+                    "firstname": "wechalet",
+                    "lastname": "wechalet",
+                    "birthdate": "1993/12/10",
+                    "language": "en",
+                    "gender": "male",
+                    "location": "Earth",
+                    "about_me": "host",
+                    "secondary_email": null,
+                    "secondary_phone": null,
+                    "payout_email": null,
+                    "avatar": "",
+                    "email": "wechalet@wechalet.com",
+                    "country_code": null,
+                    "email_verified_at": null,
+                    "phone_number": null,
+                    "phone_number_verified_at": null
+                  }  
+                ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
+## Get guest information [/api/guests/{uuid} GET] 
+Get a single guest information
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the guest
+
+### api/guests/{uuid} [GET]
++ Request (application/json)
+
+
+    + Body
+
+            {
+              "api_token": ""
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "data": {
+                    "id": "799ea91a-5d51-4ef6-8e02-02f930447227",
+                    "firstname": "wechalet",
+                    "lastname": "wechalet",
+                    "birthdate": "1993/12/10",
+                    "language": "en",
+                    "gender": "male",
+                    "location": "Earth",
+                    "about_me": "host",
+                    "secondary_email": null,
+                    "secondary_phone": null,
+                    "payout_email": null,
+                    "avatar": "",
+                    "email": "wechalet@wechalet.com",
+                    "country_code": null,
+                    "email_verified_at": null,
+                    "phone_number": null,
+                    "phone_number_verified_at": null
+                  }    
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+             
+
+
+## Get all the threads [/api/inbox GET] 
+Retreive all the threads fro the current the user
+
+### api/inbox [GET]
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "data": [
+                {
+                    "id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                    "unread": 0,
+                    "archived": false,
+                    "type": "traveling",
+                    "subject": {
+                      "title": "",
+                      "sub_title": "( Oct 5- Oct 8,2 Guests )"
+                    },
+                    "created_at": "13 Aug",
+                    "creator": {
+                      "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "firstname": "wechalet",
+                      "lastname": "wechalet",
+                      "language": "en",
+                      "location": "Earth",
+                      "avatar": "",
+                      "email": "wechalet@wechalet.com",
+                      "phone_number": null
+                    },
+                    "messages": [
+                      {
+                        "id": 658,
+                        "body": "say hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      }
+                    ]
+                  }
+                  ]
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
+
+            
+
+
+
+## Create a thread [/api/inbox POST] 
+create inbox
+
+### api/inbox [POST]
++ Request (application/json)
+
+    
+
+    + Inbox
+    + `property_id` required string.
+    + `checkin` required date.
+    + `checkout`  required date. 
+    + `subject`  required string.
+    + `guests_count`  required integer.
+    + `message`  required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "property_id" : "528003bd-83da-4505-b42d-4535eb08019a",
+              "checkin":  "2019-10-05",
+              "checkout":  "2019-10-10", 
+              "guests_count": "4", 
+              "subject": "contact wechalet host", 
+              "message": "hello"
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "data": {
+                    "id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                    "unread": 0,
+                    "archived": false,
+                    "type": "traveling",
+                    "subject": {
+                      "title": "",
+                      "sub_title": "( Oct 5- Oct 8,2 Guests )"
+                    },
+                    "created_at": "13 Aug",
+                    "creator": {
+                      "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "firstname": "wechalet",
+                      "lastname": "wechalet",
+                      "language": "en",
+                      "location": "Earth",
+                      "avatar": "",
+                      "email": "wechalet@wechalet.com",
+                      "phone_number": null
+                    },
+                    "messages": [
+                      {
+                        "id": 658,
+                        "body": "say hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      }
+                    ]
+                  }  
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "property_id": [
+                      "The property id field is required."
+                    ],
+                    "checkin": [
+                      "The checkin field is required."
+                    ],
+                    "checkout": [
+                      "The checkout field is required."
+                    ],
+                    "guests_count": [
+                      "The guests count field is required."
+                    ],
+                    "subject": [
+                      "The subject field is required."
+                    ],
+                    "message": [
+                      "The message field is required."
+                    ]
+                  }
+                }
+                
+
+
+## show thread [/api/inbox/{uuid} GET] 
+Show all the messages from a thread
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the thread
+
+### api/inbox/{uuid} [GET]
++ Request (application/json)
+
+
+    + Body
+
+            {
+              "api_token": ""
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "data": {
+                    "id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                    "unread": 0,
+                    "archived": false,
+                    "type": "traveling",
+                    "subject": {
+                      "title": "",
+                      "sub_title": "( Oct 5- Oct 8,2 Guests )"
+                    },
+                    "created_at": "13 Aug",
+                    "creator": {
+                      "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "firstname": "wechalet",
+                      "lastname": "wechalet",
+                      "language": "en",
+                      "location": "Earth",
+                      "avatar": "",
+                      "email": "wechalet@wechalet.com",
+                      "phone_number": null
+                    },
+                    "messages": [
+                      {
+                        "id": 658,
+                        "body": "say hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      }
+                    ]
+                  }  
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+             
+
+
+
+
+## Create a message [/api/inbox/{uuid} PUT] 
+Create a  message for a single thead
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the thread
+
+### api/inbox/{uuid} [PUT]
++ Request (application/json)
+
+    
+
+    + Message
+    + `message`  required string.
+
+    + Body
+
+            {
+              "api_token": "",
+              "message": "hello"
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "data": {
+                    "id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                    "unread": 0,
+                    "archived": false,
+                    "type": "traveling",
+                    "subject": {
+                      "title": "",
+                      "sub_title": "( Oct 5- Oct 8,2 Guests )"
+                    },
+                    "created_at": "13 Aug",
+                    "creator": {
+                      "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "firstname": "wechalet",
+                      "lastname": "wechalet",
+                      "language": "en",
+                      "location": "Earth",
+                      "avatar": "",
+                      "email": "wechalet@wechalet.com",
+                      "phone_number": null
+                    },
+                    "messages": [
+                      {
+                        "id": 658,
+                        "body": "say hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      },
+                        {
+                        "id": 659,
+                        "body": "hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      }
+                    ]
+                  }  
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
