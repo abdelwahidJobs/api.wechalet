@@ -4002,7 +4002,131 @@ show the review
              
              
                           
+
+
+## update review [/api/reviews/{uuid} PUT] 
+Update the review
++ Parameters
+
+    + uuid (required, string) ... The unique id of the review
+
+### api/reviews/{uuid} [PUT]
++ Request (application/json)
+
+    + review
+    + `comment` required string.
+    + `rating` required integer.
+    
+
+    + Body
+
+            {
+             "api_token": "", 
+             "comment": "This is an awesome space and well located.",
+             "rating": 4
+                                
+            }
+            
+            
+            
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data" : 
+                  {
+                      "id": "3485cc19-5e39-4252-a846-814b7ae6e284",
+                      "comment": "Superbe lieu qui marie rusticité et rénovations contemporaines.",
+                      "rating": "4",
+                      "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                      "creator_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "created_at": "2019-08-13T12:56:25.000000Z"
+                 }         
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
              
+             
+
+
+## delete review [/api/reviews/{uuid} DELETE] 
+Remove the review
++ Parameters
+
+    + uuid (required, string) ... The unique id of the review
+
+### api/reviews/{uuid} [DELETE]
++ Request (application/json)
+
+
+    + Body
+
+            {
+             "api_token": ""
+            
+            }
+            
+            
+            
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data" : 
+                  {
+                      "id": "3485cc19-5e39-4252-a846-814b7ae6e284",
+                      "comment": "Superbe lieu qui marie rusticité et rénovations contemporaines.",
+                      "rating": "4",
+                      "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                      "creator_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "created_at": "2019-08-13T12:56:25.000000Z"
+                 }         
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+             
+                   
+                   
+                                                   
                           
 ## GET property owner [/api/properties/{uuid}/owner GET] 
 Retrieve  informations of the owner associated to the provided property id
@@ -6934,7 +7058,7 @@ Retrieve current host account data
 Retrieve all the guests for a host account
 
 
-### api/hosts/me [GET]
+### api/guests [GET]
 + Request (application/json)
 
     
@@ -7041,6 +7165,16 @@ Get a single guest information
                   "message": "Unauthenticated."
              }
              
++ Response 404 (application/json)
+
+    + Body
+
+             {
+              "errors": "Resource not found!"
+             
+            }
+            
+             
 
 
 ## Get all the threads [/api/inbox GET] 
@@ -7112,7 +7246,7 @@ Retreive all the threads fro the current the user
 
 
 ## Create a thread [/api/inbox POST] 
-create inbox
+Contact a host for a property
 
 ### api/inbox [POST]
 + Request (application/json)
@@ -7395,4 +7529,194 @@ Create a  message for a single thead
 
              {
                   "message": "Unauthenticated."
+             }
+               
+            
+## Mark thread as unread [/api/inbox/{uuid}/unread PUT] 
+Mark  the thread as unread
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the thread
+
+### api/inbox/{uuid}/unread [PUT]
++ Request (application/json)
+
+    + Body
+
+            {
+              "api_token": ""
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "data": {
+                    "id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                    "unread": 0,
+                    "archived": false,
+                    "type": "traveling",
+                    "subject": {
+                      "title": "",
+                      "sub_title": "( Oct 5- Oct 8,2 Guests )"
+                    },
+                    "created_at": "13 Aug",
+                    "creator": {
+                      "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "firstname": "wechalet",
+                      "lastname": "wechalet",
+                      "language": "en",
+                      "location": "Earth",
+                      "avatar": "",
+                      "email": "wechalet@wechalet.com",
+                      "phone_number": null
+                    },
+                    "messages": [
+                      {
+                        "id": 658,
+                        "body": "say hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      },
+                        {
+                        "id": 659,
+                        "body": "hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      }
+                    ]
+                  }  
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+               
+            
+
+
+            
+## Delete thread  [/api/inbox/{uuid} DELETE] 
+Delete thread
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the thread
+
+### api/inbox/{uuid} [DELETE]
++ Request (application/json)
+
+    + Body
+
+            {
+              "api_token": ""
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "data": {
+                    "id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                    "unread": 0,
+                    "archived": false,
+                    "type": "traveling",
+                    "subject": {
+                      "title": "",
+                      "sub_title": "( Oct 5- Oct 8,2 Guests )"
+                    },
+                    "created_at": "13 Aug",
+                    "creator": {
+                      "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "firstname": "wechalet",
+                      "lastname": "wechalet",
+                      "language": "en",
+                      "location": "Earth",
+                      "avatar": "",
+                      "email": "wechalet@wechalet.com",
+                      "phone_number": null
+                    },
+                    "messages": [
+                      {
+                        "id": 658,
+                        "body": "say hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      },
+                        {
+                        "id": 659,
+                        "body": "hello",
+                        "creator": {
+                          "id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "firstname": "wechalet",
+                          "lastname": "wechalet",
+                          "language": "en",
+                          "location": "Earth",
+                          "avatar": "",
+                          "email": "wechalet@wechalet.com",
+                          "phone_number": null
+                        }
+                      }
+                    ]
+                  }  
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+               
+            
+
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                  "message": "Resource not found !."
              }
