@@ -3878,22 +3878,24 @@ Retrieve  reviwes associated to the current user
 Create review for a booking
 
 ### api/reviews [POST]
-
-
-    + body 
-    +`booking_id` required string.
-    +`comment` required string.
-    +`rating` required integer.
-    
 + Request (application/json)
 
-        {
-            "api_token": "", 
-            "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1", 
-            "comment": "This is an awesome space and well located.",
-            "rating": 4
-        }
+    + review
+    + `booking_id` required string.
+    + `comment` required string.
+    + `rating` required integer.
+    
 
+    + Body
+
+            {
+             "api_token": "", 
+             "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1", 
+             "comment": "This is an awesome space and well located.",
+             "rating": 4
+                                
+            }
+            
 + Response 200 (application/json)
 
     
@@ -3921,9 +3923,85 @@ Create review for a booking
              {
                   "message": "Unauthenticated."
              }
-                
-                
              
+             
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "booking_id": [
+                      "The booking id field is required."
+                    ],
+                    "comment": [
+                      "The comment field is required."
+                    ],
+                    "rating": [
+                      "The rating field is required."
+                    ]
+                  }
+                }
+             
+
+
+
+                
+
+## show review [/api/reviews/{uuid} GET] 
+show the review
++ Parameters
+
+    + uuid (required, string) ... The unique id of the review
+
+### api/reviews/{uuid} [GET]
+
+
++ Request (application/json)
+
+        {
+            "api_token": ""
+        }
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data" : 
+                  {
+                      "id": "3485cc19-5e39-4252-a846-814b7ae6e284",
+                      "comment": "Superbe lieu qui marie rusticité et rénovations contemporaines.",
+                      "rating": "4",
+                      "booking_id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                      "creator_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                      "created_at": "2019-08-13T12:56:25.000000Z"
+                 }         
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+                
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+             
+                          
              
                           
 ## GET property owner [/api/properties/{uuid}/owner GET] 
@@ -4993,40 +5071,56 @@ Retrieves all bookings that the current affiliate has make
 
             {
                   "data": [
-                   {
-                      "id": "96a7b176-efee-4843-87a5-ad756d137adf",
-                      "status": "pending",
-                      "guests_count": 1,
-                      "request_date": true,
-                      "checkin": "Thu, Apr 18th 2019",
-                      "checkout": "Sat, Apr 20th 2019",
-                      "response": null,
-                      "response_time": "2019-04-09 13:13:02",
-                      "nights_count": null,
-                      "nights_cost": 0,
-                      "day_price": 0,
-                      "discount": 0,
-                      "service_fee": 89.85,
-                      "cleaning_fee": 0,
-                      "security_deposit": 0,
-                      "total_fee": 0,
-                      "total": 700.85,
-                      "property": {
-                        "name": "Stylish COUNTRY HOME by the Lake",
-                        "image": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
-                        "address": "150 Chemin Cooledge",
-                        "owner": {
-                          "id": "88feba29-17cc-442b-80dd-70655801fc95",
-                          "firstname": "Dany",
-                          "lastname": "Dany",
-                          "language": "en",
-                          "location": "Earth",
-                          "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
-                          "email": "dany@wechalet.com",
-                          "phone_number": null
+                        {
+                          "id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                          "status": "contact_host",
+                          "guest_account_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "guests_count": 1,
+                          "request_date": true,
+                          "checkin": "2018-12-24T00:00:00.000000Z",
+                          "checkout": "2018-12-26T00:00:00.000000Z",
+                          "response": null,
+                          "response_time": null,
+                          "nights_count": null,
+                          "nights_cost": 0,
+                          "day_price": 0,
+                          "discount": 0,
+                          "service_fee": 0,
+                          "cleaning_fee": 0,
+                          "security_deposit": 0,
+                          "total_fee": 0,
+                          "total": 0,
+                          "last_updated": null,
+                          "property": {
+                            "name": "Panorama, Spa and St-Laurence River!",
+                            "image": "http:\/\/wechalet.local\/wechalet\/images\/default\/default.jpg",
+                            "address": "Saint-Joseph-de-la-Rive, Québec, Canada",
+                            "booking_settings": {
+                              "instant_booking": false,
+                              "guest_qualifications": {
+                                "guest_photo": false,
+                                "guest_email": false,
+                                "guest_payement": false
+                              },
+                              "house_rules": {
+                                "allow_childrens": true,
+                                "allow_infants": true,
+                                "allow_pets": false,
+                                "allow_smoking": false,
+                                "allow_parties": false,
+                                "other_rules": "other_rules"
+                              },
+                              "guest_expectations": {
+                                "must_climb_stairs": false,
+                                "potential_for_noise": false,
+                                "pet_live_on_property": false,
+                                "no_parking_on_property": false,
+                                "some_spaces_are_shared": false,
+                                "amenity_limitations": false
+                              }
+                            }
+                          }
                         }
-                      }
-                    }
                   ]
               }
 
@@ -5039,10 +5133,229 @@ Retrieves all bookings that the current affiliate has make
              {
                   "message": "Unauthenticated."
              }
+
+
+
                 
                    
-   
+                   
+                   
+ 
+## Show user booking [/api/bookings/{uuid} GET]
+Show a booking by uuid
++ Parameters
 
+    + uuid (required, string) ... The unique id of the booking
+
+
+
+### api/bookings/{uuid} [GET]
+
+
++ Request (application/json)
+
+        {
+          "api_token": ""
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                        {
+                          "id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                          "status": "contact_host",
+                          "guest_account_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "guests_count": 1,
+                          "request_date": true,
+                          "checkin": "2018-12-24T00:00:00.000000Z",
+                          "checkout": "2018-12-26T00:00:00.000000Z",
+                          "response": null,
+                          "response_time": null,
+                          "nights_count": null,
+                          "nights_cost": 0,
+                          "day_price": 0,
+                          "discount": 0,
+                          "service_fee": 0,
+                          "cleaning_fee": 0,
+                          "security_deposit": 0,
+                          "total_fee": 0,
+                          "total": 0,
+                          "last_updated": null,
+                          "property": {
+                            "name": "Panorama, Spa and St-Laurence River!",
+                            "image": "http:\/\/wechalet.local\/wechalet\/images\/default\/default.jpg",
+                            "address": "Saint-Joseph-de-la-Rive, Québec, Canada",
+                            "booking_settings": {
+                              "instant_booking": false,
+                              "guest_qualifications": {
+                                "guest_photo": false,
+                                "guest_email": false,
+                                "guest_payement": false
+                              },
+                              "house_rules": {
+                                "allow_childrens": true,
+                                "allow_infants": true,
+                                "allow_pets": false,
+                                "allow_smoking": false,
+                                "allow_parties": false,
+                                "other_rules": "other_rules"
+                              },
+                              "guest_expectations": {
+                                "must_climb_stairs": false,
+                                "potential_for_noise": false,
+                                "pet_live_on_property": false,
+                                "no_parking_on_property": false,
+                                "some_spaces_are_shared": false,
+                                "amenity_limitations": false
+                              }
+                            }
+                          }
+                        }
+                  ]
+              }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+
+                
+
+                   
+ 
+## Response to booking [/api/bookings/{uuid} PUT]
+Response to a booking
++ Parameters
+
+    + uuid (required, string) ... The unique id of the booking
+
+
+
+### api/bookings/{uuid} [PUT]
+
+
++ Request (application/json)
+
+        {
+          "api_token": "",
+          "response" : "accepted"
+        }
+            
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": [
+                        {
+                          "id": "f1172577-35c8-4370-95d0-09420ad608c1",
+                          "status": "accepted",
+                          "guest_account_id": "03fd385f-8997-4762-a166-bda1cfb3e174",
+                          "guests_count": 1,
+                          "request_date": true,
+                          "checkin": "2018-12-24T00:00:00.000000Z",
+                          "checkout": "2018-12-26T00:00:00.000000Z",
+                          "response": null,
+                          "response_time": null,
+                          "nights_count": null,
+                          "nights_cost": 0,
+                          "day_price": 0,
+                          "discount": 0,
+                          "service_fee": 0,
+                          "cleaning_fee": 0,
+                          "security_deposit": 0,
+                          "total_fee": 0,
+                          "total": 0,
+                          "last_updated": null,
+                          "property": {
+                            "name": "Panorama, Spa and St-Laurence River!",
+                            "image": "http:\/\/wechalet.local\/wechalet\/images\/default\/default.jpg",
+                            "address": "Saint-Joseph-de-la-Rive, Québec, Canada",
+                            "booking_settings": {
+                              "instant_booking": false,
+                              "guest_qualifications": {
+                                "guest_photo": false,
+                                "guest_email": false,
+                                "guest_payement": false
+                              },
+                              "house_rules": {
+                                "allow_childrens": true,
+                                "allow_infants": true,
+                                "allow_pets": false,
+                                "allow_smoking": false,
+                                "allow_parties": false,
+                                "other_rules": "other_rules"
+                              },
+                              "guest_expectations": {
+                                "must_climb_stairs": false,
+                                "potential_for_noise": false,
+                                "pet_live_on_property": false,
+                                "no_parking_on_property": false,
+                                "some_spaces_are_shared": false,
+                                "amenity_limitations": false
+                              }
+                            }
+                          }
+                        }
+                  ]
+              }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                    "errors": "Resource not found!"
+             }
+             
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                    
+                  "message": "The given data was invalid.",
+                  "errors": {
+                    "response": [
+                      "The response field is required."
+                    ]
+                  }
+             }
+             
+             
+
+             
 
 ## Get currency [/api/currencies GET]
 Retrieves all currencies 
