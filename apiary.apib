@@ -21,20 +21,29 @@ Retrieve all rules
             {
                   "data": [
                     {
-                      "id": "a5fadf08-df0d-4815-ad56-492878044906",
-                      "rule": "Children are welcome (2 to 12 years old)"
+                      "id": "24727c8a-7174-4f44-8565-f67bbb07b56d",
+                      "name": "Allow childrens",
+                      "slug": "allow_childrens"
                     },
                     {
-                      "id": "6b8a7915-0ccf-4803-8899-856ab86d8fed",
-                      "rule": "Pets are welcome"
+                      "id": "d3371dda-8a1d-46ac-b89e-8f2d95a09448",
+                      "name": "allow infants",
+                      "slug": "allow_infants"
                     },
                     {
-                      "id": "86ba3b54-cdd9-4d1d-8254-c98b9aa13675",
-                      "rule": "Smoking inside is allowed"
+                      "id": "eefb6b04-8d2f-476f-9dae-cc9d1039c5ba",
+                      "name": "allow pets",
+                      "slug": "allow_pets"
                     },
                     {
-                      "id": "d641b86e-403c-4daa-a76d-8ee96ff756db",
-                      "rule": "Parties and events are allowed"
+                      "id": "ade30280-126f-4824-96dc-f13bc3cc3af5",
+                      "name": "allow smoking",
+                      "slug": "allow_smoking"
+                    },
+                    {
+                      "id": "94ddbc6d-98c3-40a2-9a3e-59e4291f34d0",
+                      "name": "allow parties",
+                      "slug": "allow_parties"
                     }
                   ]
                 }
@@ -48,14 +57,14 @@ Retrieve all rules
              }
 
 
-## Get property rules [/api/properties/{uuid}/rules GET]
+## Get property rules [/api/v1/properties/{uuid}/rules GET]
 Retrieve rules associated to the provided property id
 with a value attached for each rule 
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/rules [GET]
+### api/v1/properties/{uuid}/rules [GET]
 + Request (application/json)
 
 
@@ -70,11 +79,11 @@ with a value attached for each rule
 
             {
               "data": [
-                "children_are_welcome_2_to_12_years_old": false,
-                "infants_under_2_years_old_are_welcome": false,
-                "pets_are_welcome": true,
-                "smoking_inside_is_allowed": true,
-                "parties_and_events_are_allowed": true
+                "allow_childrens": true,
+                "allow_infants": true,
+                "allow_pets": true,
+                "allow_smoking": true,
+                "allow_parties": true
               ]
             }
             
@@ -98,7 +107,7 @@ with a value attached for each rule
 
              }
              
-## Set property rules [/api/properties/{uuid}/rules POST]
+## Set property rules [/api/v1/properties/{uuid}/rules POST]
 Edit rules associated to the provided property id
 + Parameters
 
@@ -106,30 +115,30 @@ Edit rules associated to the provided property id
     
 
     
-### api/properties/{uuid}/rules [PUT]
+### api/v1/properties/{uuid}/rules [PUT]
 
 + Request (application/json)
 
     The request must contient the rules.
 
     + rules
-    + `children_are_welcome_2_to_12_years_old` boolean.
-    + `infants_under_2_years_old_are_welcome` boolean.
-    + `pets_are_welcome` boolean.
-    + `smoking_inside_is_allowed` boolean.
-    + `parties_and_events_are_allowed` boolean.
+    + `allow_childrens` boolean.
+    + `allow_infants` boolean.
+    + `allow_pets` boolean.
+    + `allow_smoking` boolean.
+    + `allow_parties` boolean.
 
     + Body
 
             {
                 "api_token": "",
-                "rules": {
-                        "children_are_welcome_2_to_12_years_old" : true,
-                        "infants_under_2_years_old_are_welcome": true,
-                        "pets_are_welcome" : false,
-                        "smoking_inside_is_allowed" : false,
-                        "parties_and_events_are_allowed" : false
-                        }
+                "rules" : {
+                    "allow_childrens": true,
+                    "allow_infants": true,
+                    "allow_pets": true,
+                    "allow_smoking": false,
+                    "allow_parties": true
+                }
             }
 
 
@@ -140,11 +149,11 @@ Edit rules associated to the provided property id
 
             {
               "data": {
-                          "children_are_welcome_2_to_12_years_old": true,
-                            "infants_under_2_years_old_are_welcome": true,
-                            "pets_are_welcome": false,
-                            "smoking_inside_is_allowed": false,
-                            "parties_and_events_are_allowed": false
+                            "allow_childrens": true,
+                            "allow_infants": true,
+                            "allow_pets": true,
+                            "allow_smoking": false,
+                            "allow_parties": true
                       }
             }
 
@@ -175,19 +184,19 @@ Edit rules associated to the provided property id
                         "rules": [
                           "The rules field is required."
                         ],
-                        "rules.children_are_welcome_2_to_12_years_old": [
+                        "rules.allow_childrens": [
                           "The rules.children are welcome 2 to 12 years old field is required."
                         ],
-                        "rules.infants_under_2_years_old_are_welcome": [
+                        "rules.allow_infants": [
                           "The rules.infants under 2 years old are welcome field is required."
                         ],
-                        "rules.pets_are_welcome": [
+                        "rules.allow_pets": [
                           "The rules.pets are welcome field is required."
                         ],
-                        "rules.smoking_inside_is_allowed": [
+                        "rules.allow_smoking": [
                           "The rules.smoking inside is allowed field is required."
                         ],
-                        "rules.parties_and_events_are_allowed": [
+                        "rules.allow_parties": [
                           "The rules.parties and events are allowed field is required."
                         ]
                       }
@@ -1031,7 +1040,7 @@ Retrieve all the amenities
              }
         
 
-## Get property amenities [/api/properties/{uuid}/amenities GET]
+## Get property amenities [/api/v1/properties/{uuid}/amenities GET]
 
 Retrieve amenities associated to the provided property id
 
@@ -1041,7 +1050,7 @@ Retrieve amenities associated to the provided property id
     
 
 
-### api/properties/{uuid}/amenities [GET]
+### api/v1/properties/{uuid}/amenities [GET]
 + Request (application/json)
 
         {
@@ -1208,7 +1217,7 @@ Retrieve amenities associated to the provided property id
                     "errors": "Resource not found!"
              }
              
-## Set property amenities [/api/properties/{uuid}/amenities PUT]
+## Set property amenities [/api/v1/properties/{uuid}/amenities PUT]
 Edit amenities associated to the provided property id
 
 + Parameters
@@ -1216,7 +1225,7 @@ Edit amenities associated to the provided property id
     + uuid (required, string) ... The unique id of the property
     
 
-### api/properties/{uuid}/amenities [PUT]
+### api/v1/properties/{uuid}/amenities [PUT]
 
 + Request (application/json)
 
@@ -2062,14 +2071,14 @@ Edit amenities associated to the provided property id
                   }
                 }
 
-## Get property special prices [/api/properties/{uuid}/special-prices GET]
-Retrieve special prices for the provided property id
+## Get property calendar [/api/v1/properties/{uuid}/calendar GET]
+Retrieve the property calendar for the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
 
-### api/properties/{uuid}/spacial-prices [GET]
+### api/v1/properties/{uuid}/calendar [GET]
 + Request (application/json)
 
         {
@@ -2085,25 +2094,33 @@ Retrieve special prices for the provided property id
             {
               
                        "data": [
-                                    {
-                                      "id": "e530785b-9c51-4da4-9617-2ad62c484aa3",
-                                      "Price": 5,
-                                      "date": "2018-11-29T00:00:00.000000Z"
+                                {
+                                      "id": "3474a985-afa6-4bfe-8047-3912fc36abfc",
+                                      "price": 200,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-11-29T00:00:00.000000Z"
                                     },
                                     {
-                                      "id": "9ba1cb1a-393a-44e8-bd4d-e368f39c7bf9",
-                                      "Price": 5,
-                                      "date": "2018-12-25T00:00:00.000000Z"
+                                      "id": "2b4f8f32-cb3d-4c53-ae4a-df7250d08245",
+                                      "price": 200,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-11-30T00:00:00.000000Z"
                                     },
                                     {
-                                      "id": "abb2955b-d633-4b6a-814f-56c51faf4604",
-                                      "Price": 5,
-                                      "date": "2018-12-26T00:00:00.000000Z"
+                                      "id": "de9bcedc-15ab-43ff-8496-7803e3ba30ab",
+                                      "price": 100,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-12-01T00:00:00.000000Z"
                                     },
                                     {
-                                      "id": "a50b24ce-c062-47e0-8c08-ee6d3c6088b1",
-                                      "Price": 5,
-                                      "date": "2018-12-27T00:00:00.000000Z"
+                                      "id": "e82cb288-283a-4579-a2ea-e1ab5b001102",
+                                      "price": 100,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-12-02T00:00:00.000000Z"
                                     }
                       ]
             }
@@ -2126,15 +2143,15 @@ Retrieve special prices for the provided property id
                     "errors": "Resource not found!"
              }
 
-## Set property special prices [/api/properties/{uuid}/special-prices PUT]
-Edit special prices associated to the provided property id
+## Set property calendar [/api/v1/properties/{uuid}/calendar PUT]
+Edit the property calendar  associated to the provided property id
 The start and end dates are included in the period of the special price.
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
              
-### api/properties/{uuid}/spacial-prices [PUT]
+### api/v1/properties/{uuid}/spacial-prices [PUT]
 + Request (application/json)
 
     
@@ -2142,7 +2159,9 @@ The start and end dates are included in the period of the special price.
     + Spacial-prices
     + `start_date` required date.
     + `end_date` required date.
-    + `price` required numeric.
+    + `weekend_price` required numeric.
+    + `special_price` required numeric.
+    + `availability` required boolean.
 
     + Body
 
@@ -2150,7 +2169,9 @@ The start and end dates are included in the period of the special price.
               "api_token": "",
               "start_date" : "2019-04-20",
               "end_date" : "2019-04-30",
-              "price" : 421
+              "availability" : true,
+              "weekend_price": 200,
+              "special_price": 100
             }
             
 
@@ -2162,25 +2183,33 @@ The start and end dates are included in the period of the special price.
             {
               
                        "data": [
-                                    {
-                                      "id": "e530785b-9c51-4da4-9617-2ad62c484aa3",
-                                      "Price": 5,
-                                      "date": "2018-11-29 T00:00:00.000000Z"
+                                   {
+                                      "id": "3474a985-afa6-4bfe-8047-3912fc36abfc",
+                                      "price": 200,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-11-29T00:00:00.000000Z"
                                     },
                                     {
-                                      "id": "9ba1cb1a-393a-44e8-bd4d-e368f39c7bf9",
-                                      "Price": 5,
-                                      "date": "2018-12-25 T00:00:00.000000Z"
+                                      "id": "2b4f8f32-cb3d-4c53-ae4a-df7250d08245",
+                                      "price": 200,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-11-30T00:00:00.000000Z"
                                     },
                                     {
-                                      "id": "abb2955b-d633-4b6a-814f-56c51faf4604",
-                                      "Price": 5,
-                                      "date": "2018-12-26 T00:00:00.000000Z"
+                                      "id": "de9bcedc-15ab-43ff-8496-7803e3ba30ab",
+                                      "price": 100,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-12-01T00:00:00.000000Z"
                                     },
                                     {
-                                      "id": "a50b24ce-c062-47e0-8c08-ee6d3c6088b1",
-                                      "Price": 5,
-                                      "date": "2018-12-27 T00:00:00.000000Z"
+                                      "id": "e82cb288-283a-4579-a2ea-e1ab5b001102",
+                                      "price": 100,
+                                      "note": "",
+                                      "is_blocked": true,
+                                      "date": "2019-12-02T00:00:00.000000Z"
                                     }
                       ]
             }
@@ -2216,22 +2245,28 @@ The start and end dates are included in the period of the special price.
                     "end_date": [
                       "The end date field is required."
                     ],
-                    "price": [
-                      "The price field is required."
+                    "availability": [
+                      "The availability field is required."
+                    ],
+                    "weekend_price": [
+                      "The weekend price field is required."
+                    ],
+                    "special_price": [
+                      "The special price field is required."
                     ]
                   }
                 }
                 
 
-## Delete property special prices [/api/properties/{uuid}/special-prices DELETE]
-Delete special prices associated to the provided property id.
+## Delete property calendar [/api/v1/properties/{uuid}/calendar DELETE]
+Delete calendar associated to the provided property id.
 The special prices between the start and end dates are replaced by the base price
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
                           
-### api/properties/{uuid}/spacial-prices [DELETE]
+### api/v1/properties/{uuid}/calendar [DELETE]
 + Request (application/json)
 
     
@@ -2295,263 +2330,15 @@ The special prices between the start and end dates are replaced by the base pric
                 }
 
 
-## GET property blocked-dates [/api/properties/{uuid}/blocked-dates GET] 
-Retrieve blocked dates associated to the provided property id
-+ Parameters
-
-    + uuid (required, string) ... The unique id of the property
-
-### api/properties/{uuid}/blocked-dates [GET]
-
-+ Request (application/json)
-
-        {
-            "api_token": ""
-        }
-
-+ Response 200 (application/json)
-
-    
-    + Body
-
-            {
-                  "data": [
-                    {
-                      "id": "9ff9952b-0c24-4fd0-a538-44474a75e128",
-                      "date": "2019-01-03T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "83df06f2-3056-4fd5-a484-379d424af4cb",
-                      "date": "2019-01-04T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "7cfca579-b1ce-40e7-b467-8b8f1ed96d61",
-                      "date": "2019-01-05T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "1f2c5775-ca6d-4baf-913c-37b33921fa52",
-                      "date": "2018-12-30T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "50a947c6-7081-465f-8de8-97b4a20b0879",
-                      "date": "2019-01-24T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    }
-                  ]
-                }
-
-            
-
-+ Response 400 (application/json)
-
-    + Body
-
-             {
-                  "message": "Unauthenticated."
-             }
-                
-
-+ Response 404 (application/json)
-
-    + Body
-
-             {
-                    "errors": "Resource not found!"
-             }
-
-## Set property blocked-dates [/api/properties/{uuid}/blocked-dates PUT] 
-Edit blocked dates associated to the provided property id
-+ Parameters
-
-    + uuid (required, string) ... The unique id of the property
-
-            
-### api/properties/{uuid}/blocked-dates [PUT]
-+ Request (application/json)
-
-    
-
-    + blocked-dates
-    + `start_date` required date.
-    + `end_date` required date.
-    + `note` string
-    
-
-    + Body
-
-            {
-              "api_token": "",
-              "start_date" : "2019-04-20",
-              "end_date" : "2019-04-30",
-              "note" : "for clieaning"
-            }
-
-+ Response 200 (application/json)
-
-    
-    + Body
-
-            {
-                  "data": [
-                    {
-                      "id": "9ff9952b-0c24-4fd0-a538-44474a75e128",
-                      "date": "2019-01-03T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "83df06f2-3056-4fd5-a484-379d424af4cb",
-                      "date": "2019-01-04T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "7cfca579-b1ce-40e7-b467-8b8f1ed96d61",
-                      "date": "2019-01-05T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "1f2c5775-ca6d-4baf-913c-37b33921fa52",
-                      "date": "2018-12-30T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "50a947c6-7081-465f-8de8-97b4a20b0879",
-                      "date": "2019-01-24T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    }
-                  ]
-                }
-
-            
-
-+ Response 400 (application/json)
-
-    + Body
-
-             {
-                  "message": "Unauthenticated."
-             }
-                
-
-+ Response 404 (application/json)
-
-    + Body
-
-             {
-                    "errors": "Resource not found!"
-             }
-             
-+ Response 422 (application/json)
-
-    + Body
-
-            {
-                  "message": "The given data was invalid.",
-                  "errors": {
-                    "start_date": [
-                      "The start date field is required."
-                    ],
-                    "end_date": [
-                      "The end date field is required."
-                    ]
-                  }
-            }
-
-
-## Delete property blocked-dates [/api/properties/{uuid}/blocked-dates DELETE] 
-Delete blocked dates associated to the provided property id
-+ Parameters
-
-    + uuid (required, string) ... The unique id of the property
-
-            
-### api/properties/{uuid}/blocked-dates [DELETE]
-+ Request (application/json)
-
-    
-
-    + blocked-dates
-    + `start_date` required date.
-    + `end_date` required date.
-    
-    
-
-    + Body
-
-            {
-              "api_token": "",
-              "start_date" : "2019-04-20",
-              "end_date" : "2019-04-30""
-            }
-            
-+ Response 200 (application/json)
-
-    
-    + Body
-
-            {
-                  "data": [
-                   
-                    {
-                      "id": "1f2c5775-ca6d-4baf-913c-37b33921fa52",
-                      "date": "2018-12-30T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    },
-                    {
-                      "id": "50a947c6-7081-465f-8de8-97b4a20b0879",
-                      "date": "2019-01-24T00:00:00.000000Z",
-                      "note": "for cleaning"
-                    }
-                  ]
-                }
-
-            
-
-+ Response 400 (application/json)
-
-    + Body
-
-             {
-                  "message": "Unauthenticated."
-             }
-                
-
-+ Response 404 (application/json)
-
-    + Body
-
-             {
-                    "errors": "Resource not found!"
-             }
-             
-+ Response 422 (application/json)
-
-    + Body
-
-            {
-                  "message": "The given data was invalid.",
-                  "errors": {
-                    "start_date": [
-                      "The start date field is required."
-                    ],
-                    "end_date": [
-                      "The end date field is required."
-                    ]
-                  }
-            }
              
              
-             
-## Get property descriptions [/api/properties/{uuid}/descriptions GET] 
+## Get property descriptions [/api/v1/properties/{uuid}/descriptions GET] 
 Retrieve descriptions with both language french and english associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/descriptions [GET]
+### api/v1/properties/{uuid}/descriptions [GET]
 
 + Request (application/json)
 
@@ -2613,14 +2400,14 @@ Retrieve descriptions with both language french and english associated to the pr
                     "errors": "Resource not found!"
              }
              
-## Set property descriptions [/api/properties/{uuid}/descriptions PUT] 
+## Set property descriptions [/api/v1/properties/{uuid}/descriptions PUT] 
 Edit description french or english associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
 
-### api/properties/{uuid}/descriptions [PUT]
+### api/v1/properties/{uuid}/descriptions [PUT]
 + Request (application/json)
 
     
@@ -2697,14 +2484,14 @@ Edit description french or english associated to the provided property id
                     "errors": "Resource not found!"
              }
 
-## Delete property descriptions [/api/properties/{uuid}/descriptions DELETE] 
+## Delete property descriptions [/api/v1/properties/{uuid}/descriptions DELETE] 
 DELETE description associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
 
-### api/properties/{uuid}/descriptions [DELETE]
+### api/v1/properties/{uuid}/descriptions [DELETE]
 + Request (application/json)
 
     
@@ -2767,13 +2554,13 @@ DELETE description associated to the provided property id
              }
              
              
-## Get property location  [/api/properties/{uuid}/location GET]       
+## Get property location  [/api/v1/properties/{uuid}/location GET]       
 Retrieve location associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/location [GET]
+### api/v1/properties/{uuid}/location [GET]
 
 + Request (application/json)
 
@@ -2794,7 +2581,9 @@ Retrieve location associated to the provided property id
                 "city": "QuéBec",
                 "address": "rue fortier",
                 "zip_code": "J0B2T0",
-                "suite_building": "lora lpsm doller"
+                "suite_building": "lora lpsm doller",
+                "latitude": "21.1645025",
+                "longitude": "79.0821583"
               }
             }
 
@@ -2817,13 +2606,13 @@ Retrieve location associated to the provided property id
                     "errors": "Resource not found!"
              }
 
-## PUT property location  [/api/properties/{uuid}/location PUT]       
+## PUT property location  [/api/v1/properties/{uuid}/location PUT]       
 Edit location associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/location [PUT]
+### api/v1/properties/{uuid}/location [PUT]
 + Request (application/json)
 
     
@@ -2834,6 +2623,8 @@ Edit location associated to the provided property id
     + `city` required string.
     + `address` required string.
     + `zip_code`  required string.
+    + `latitude`  required string.
+    + `longitude`  required string.
    
     
     
@@ -2847,7 +2638,9 @@ Edit location associated to the provided property id
             "state": "QuéBec",
             "city": "QuéBec",
             "address": "rue fortier",
-            "zip_code": "J0B2T0"
+            "zip_code": "J0B2T0",
+            "latitude": "21.1645025",
+            "longitude": "79.0821583"
             }
             
 
@@ -2865,7 +2658,9 @@ Edit location associated to the provided property id
                 "city": "QuéBec",
                 "address": "rue fortier",
                 "zip_code": "J0B2T0",
-                "suite_building": "lora lpsm doller"
+                "suite_building": "lora lpsm doller",
+                 "latitude": "21.1645025",
+               "longitude": "79.0821583"
               }
             }
 
@@ -2907,17 +2702,23 @@ Edit location associated to the provided property id
                 ],
                 "address": [
                   "The address field is required."
+                ],
+                 "latitude": [
+                  "The latitude field is required."
+                ],
+                "longitude": [
+                  "The longitude field is required."
                 ]
               }
             }  
              
-## set property category [/api/properties/{uuid}/category PUT] 
+## set property category [/api/v1/properties/{uuid}/category PUT] 
 Edit the category associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### /api/properties/{uuid}/category [PUT]
+### /api/v1/properties/{uuid}/category [PUT]
 + Request (application/json)
 
     
@@ -2929,7 +2730,7 @@ Edit the category associated to the provided property id
 
             {
               "api_token": "",
-              "listing_category": "camper",
+              "listing_category": "country_home",
             }
             
 
@@ -2976,13 +2777,13 @@ Edit the category associated to the provided property id
             }
              
 
-## Set roperty rent type [/api/properties/{uuid}/rent-type PUT] 
+## Set roperty rent type [/api/v1/properties/{uuid}/rent-type PUT] 
 Edit the rent type associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### /api/properties/{uuid}/rent-type [PUT]
+### /api/v1/properties/{uuid}/rent-type [PUT]
 + Request (application/json)
 
     
@@ -3039,13 +2840,13 @@ Edit the rent type associated to the provided property id
               }
             }
 
-## Set roperty currency [/api/properties/{uuid}/currency PUT] 
+## Set roperty currency [/api/v1/properties/{uuid}/currency PUT] 
 Edit the currency associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### /api/properties/{uuid}/currency [PUT]
+### /api/v1/properties/{uuid}/currency [PUT]
 
 + Request (application/json)
 
@@ -3104,7 +2905,7 @@ Edit the currency associated to the provided property id
               }
             }
              
-## Get instant booking qualifications [/api/properties/{uuid}/instant-booking-qualification GET]
+## Get instant booking qualifications [/api/v1/properties/{uuid}/instant-booking-qualification GET]
 Retrieve Instant booking qualifications  associated to the provided property id
 
 + Parameters
@@ -3112,7 +2913,7 @@ Retrieve Instant booking qualifications  associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
 
-### /api/properties/{uuid}/instant-booking-qualification [GET]
+### /api/v1/properties/{uuid}/instant-booking-qualification [GET]
 
 + Request (application/json)
 
@@ -3128,10 +2929,10 @@ Retrieve Instant booking qualifications  associated to the provided property id
 
             {
               "data": {
-                    "the_guest_needs_to_have_a_valid_payment_option": false,
-                    "the_guest_needs_to_have_a_verified_email_and_phone_number": false,
-                    "the_guest_needs_to_have_profile_photo": false
-                  }
+                "guest_payement": true,
+                "guest_email": false,
+                "guest_photo": true
+              }
             }
 
             
@@ -3153,7 +2954,7 @@ Retrieve Instant booking qualifications  associated to the provided property id
                     "errors": "Resource not found!"
              }
 
-## Set instant booking qualifications [/api/properties/{uuid}/instant-booking-qualification PUT]
+## Set instant booking qualifications [/api/v1/properties/{uuid}/instant-booking-qualification PUT]
 Edit Instant booking qualifications  associated to the provided property id
 
 + Parameters
@@ -3161,25 +2962,25 @@ Edit Instant booking qualifications  associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
 
-### /api/properties/{uuid}/instant-booking-qualification [PUT]
+### /api/v1/properties/{uuid}/instant-booking-qualification [PUT]
 
 + Request (application/json)
 
     
 
     + qualifications
-    + `the_guest_needs_to_have_a_valid_payment_option` required string.
-    + `the_guest_needs_to_have_a_verified_email_and_phone_number`  required string. 
-    + `the_guest_needs_to_have_profile_photo`  required string.
+    + `guest_payement` required string.
+    + `guest_email`  required string. 
+    + `guest_photo`  required string.
 
     + Body
 
             {
               "api_token": "",
               "qualifications" : {
-                                "the_guest_needs_to_have_a_valid_payment_option": false,
-                                "the_guest_needs_to_have_a_verified_email_and_phone_number": false,
-                                "the_guest_needs_to_have_profile_photo": true
+                                "guest_payement": false,
+                                "guest_email": false,
+                                "guest_photo": true
                         
                                 }
             }
@@ -3192,9 +2993,9 @@ Edit Instant booking qualifications  associated to the provided property id
 
             {
               "data": {
-                "the_guest_needs_to_have_a_valid_payment_option": false,
-                "the_guest_needs_to_have_a_verified_email_and_phone_number": false,
-                "the_guest_needs_to_have_profile_photo": true
+                "guest_payement": false,
+                "guest_email": false,
+                "guest_photo": true
               }
             }
 
@@ -3227,25 +3028,25 @@ Edit Instant booking qualifications  associated to the provided property id
                     "qualifications": [
                       "The qualifications field is required."
                     ],
-                    "qualifications.the_guest_needs_to_have_a_valid_payment_option": [
+                    "qualifications.guest_payement": [
                       "The qualifications.the guest needs to have a valid payment option field is required."
                     ],
-                    "qualifications.the_guest_needs_to_have_a_verified_email_and_phone_number": [
+                    "qualifications.guest_email": [
                       "The qualifications.the guest needs to have a verified email and phone number field is required."
                     ],
-                    "qualifications.the_guest_needs_to_have_profile_photo": [
+                    "qualifications.guest_photo": [
                       "The qualifications.the guest needs to have profile photo field is required."
                     ]
                   }
                 }
              
-## Get guest expectations [/api/properties/{uuid}/guest-expectations GET]
+## Get guest expectations [/api/v1/properties/{uuid}/guest-expectations GET]
 Retrieve guest expectations associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### /api/properties/{uuid}/guest-expectations [GET]
+### /api/v1/properties/{uuid}/guest-expectations [GET]
 
 + Request (application/json)
 
@@ -3262,7 +3063,7 @@ Retrieve guest expectations associated to the provided property id
             {
               "data":  {
                         "must_climb_stairs": false,
-                        "potenial_for_noise": false,
+                        "potential_for_noise": false,
                         "pets_live_on_property": false,
                         "no_parking_on_property": false,
                         "some_spaces_are_shared": false,
@@ -3289,21 +3090,21 @@ Retrieve guest expectations associated to the provided property id
                     "errors": "Resource not found!"
              }
              
-## Set guest expectations [/api/properties/{uuid}/guest-expectations PUT]
+## Set guest expectations [/api/v1/properties/{uuid}/guest-expectations PUT]
 Edit guest expectations associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
 
-### /api/properties/{uuid}/guest-expectations [PUT]
+### /api/v1/properties/{uuid}/guest-expectations [PUT]
 + Request (application/json)
 
     
 
     + guest_expectations
     + `must_climb_stairs` required string.
-    + `potenial_for_noise`  required string. 
+    + `potential_for_noise`  required string. 
     + `pets_live_on_property`  required string.
     + `no_parking_on_property`  required string.
     + `some_spaces_are_shared`   required string.
@@ -3315,7 +3116,7 @@ Edit guest expectations associated to the provided property id
               "api_token": "",
               "guest_expectations" : {
                                 "must_climb_stairs": false,
-                                "potenial_for_noise": false,
+                                "potential_for_noise": false,
                                 "pets_live_on_property": true,
                                 "no_parking_on_property": true,
                                 "some_spaces_are_shared": false,
@@ -3334,8 +3135,8 @@ Edit guest expectations associated to the provided property id
             {
               "data": {
                 "must_climb_stairs": true,
-                "potenial_for_noise": false,
-                "pets_live_on_property": false,
+                "potential_for_noise": false,
+                "pets_live_on_property": true,
                 "no_parking_on_property": true,
                 "some_spaces_are_shared": false,
                 "amenity_limitations": false
@@ -3374,7 +3175,7 @@ Edit guest expectations associated to the provided property id
                         "guest_expectations.must_climb_stairs": [
                           "The guest expectations.must climb stairs field is required."
                         ],
-                        "guest_expectations.potenial_for_noise": [
+                        "guest_expectations.potential_for_noise": [
                           "The guest expectations.potenial for noise field is required."
                         ],
                         "guest_expectations.pets_live_on_property": [
@@ -3392,14 +3193,14 @@ Edit guest expectations associated to the provided property id
                   }
                 }
              
-## Get property services [/api/properties/{uuid}/services GET]
+## Get property services [/api/v1/properties/{uuid}/services GET]
 Retrieve services associated to the provided property id
 
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/services [GET]
+### api/v1/properties/{uuid}/services [GET]
 
 + Request (application/json)
 
@@ -3418,7 +3219,7 @@ Retrieve services associated to the provided property id
                           "id": "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
                           "name": "cleaning dearing stay",
                           "price": "20",
-                          "type": "night"
+                          "type": "per_night"
                         }
                         ]
                 }
@@ -3442,7 +3243,7 @@ Retrieve services associated to the provided property id
                     "errors": "Resource not found!"
              }
 
-## Create property service [/api/properties/{uuid}/services POST]
+## Create property service [/api/v1/properties/{uuid}/services POST]
 Create service associated to the provided property id
 
 + Parameters
@@ -3450,7 +3251,7 @@ Create service associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
             
-### api/properties/{uuid}/services [POST]
+### api/v1/properties/{uuid}/services [POST]
 + Request (application/json)
 
     
@@ -3467,7 +3268,7 @@ Create service associated to the provided property id
               "api_token": "",
               "name": "cleaning dearing stay",
               "price": "20",
-              "type": "nights",
+              "type": "per_night",
                                 
             }
             
@@ -3484,7 +3285,7 @@ Create service associated to the provided property id
                           "id": "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
                           "name": "cleaning dearing stay",
                           "price": "20",
-                          "type": "night"
+                          "type": "per_night"
                         }
                   ]
                 }
@@ -3527,7 +3328,7 @@ Create service associated to the provided property id
                   }
             }
  
-## Set property service [/api/properties/{uuid}/services PUT]
+## Set property service [/api/v1/properties/{uuid}/services PUT]
 Edit service associated to the provided property id
 
 + Parameters
@@ -3535,7 +3336,7 @@ Edit service associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
             
-### api/properties/{uuid}/services [PUT]
+### api/v1/properties/{uuid}/services [PUT]
 + Request (application/json)
 
     
@@ -3554,7 +3355,7 @@ Edit service associated to the provided property id
               "service_id" : "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
               "name": "cleaning dearing stay",
               "price": "20",
-              "type": "nights",
+              "type": "per_night_guest",
                                 
             }
             
@@ -3566,7 +3367,7 @@ Edit service associated to the provided property id
             
             "name": "cleaning dearing stay",
             "price": "17",
-            "type": "night"
+            "type": "per_night_guest"
         }
 
 + Response 200 (application/json)
@@ -3579,7 +3380,7 @@ Edit service associated to the provided property id
                           "id": "3b89b95a-9dc3-4316-a9f5-1c5b226d7188",
                           "name": "cleaning dearing stay",
                           "price": "17",
-                          "type": "night"
+                          "type": "per_night_guest"
                         }
             }
 
@@ -3624,7 +3425,7 @@ Edit service associated to the provided property id
                   }
             }
 
-## Delete property service [/api/properties/{uuid}/services Delete]
+## Delete property service [/api/v1/properties/{uuid}/services Delete]
 Delete service associated to the provided property id
 
 + Parameters
@@ -3632,7 +3433,7 @@ Delete service associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
             
-### api/properties/{uuid}/services [DELETE]
+### api/v1/properties/{uuid}/services [DELETE]
 + Request (application/json)
 
     
@@ -3693,13 +3494,13 @@ Delete service associated to the provided property id
                 }
                 
                 
-## Get property bookings [/api/properties/{uuid}/bookings GET] 
+## Get property bookings [/api/v1/properties/{uuid}/bookings GET] 
 Retrieve  bookings associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/bookings [GET]
+### api/v1/properties/{uuid}/bookings [GET]
 
 
 + Request (application/json)
@@ -3718,12 +3519,11 @@ Retrieve  bookings associated to the provided property id
                   {
                       "id": "3485cc19-5e39-4252-a846-814b7ae6e284",
                       "status": "confirmed",
+                      "guest_account_id": "97685fc5-4234-43be-900e-9efe5399632f",
                       "guests_count": 1,
                       "request_date": true,
                       "checkin": "Mon, May 20th 2019",
                       "checkout": "Wed, May 22th 2019",
-                      "response": null,
-                      "response_time": "2019-04-01 09:16:40",
                       "nights_count": null,
                       "nights_cost": 0,
                       "day_price": 0,
@@ -3733,21 +3533,35 @@ Retrieve  bookings associated to the provided property id
                       "security_deposit": 0,
                       "total_fee": 0,
                       "total": 105.5,
-                      "property": {
-                        "name": "test booking new",
-                        "image": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
-                        "address": "2600,rue du centre,le sud ouest",
-                        "owner": {
-                          "id": "f3231d88-2370-4a80-b48c-66a5c058c73f",
-                          "firstname": "Imran",
-                          "lastname": "Imran",
-                          "language": "en",
-                          "location": "Earth",
-                          "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png",
-                          "email": "fudugo.imran@gmail.com",
-                          "phone_number": null
-                        }
-                      }
+                      "property":  {
+                            "name": "Testing Property",
+                            "image": "http:\/\/wechalet.local\/images\/default_listing.jpg",
+                            "address": "rue fortier",
+                            "booking_settings": {
+                              "instant_booking": true,
+                              "guest_qualifications": {
+                                "guest_photo": true,
+                                "guest_email": false,
+                                "guest_payement": true
+                              },
+                              "house_rules": {
+                                "allow_childrens": true,
+                                "allow_infants": true,
+                                "allow_pets": true,
+                                "allow_smoking": false,
+                                "allow_parties": true,
+                                "other_rules": "other_rules"
+                              },
+                              "guest_expectations": {
+                                "must_climb_stairs": true,
+                                "potential_for_noise": false,
+                                "pet_live_on_property": false,
+                                "no_parking_on_property": true,
+                                "some_spaces_are_shared": false,
+                                "amenity_limitations": false
+                              }
+                            }
+                          }
                     }
                   ]
             }
@@ -3772,13 +3586,13 @@ Retrieve  bookings associated to the provided property id
              }
              
              
-## Get property reviews [/api/properties/{uuid}/reviews GET] 
+## Get property reviews [/api/v1/properties/{uuid}/reviews GET] 
 Retrieve  reviwes associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/reviews [GET]
+### api/v1/properties/{uuid}/reviews [GET]
 
 
 + Request (application/json)
@@ -3832,10 +3646,10 @@ Retrieve  reviwes associated to the provided property id
              }
              
              
-## Get user reviews [/api/reviews GET] 
+## Get user reviews [/api/v1/reviews GET] 
 Retrieve  reviwes associated to the current user
 
-### api/reviews [GET]
+### api/v1/reviews [GET]
 
 
 + Request (application/json)
@@ -3874,10 +3688,10 @@ Retrieve  reviwes associated to the current user
                 
 
 
-## Create user reviews [/api/reviews POST] 
+## Create user reviews [/api/v1/reviews POST] 
 Create review for a booking
 
-### api/reviews [POST]
+### api/v1/reviews [POST]
 + Request (application/json)
 
     + review
@@ -3949,13 +3763,13 @@ Create review for a booking
 
                 
 
-## show review [/api/reviews/{uuid} GET] 
+## show review [/api/v1/reviews/{uuid} GET] 
 show the review
 + Parameters
 
     + uuid (required, string) ... The unique id of the review
 
-### api/reviews/{uuid} [GET]
+### api/v1/reviews/{uuid} [GET]
 
 
 + Request (application/json)
@@ -4004,13 +3818,13 @@ show the review
                           
 
 
-## update review [/api/reviews/{uuid} PUT] 
+## update review [/api/v1/reviews/{uuid} PUT] 
 Update the review
 + Parameters
 
     + uuid (required, string) ... The unique id of the review
 
-### api/reviews/{uuid} [PUT]
+### api/v1/reviews/{uuid} [PUT]
 + Request (application/json)
 
     + review
@@ -4068,13 +3882,13 @@ Update the review
              
 
 
-## delete review [/api/reviews/{uuid} DELETE] 
+## delete review [/api/v1/reviews/{uuid} DELETE] 
 Remove the review
 + Parameters
 
     + uuid (required, string) ... The unique id of the review
 
-### api/reviews/{uuid} [DELETE]
+### api/v1/reviews/{uuid} [DELETE]
 + Request (application/json)
 
 
@@ -4126,13 +3940,13 @@ Remove the review
              
                                     
                           
-## GET property owner [/api/properties/{uuid}/owner GET] 
+## GET property owner [/api/v1/properties/{uuid}/owner GET] 
 Retrieve  informations of the owner associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/owner [GET]
+### api/v1/properties/{uuid}/owner [GET]
 
 
 + Request (application/json)
@@ -4162,7 +3976,11 @@ Retrieve  informations of the owner associated to the provided property id
                   "payout_email": null,
                   "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
                 },
-                "email": "dany@airbnbsecrets.com"
+                "email": "dany@airbnbsecrets.com",
+                "phone_number": null,
+                "roles": [
+                   "host"
+                 ]
               }
             }
 
@@ -4185,14 +4003,14 @@ Retrieve  informations of the owner associated to the provided property id
                     "errors": "Resource not found!"
              }
 
-## Set property owner [/api/properties/{uuid}/owner PUT] 
+## Set property owner [/api/v1/properties/{uuid}/owner PUT] 
 Edit informations of the owner associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
 
-### api/properties/{uuid}/owner [PUT]
+### api/v1/properties/{uuid}/owner [PUT]
 + Request (application/json)
 
     
@@ -4252,7 +4070,11 @@ Edit informations of the owner associated to the provided property id
                   "payout_email": null,
                   "avatar": "http:\/\/wechalet.local\/wechalet\/images\/default\/default_user.png"
                 },
-                "email": "dany@airbnbsecrets.com"
+                "email": "dany@airbnbsecrets.com",
+                "phone_number": null,
+                "roles": [
+                   "host"
+                 ]
               }
             }
 
@@ -4309,13 +4131,13 @@ Edit informations of the owner associated to the provided property id
                   }
                 }
                              
-## Get property guests [/api/properties/{uuid}/guests GET] 
+## Get property guests [/api/v1/properties/{uuid}/guests GET] 
 Retrieve  guests associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/guests [GET]
+### api/v1/properties/{uuid}/guests [GET]
 
 
 + Request (application/json)
@@ -4387,13 +4209,13 @@ Retrieve  guests associated to the provided property id
                     "errors": "Resource not found!"
              }
              
-## Get property rooms [/api/properties/{uuid}/rooms GET] 
+## Get property rooms [/api/v1/properties/{uuid}/rooms GET] 
 Retrieve  and edit rooms associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/rooms [GET]
+### api/v1/properties/{uuid}/rooms [GET]
 
 
 + Request (application/json)
@@ -4452,14 +4274,14 @@ Retrieve  and edit rooms associated to the provided property id
                     "errors": "Resource not found!"
              }
 
-## Set property rooms [/api/properties/{uuid}/rooms PUT] 
+## Set property rooms [/api/v1/properties/{uuid}/rooms PUT] 
 Edit rooms associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
                         
-### api/properties/{uuid}/rooms [PUT]
+### api/v1/properties/{uuid}/rooms [PUT]
 
 + Request (application/json)
 
@@ -4576,7 +4398,7 @@ Delete  and edit rooms associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
              
-### api/properties/{uuid}/rooms [DELETE]
+### api/v1/properties/{uuid}/rooms [DELETE]
 
 + Request (application/json)
 
@@ -4670,13 +4492,13 @@ Delete  and edit rooms associated to the provided property id
                   }
                 }                        
              
-## Get property custom rules [/api/properties/{uuid}/custom-rules GET] 
+## Get property custom rules [/api/v1/properties/{uuid}/custom-rules GET] 
 Retrieve custom rules associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/custom-rules [GET]
+### api/v1/properties/{uuid}/custom-rules [GET]
 
 
 + Request (application/json)
@@ -4719,14 +4541,14 @@ Retrieve custom rules associated to the provided property id
              }
  
 
-## Create property custom rule [/api/properties/{uuid}/custom-rules POST] 
+## Create property custom rule [/api/v1/properties/{uuid}/custom-rules POST] 
 Create custom rule associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
                          
-### api/properties/{uuid}/custom-rules [POST]
+### api/v1/properties/{uuid}/custom-rules [POST]
 + Request (application/json)
 
     
@@ -4810,14 +4632,14 @@ Create custom rule associated to the provided property id
             }         
 
 
-## Set property custom rule [/api/properties/{uuid}/custom-rules PUT] 
+## Set property custom rule [/api/v1/properties/{uuid}/custom-rules PUT] 
 Edit custom rule associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
              
-### api/properties/{uuid}/custom-rules [PUT]
+### api/v1/properties/{uuid}/custom-rules [PUT]
 
 + Request (application/json)
 
@@ -4904,14 +4726,14 @@ Edit custom rule associated to the provided property id
                   }
                 }   
 
-## Delete property custom rule [/api/properties/{uuid}/custom-rules DELETE] 
+## Delete property custom rule [/api/v1/properties/{uuid}/custom-rules DELETE] 
 Delete custom rule associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
              
-### api/properties/{uuid}/custom-rules [DELETE]
+### api/v1/properties/{uuid}/custom-rules [DELETE]
 + Request (application/json)
 
     + custom rule
@@ -4973,13 +4795,13 @@ Delete custom rule associated to the provided property id
                   }
                 }                        
              
-## Get property images [/api/properties/{uuid}/images GET] 
+## Get property images [/api/v1/properties/{uuid}/images GET] 
 Retrieve images associated to the provided property id
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/images [GET]
+### api/v1/properties/{uuid}/images [GET]
 
 
 + Request (application/json)
@@ -4996,13 +4818,12 @@ Retrieve images associated to the provided property id
             {
                   "data": [
                     {
-                      "id": "8d8eba03-80bf-4561-b8b6-70adb459eccc",
-                      "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                    },
-                    {
-                      "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
-                      "url": "https:\/\/www.fillmurray.com\/640\/360"
+                      "id": "3-4",
+                      "caption": null,
+                      "url": "http:\/\/wechalet.local\/storage\/2\/3-4.jpg",
+                      "is_main": true
                     }
+                    
                   ]
                 }
 
@@ -5025,7 +4846,7 @@ Retrieve images associated to the provided property id
                     "errors": "Resource not found!"
              }
 
-## Create property images [/api/properties/{uuid}/images POST] 
+## Create property images [/api/v1/properties/{uuid}/images POST] 
 Create image associated to the provided property id
 + Parameters
 
@@ -5033,7 +4854,7 @@ Create image associated to the provided property id
 
 
                           
-### api/properties/{uuid}/images [POST]
+### api/v1/properties/{uuid}/images [POST]
 + Request (application/json)
 
     + image
@@ -5045,7 +4866,7 @@ Create image associated to the provided property id
 
             {
               "api_token": "",
-              "url" : "https:\/\/www.fillmurray.com\/640\/360" 
+              "url" : "https://wechalet.com/wp-content/uploads/2019/08/3-4.jpg" 
                                 
             }
             
@@ -5057,11 +4878,13 @@ Create image associated to the provided property id
 
             {
                   "data": [
-        
                     {
-                      "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
-                      "url": "https:\/\/www.fillmurray.com\/640\/360"
+                      "id": "3-4",
+                      "caption": null,
+                      "url": "http:\/\/wechalet.local\/storage\/2\/3-4.jpg",
+                      "is_main": true
                     }
+                    
                   ]
                 }
 
@@ -5098,7 +4921,7 @@ Create image associated to the provided property id
                   }
                 }
                 
-## Delete property images [/api/properties/{uuid}/images DELETE] 
+## Delete property images [/api/v1/properties/{uuid}/images DELETE] 
 Delete image associated to the provided property id
 + Parameters
 
@@ -5118,7 +4941,7 @@ Delete image associated to the provided property id
 
             {
               "api_token": "",
-              "image_id" : "49b44807-336f-4c14-bbb4-7fa54abd3101" 
+              "image_id" : "3-4" 
                                 
             }
             
@@ -5130,13 +4953,7 @@ Delete image associated to the provided property id
     + Body
 
             {
-                  "data": [
-        
-                    {
-                      "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
-                      "url": "https:\/\/www.fillmurray.com\/640\/360"
-                    }
-                  ]
+                  "data": [ ]
                 }
 
             
@@ -5173,10 +4990,10 @@ Delete image associated to the provided property id
                 }
 
              
-## Get user booking [/api/hosts/bookings GET]
+## Get user booking [/api/v1/hosts/bookings GET]
 Retrieves all bookings that the current affiliate has make
 
-### api/hosts/bookings [GET]
+### api/v1/hosts/bookings [GET]
 
 
 + Request (application/json)
@@ -5201,8 +5018,6 @@ Retrieves all bookings that the current affiliate has make
                           "request_date": true,
                           "checkin": "2018-12-24T00:00:00.000000Z",
                           "checkout": "2018-12-26T00:00:00.000000Z",
-                          "response": null,
-                          "response_time": null,
                           "nights_count": null,
                           "nights_cost": 0,
                           "day_price": 0,
@@ -5263,7 +5078,7 @@ Retrieves all bookings that the current affiliate has make
                    
                    
  
-## Show user booking [/api/hosts/bookings/{uuid} GET]
+## Show user booking [/api/v1/hosts/bookings/{uuid} GET]
 Show a booking by uuid
 + Parameters
 
@@ -5271,7 +5086,7 @@ Show a booking by uuid
 
 
 
-### api/hosts/bookings/{uuid} [GET]
+### api/v1/hosts/bookings/{uuid} [GET]
 
 
 + Request (application/json)
@@ -5296,8 +5111,6 @@ Show a booking by uuid
                           "request_date": true,
                           "checkin": "2018-12-24T00:00:00.000000Z",
                           "checkout": "2018-12-26T00:00:00.000000Z",
-                          "response": null,
-                          "response_time": null,
                           "nights_count": null,
                           "nights_cost": 0,
                           "day_price": 0,
@@ -5363,7 +5176,7 @@ Show a booking by uuid
 
                    
  
-## Response to booking [/api/hosts/bookings/{uuid} PUT]
+## Response to booking [/api/v1/hosts/bookings/{uuid} PUT]
 Response to a booking
 + Parameters
 
@@ -5371,7 +5184,7 @@ Response to a booking
 
 
 
-### api/hosts/bookings/{uuid} [PUT]
+### api/v1/hosts/bookings/{uuid} [PUT]
 
 
 + Request (application/json)
@@ -5397,8 +5210,6 @@ Response to a booking
                           "request_date": true,
                           "checkin": "2018-12-24T00:00:00.000000Z",
                           "checkout": "2018-12-26T00:00:00.000000Z",
-                          "response": null,
-                          "response_time": null,
                           "nights_count": null,
                           "nights_cost": 0,
                           "day_price": 0,
@@ -5751,7 +5562,7 @@ Retrieves all listing categories
 ## Get properties [/api/properties GET]
 Retrieves all properties
 
-### api/properties [GET]
+### api/v1/properties [GET]
 
 
 + Request (application/json)
@@ -5810,54 +5621,14 @@ Retrieves all properties
                             "city": "QuéBec",
                             "address": "rue fortier",
                             "zip_code": "J0B2T0",
-                            "suite_building": ""
+                            "suite_building": "",
+                            "latitude": "21.1632620",
+                            "longitude": "79.0743910"
                           },
                           "amenities": [
                             "463dc946-4c8c-4271-8f8f-717e80168302",
                             "5afcd6c1-92db-47ef-89dc-67fe87b6cdae",
                             "d27fffb0-f6a1-42c4-970c-795b1f0c831f"
-                          ],
-                          "photos_url": [
-                            {
-                              "id": "8d8eba03-80bf-4561-b8b6-70adb459eccc",
-                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                            },
-                            {
-                              "id": "cba6a089-1fbe-4fe3-b8af-1180381ab196",
-                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                            },
-                            {
-                              "id": "a6f1fd75-df8a-4f49-812a-31c3e3034835",
-                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                            },
-                            {
-                              "id": "5cd14503-f0e1-4c0f-ad47-6241b3ce062b",
-                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                            },
-                            {
-                              "id": "476c62fa-7d06-4235-adb3-c74c4e1b1605",
-                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                            },
-                            {
-                              "id": "9a7f7571-8c9b-441e-9b57-9845c9f1eeaa",
-                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                            },
-                            {
-                              "id": "231150a0-aa01-4667-a07b-7044c535f7ca",
-                              "url": "https:\/\/pms.wechalet.com\/wp-content\/uploads\/2019\/03\/property11111.jpg"
-                            },
-                            {
-                              "id": "c86d3ced-6a80-45de-9dc1-5b4f02fb93cc",
-                              "url": "https:\/\/www.fillmurray.com\/640\/360"
-                            },
-                            {
-                              "id": "e9647ce1-714a-4130-a870-55f8c1aaab2d",
-                              "url": "https:\/\/www.fillmurray.com\/640\/360"
-                            },
-                            {
-                              "id": "49b44807-336f-4c14-bbb4-7fa54abd3101",
-                              "url": "https:\/\/www.fillmurray.com\/640\/360"
-                            }
                           ],
                           "photos": [
                             {
@@ -5872,14 +5643,14 @@ Retrieves all properties
                               "caption": null,
                               "url": "http:\/\/localhost\/storage\/2\/360.jpeg",
                               "name": "360",
-                              "is_main": true
+                              "is_main": false
                             },
                             {
                               "id": 3,
                               "caption": null,
                               "url": "http:\/\/localhost\/storage\/3\/360.jpeg",
                               "name": "360",
-                              "is_main": true
+                              "is_main": false
                             }
                           ],
                           "description": {
@@ -5935,29 +5706,33 @@ Retrieves all properties
                           "calendar": {
                             "dates": [
                               {
-                                "uuid": "f15f9178-f98c-4ebe-91d8-45e5e78ec218",
-                                "price": 25,
-                                "start_date": "2019-04-10 00:00:00",
-                                "isBlocked": false
-                              },
-                              {
-                                "uuid": "d49635d7-a179-46fb-a6d4-622727322a29",
-                                "price": 25,
-                                "start_date": "2019-04-11 00:00:00",
-                                "isBlocked": false
-                              },
-                              {
-                                "uuid": "14bd34bb-c8c2-48a2-ba2f-1deededad997",
-                                "price": 25,
-                                "start_date": "2019-04-12 00:00:00",
-                                "isBlocked": false
-                              },
-                              {
-                                "uuid": "071cc1c9-ac2c-496b-b841-e77dbf70cab3",
-                                "price": 25,
-                                "start_date": "2019-04-13 00:00:00",
-                                "isBlocked": false
-                              }
+                                    "id": "a59354ef-97cf-4922-a5d1-282070cce691",
+                                    "price": 200,
+                                    "note": "",
+                                    "is_blocked": true,
+                                    "date": "2019-11-29T00:00:00.000000Z"
+                                  },
+                                  {
+                                    "id": "9a58d80d-3b54-47e9-be43-3c6b5960fba0",
+                                    "price": 200,
+                                    "note": "",
+                                    "is_blocked": true,
+                                    "date": "2019-11-30T00:00:00.000000Z"
+                                  },
+                                  {
+                                    "id": "2b20ae7c-25d7-4f1e-a9b7-f14981c6f557",
+                                    "price": 100,
+                                    "note": "",
+                                    "is_blocked": true,
+                                    "date": "2019-12-01T00:00:00.000000Z"
+                                  },
+                                  {
+                                    "id": "4a8876bb-b589-41ff-b181-e723dc1f575d",
+                                    "price": 100,
+                                    "note": "",
+                                    "is_blocked": true,
+                                    "date": "2019-12-02T00:00:00.000000Z"
+                                  }
                             ]
                           },
                           "pricing": {
@@ -5997,10 +5772,10 @@ Retrieves all properties
                   "message": "Unauthenticated."
              }
 
-## Create properties [/api/properties POST]
+## Create properties [/api/v1/properties POST]
 Create propertie 
 
-### api/properties [POST]
+### api/v1/properties [POST]
 + Request (application/json)
 
     + property
@@ -6320,14 +6095,14 @@ Create propertie
             
             
             
-## Get property [/api/properties/{uuid} GET] 
+## Get property [/api/v1/properties/{uuid} GET] 
 Show property associated to the provided property id
 
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid} [GET]
+### api/v1/properties/{uuid} [GET]
 
 
 + Request (application/json)
@@ -6467,7 +6242,7 @@ Show property associated to the provided property id
              
             }
 
-## Set property [/api/properties/{uuid} PUT] 
+## Set property [/api/v1/properties/{uuid} PUT] 
 Edit property associated to the provided property id
 
 + Parameters
@@ -6475,7 +6250,7 @@ Edit property associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
             
-### api/properties/{uuid} [PUT]
+### api/v1/properties/{uuid} [PUT]
 + Request (application/json)
 
     + property
@@ -6795,7 +6570,7 @@ Edit property associated to the provided property id
               }
             }
 
-## Delete property [/api/properties/{uuid} Delete] 
+## Delete property [/api/v1/properties/{uuid} Delete] 
 Delete property associated to the provided property id
 
 + Parameters
@@ -6803,7 +6578,7 @@ Delete property associated to the provided property id
     + uuid (required, string) ... The unique id of the property
 
             
-### api/properties/{uuid} [DELETE]
+### api/v1/properties/{uuid} [DELETE]
 
 
 + Request (application/json)
@@ -6944,14 +6719,14 @@ Delete property associated to the provided property id
             }
             
 
-## Set property status [/api/properties/{uuid}/set-status PUT] 
+## Set property status [/api/v1/properties/{uuid}/set-status PUT] 
 Edit property  status 
 
 + Parameters
 
     + uuid (required, string) ... The unique id of the property
 
-### api/properties/{uuid}/set-status [PUT]
+### api/v1/properties/{uuid}/set-status [PUT]
 + Request (application/json)
 
     
@@ -6997,11 +6772,11 @@ Edit property  status
             }
             
 
-##Retrieve current host account data [/api/hosts/me GET] 
+##Retrieve current host account data [/api/v1/hosts/me GET] 
 Retrieve current host account data
 
 
-### api/hosts/me [GET]
+### api/v1/hosts/me [GET]
 + Request (application/json)
 
     
@@ -7052,11 +6827,11 @@ Retrieve current host account data
 
 
 
-##guests for a host account [/api/guests GET] 
+##guests for a host account [/api/v1/guests GET] 
 Retrieve all the guests for a host account
 
 
-### api/guests [GET]
+### api/v1/guests [GET]
 + Request (application/json)
 
     
@@ -7108,14 +6883,14 @@ Retrieve all the guests for a host account
              }
 
 
-## Get guest information [/api/guests/{uuid} GET] 
+## Get guest information [/api/v1/guests/{uuid} GET] 
 Get a single guest information
 
 + Parameters
 
     + uuid (required, string) ... The unique id of the guest
 
-### api/guests/{uuid} [GET]
+### api/v1/guests/{uuid} [GET]
 + Request (application/json)
 
 
@@ -7175,10 +6950,10 @@ Get a single guest information
              
 
 
-## Get all the threads [/api/inbox GET] 
+## Get all the threads [/api/v1/inbox GET] 
 Retreive all the threads fro the current the user
 
-### api/inbox [GET]
+### api/v1/inbox [GET]
 
 + Response 200 (application/json)
 
@@ -7243,10 +7018,10 @@ Retreive all the threads fro the current the user
 
 
 
-## Create a thread [/api/inbox POST] 
+## Create a thread [/api/v1/inbox POST] 
 Contact a host for a property
 
-### api/inbox [POST]
+### api/v1/inbox [POST]
 + Request (application/json)
 
     
@@ -7359,7 +7134,7 @@ Contact a host for a property
                 
 
 
-## show thread [/api/inbox/{uuid} GET] 
+## show thread [/api/v1/inbox/{uuid} GET] 
 Show all the messages from a thread
 
 + Parameters
@@ -7436,14 +7211,14 @@ Show all the messages from a thread
 
 
 
-## Create a message [/api/inbox/{uuid} PUT] 
+## Create a message [/api/v1/inbox/{uuid} PUT] 
 Create a  message for a single thead
 
 + Parameters
 
     + uuid (required, string) ... The unique id of the thread
 
-### api/inbox/{uuid} [PUT]
+### api/v1/inbox/{uuid} [PUT]
 + Request (application/json)
 
     
@@ -7530,14 +7305,14 @@ Create a  message for a single thead
              }
                
             
-## Mark thread as unread [/api/inbox/{uuid}/unread PUT] 
+## Mark thread as unread [/api/v1/inbox/{uuid}/unread PUT] 
 Mark  the thread as unread
 
 + Parameters
 
     + uuid (required, string) ... The unique id of the thread
 
-### api/inbox/{uuid}/unread [PUT]
+### api/v1/inbox/{uuid}/unread [PUT]
 + Request (application/json)
 
     + Body
@@ -7621,14 +7396,14 @@ Mark  the thread as unread
 
 
             
-## Delete thread  [/api/inbox/{uuid} DELETE] 
+## Delete thread  [/api/v1/inbox/{uuid} DELETE] 
 Delete thread
 
 + Parameters
 
     + uuid (required, string) ... The unique id of the thread
 
-### api/inbox/{uuid} [DELETE]
+### api/v1/inbox/{uuid} [DELETE]
 + Request (application/json)
 
     + Body
