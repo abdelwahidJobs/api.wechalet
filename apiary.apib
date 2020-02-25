@@ -7493,3 +7493,394 @@ Delete thread
              {
                   "message": "Resource not found !."
              }
+             
+
+
+## get all bokings  [/api/admin/bookings GET] 
+get all bookings
+
+### api/v1/admin/bookings [GET]
+
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                    "data": [
+                      {
+                  "id": "320369d7-886c-4997-8760-80fb72b9fe74",
+                  "status": "accepted",
+                  "currency": "CAD",
+                  "with_invitation": false,
+                  "listing_id": "baace5d2-5413-4a94-8863-b789520918b0",
+                  "host": {
+                    "id": "06b643bf-abfa-459f-9f00-1037f724f798",
+                    "email": "alice@wechalet.com",
+                    "has_profile_picture": false,
+                    "has_phone_number": true,
+                    "has_valid_phone_number": true,
+                    "profile": {
+                      "firstname": "Alice",
+                      "lastname": "Wonderland",
+                      "fullname": "Alice Wonderland",
+                      "birthdate": "1994-06-06",
+                      "language": "fr",
+                      "gender": "female",
+                      "location": "Montréal, QC, Canada",
+                      "about_me": "Je suis couturière passionnée et maman de deux jeunes enfants. J’aime la course à pied et le ski de fond. J’adore aussi décorer, cuisiner et recevoir!",
+                      "secondary_email": null,
+                      "secondary_phone": null,
+                      "avatar": "https:\/\/wechalet.local\/images\/default_user.png",
+                      "public_avatar": "https:\/\/ui-avatars.com\/api\/?name=Alice&size=512&length=1&bold=true&color=FFFFFF&background=159286"
+                    }
+                      },
+                      "guest": {
+                        "id": "7ec7c57e-70c0-4cc9-84bf-bf56fab28d51",
+                        "email": "alex@wechalet.com",
+                        "has_profile_picture": true,
+                        "has_phone_number": true,
+                        "has_valid_phone_number": true,
+                        "profile": {
+                          "firstname": "Alex",
+                          "lastname": "Wanderer",
+                          "fullname": "Alex Wanderer",
+                          "birthdate": "1992-06-01",
+                          "language": "en",
+                          "gender": "male",
+                          "location": "Lévis, Québec, Canada",
+                          "about_me": null,
+                          "secondary_email": null,
+                          "secondary_phone": null,
+                          "avatar": "http:\/\/wechalet.local\/storage\/9b0db635-b9f2-451b-86f0-5192179da386\/download.jpg",
+                          "public_avatar": "http:\/\/wechalet.local\/storage\/9b0db635-b9f2-451b-86f0-5192179da386\/download.jpg"
+                        }
+                      },
+                      "reservation_parameters": [
+                        {
+                          "id": "c931c0ca-aff5-439e-8a09-53642d725a97",
+                      "checkin": "2020-03-09",
+                      "checkout": "2020-03-16",
+                      "nights_count": 7,
+                      "guests_count": 1,
+                      "adults": 1,
+                      "children": 0,
+                      "infants": 0,
+                      "pets": false,
+                      "message": "ggggggggggg",
+                      "special_services": [],
+                      "invoice": [
+                        {
+                          "id": "258fbb3a-0819-446d-a2cb-b6a424926f18",
+                          "items": {
+                            "night_cost": 268.71,
+                            "nights_cost": 1881,
+                            "cleaning_fee": 46,
+                            "discount": 282.15,
+                            "discount_percentage": 15,
+                            "extra_services_cost": 0,
+                            "wechalet_fee": 226.99,
+                            "accommodation_tax": 55.16,
+                            "total": 1927,
+                            "security_deposit": 70,
+                            "total_with_deposit": 1997,
+                            "extra_services": []
+                          },
+                          "context": "payment",
+                          "type": "travelling",
+                          "transactions": [
+                            {
+                              "id": "c4de4cc7-60e4-43f4-ad6e-35eaa4753b3a",
+                              "type": "withdrawal",
+                              "amount": 1997,
+                              "status": "completed",
+                              "context": "payment"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "eb85f97b-beef-42b1-8787-00e46c28d611",
+                          "items": {
+                            "night_cost": 268.71,
+                            "nights_cost": 1881,
+                            "discount": 282.15,
+                            "discount_percentage": 15,
+                            "cleaning_fee": 46,
+                            "extra_services_cost": 0,
+                            "wechalet_fee": 56.75,
+                            "total": 1588.1,
+                            "extra_services": []
+                          },
+                          "context": "payment",
+                          "type": "hosting",
+                          "transactions": []
+                        }
+                        ],
+                          "created_at": "2020-02-25T17:01:24.000000Z"
+                        }
+                      ]
+            }
+            
+            
+
+
+## show  boking  [/api/admin/bookings/{uuid} GET] 
+show booking
+
++ Parameters
+
+    + uuid (required, string) ... The unique id of the thread
+
+
+### api/v1/admin/bookings/{uuid} [GET]
+
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                    "data": 
+                      {
+                  "id": "320369d7-886c-4997-8760-80fb72b9fe74",
+                  "status": "accepted",
+                  "currency": "CAD",
+                  "with_invitation": false,
+                  "listing_id": "baace5d2-5413-4a94-8863-b789520918b0",
+                  "host": {
+                    "id": "06b643bf-abfa-459f-9f00-1037f724f798",
+                    "email": "alice@wechalet.com",
+                    "has_profile_picture": false,
+                    "has_phone_number": true,
+                    "has_valid_phone_number": true,
+                    "profile": {
+                      "firstname": "Alice",
+                      "lastname": "Wonderland",
+                      "fullname": "Alice Wonderland",
+                      "birthdate": "1994-06-06",
+                      "language": "fr",
+                      "gender": "female",
+                      "location": "Montréal, QC, Canada",
+                      "about_me": "Je suis couturière passionnée et maman de deux jeunes enfants. J’aime la course à pied et le ski de fond. J’adore aussi décorer, cuisiner et recevoir!",
+                      "secondary_email": null,
+                      "secondary_phone": null,
+                      "avatar": "https:\/\/wechalet.local\/images\/default_user.png",
+                      "public_avatar": "https:\/\/ui-avatars.com\/api\/?name=Alice&size=512&length=1&bold=true&color=FFFFFF&background=159286"
+                    }
+                      },
+                      "guest": {
+                        "id": "7ec7c57e-70c0-4cc9-84bf-bf56fab28d51",
+                        "email": "alex@wechalet.com",
+                        "has_profile_picture": true,
+                        "has_phone_number": true,
+                        "has_valid_phone_number": true,
+                        "profile": {
+                          "firstname": "Alex",
+                          "lastname": "Wanderer",
+                          "fullname": "Alex Wanderer",
+                          "birthdate": "1992-06-01",
+                          "language": "en",
+                          "gender": "male",
+                          "location": "Lévis, Québec, Canada",
+                          "about_me": null,
+                          "secondary_email": null,
+                          "secondary_phone": null,
+                          "avatar": "http:\/\/wechalet.local\/storage\/9b0db635-b9f2-451b-86f0-5192179da386\/download.jpg",
+                          "public_avatar": "http:\/\/wechalet.local\/storage\/9b0db635-b9f2-451b-86f0-5192179da386\/download.jpg"
+                        }
+                      },
+                      "reservation_parameters": [
+                        {
+                          "id": "c931c0ca-aff5-439e-8a09-53642d725a97",
+                      "checkin": "2020-03-09",
+                      "checkout": "2020-03-16",
+                      "nights_count": 7,
+                      "guests_count": 1,
+                      "adults": 1,
+                      "children": 0,
+                      "infants": 0,
+                      "pets": false,
+                      "message": "ggggggggggg",
+                      "special_services": [],
+                      "invoice": [
+                        {
+                          "id": "258fbb3a-0819-446d-a2cb-b6a424926f18",
+                          "items": {
+                            "night_cost": 268.71,
+                            "nights_cost": 1881,
+                            "cleaning_fee": 46,
+                            "discount": 282.15,
+                            "discount_percentage": 15,
+                            "extra_services_cost": 0,
+                            "wechalet_fee": 226.99,
+                            "accommodation_tax": 55.16,
+                            "total": 1927,
+                            "security_deposit": 70,
+                            "total_with_deposit": 1997,
+                            "extra_services": []
+                          },
+                          "context": "payment",
+                          "type": "travelling",
+                          "transactions": [
+                            {
+                              "id": "c4de4cc7-60e4-43f4-ad6e-35eaa4753b3a",
+                              "type": "withdrawal",
+                              "amount": 1997,
+                              "status": "completed",
+                              "context": "payment"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "eb85f97b-beef-42b1-8787-00e46c28d611",
+                          "items": {
+                            "night_cost": 268.71,
+                            "nights_cost": 1881,
+                            "discount": 282.15,
+                            "discount_percentage": 15,
+                            "cleaning_fee": 46,
+                            "extra_services_cost": 0,
+                            "wechalet_fee": 56.75,
+                            "total": 1588.1,
+                            "extra_services": []
+                          },
+                          "context": "payment",
+                          "type": "hosting",
+                          "transactions": []
+                        }
+                        ],
+                          "created_at": "2020-02-25T17:01:24.000000Z"
+                        }
+                      
+            }
+
+
+## get booking refund cost [/api/admin/refund-cost POST] 
+get the refund cost
+
+### api/v1/admin/refund-cost [post]
++ Request (application/json)
+
+    + Body
+
+            {
+              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700", 
+              "guest": {
+                "nights_cost": 50,
+                "discount": 100,
+                "cleaning_fee": 100,
+                "extra_services_cost": 100,
+                "wechalet_fee": 100,
+                "accommodation_tax": 100,
+                "security_deposit": 70,
+                "impose_discount": false
+                },
+               "host": {
+                "nights_cost": 50,
+                "cleaning_fee": 100,
+                "extra_services_cost": 100,
+                "wechalet_fee": 0,
+                "security_deposit": 30
+                }
+                
+            }
+                
+                
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                        "guest_refund_cost": {
+                          "nights_cost": 940.5,
+                          "discount": 282.15,
+                          "cleaning_fee": 46,
+                          "extra_services_cost": 0,
+                          "accommodation_tax": 22.713075000000003,
+                          "security_deposit": 49,
+                          "wechalet_fee": 97.20030000000001,
+                          "total": 873.263375
+                        },
+                        "host_refund_cost": {
+                          "nights_cost": 799.425,
+                          "cleaning_fee": 0,
+                          "extra_services_cost": 0,
+                          "wechalet_fee": 27.5801625,
+                          "security_deposit": 21,
+                          "total": 792.8448374999999
+                        },
+                        "total": 1666.1082124999998
+                      }
+                    
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+
+
+            
+## get booking refund cost [/api/admin/deposit-cost POST] 
+get the deposit cost
+
+### api/v1/admin/deposit-cost [post]
++ Request (application/json)
+
+    + Body
+
+            {
+              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700", 
+              "guest": {
+                    "security_deposit": 70,
+                },
+               "host": {
+                 "security_deposit": 30
+                }
+                
+            }
+                
+                
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                  "data": {
+                        "guest_refund_cost": {
+                          "security_deposit": 28,
+                          "total": 28
+                        },
+                        "host_refund_cost": {
+                          "wechalet_fee": 1.449,
+                          "security_deposit": 21,
+                          "total": 40.551
+                        },
+                        "total": 68.551
+                      }
+                    
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
