@@ -7499,7 +7499,7 @@ Delete thread
 ## get all bokings  [/api/admin/bookings GET] 
 get all bookings
 
-### api/v1/admin/bookings [GET]
+### api/admin/bookings [GET]
 
 
 + Response 200 (application/json)
@@ -7633,7 +7633,7 @@ show booking
     + uuid (required, string) ... The unique id of the thread
 
 
-### api/v1/admin/bookings/{uuid} [GET]
+### api/admin/bookings/{uuid} [GET]
 
 
 + Response 200 (application/json)
@@ -7755,19 +7755,22 @@ show booking
                         }
                       
             }
+            
 
 
-## get booking refund cost [/api/admin/refund-cost POST] 
-get the refund cost
+## get booking refund [/api/admin/refund-cost POST] 
+GEt the booking refund cost
 
-### api/v1/admin/refund-cost [post]
+### api/admin/refund-cost [POST]
 + Request (application/json)
+
+    
 
     + Body
 
             {
-              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700", 
-              "guest": {
+              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                   "guest": {
                 "nights_cost": 50,
                 "discount": 100,
                 "cleaning_fee": 100,
@@ -7784,10 +7787,8 @@ get the refund cost
                 "wechalet_fee": 0,
                 "security_deposit": 30
                 }
-                
+              
             }
-                
-                
  
 
 + Response 200 (application/json)
@@ -7796,7 +7797,7 @@ get the refund cost
     + Body
 
             {
-                  "data": {
+                "data": {
                         "guest_refund_cost": {
                           "nights_cost": 940.5,
                           "discount": 282.15,
@@ -7817,7 +7818,6 @@ get the refund cost
                         },
                         "total": 1666.1082124999998
                       }
-                    
             }
 
             
@@ -7829,13 +7829,15 @@ get the refund cost
              {
                   "message": "Unauthenticated."
              }
+             
+
 
 
             
-## get booking refund cost [/api/admin/deposit-cost POST] 
-get the deposit cost
+## get deposit cost [/api/admin/deposit-cost POST] 
+GET the deposit cost
 
-### api/v1/admin/deposit-cost [post]
+### api/admin/deposit-cost [POST]
 + Request (application/json)
 
     + Body
@@ -7843,15 +7845,13 @@ get the deposit cost
             {
               "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700", 
               "guest": {
-                    "security_deposit": 70,
+                "security_deposit": 70
                 },
                "host": {
-                 "security_deposit": 30
+                "security_deposit": 30
                 }
-                
+              
             }
-                
-                
  
 
 + Response 200 (application/json)
@@ -7860,19 +7860,18 @@ get the deposit cost
     + Body
 
             {
-                  "data": {
-                        "guest_refund_cost": {
-                          "security_deposit": 28,
-                          "total": 28
-                        },
-                        "host_refund_cost": {
-                          "wechalet_fee": 1.449,
-                          "security_deposit": 21,
-                          "total": 40.551
-                        },
-                        "total": 68.551
-                      }
-                    
+                "data": {
+                    "guest_refund_cost": {
+                      "security_deposit": 28,
+                      "total": 28
+                    },
+                    "host_refund_cost": {
+                      "security_deposit": 42,
+                      "wechalet_fee": 1.449,
+                      "total": 40.551
+                    },
+                    "total": 68.551
+                  }  
             }
 
             
@@ -7883,4 +7882,225 @@ get the deposit cost
 
              {
                   "message": "Unauthenticated."
+             }
+               
+            
+
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                  "message": "Resource not found !."
+             }
+             
+
+
+## refund guest [/api/admin/paypal/refund-guest POST] 
+refund the guest before the host has been payed 
+
+### api/admin/refund-guest [POST]
++ Request (application/json)
+
+    
+
+    + Body
+
+            {
+              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                   "guest": {
+                "nights_cost": 50,
+                "discount": 100,
+                "cleaning_fee": 100,
+                "extra_services_cost": 100,
+                "wechalet_fee": 100,
+                "accommodation_tax": 100,
+                "security_deposit": 70,
+                "impose_discount": false
+                },
+               "host": {
+                "nights_cost": 50,
+                "cleaning_fee": 100,
+                "extra_services_cost": 100,
+                "wechalet_fee": 0,
+                "security_deposit": 30
+                }
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "message": "the guest has been refunded successfully"
+            }
+
+            
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "the total is greater that the booking cost."
+             }
+             
+             
+             
+
+
+
+
+
+## payout-host [/api/admin/paypal/payout-host POST] 
+payout the host 
+
+### api/admin/payout-host [POST]
++ Request (application/json)
+
+    
+
+    + Body
+
+            {
+              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700",
+                   "guest": {
+                "nights_cost": 50,
+                "discount": 100,
+                "cleaning_fee": 100,
+                "extra_services_cost": 100,
+                "wechalet_fee": 100,
+                "accommodation_tax": 100,
+                "security_deposit": 70,
+                "impose_discount": false
+                },
+               "host": {
+                "nights_cost": 50,
+                "cleaning_fee": 100,
+                "extra_services_cost": 100,
+                "wechalet_fee": 0,
+                "security_deposit": 30
+                }
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "message": "the host has been paied successfully"
+            }
+
+            
+
++ Response 422 (application/json)
+
+    + Body
+
+             {
+                  "message": "the total is greater that the booking cost."
+             }
+             
+             
+
+            
+##  deposit-host [/api/admin/deposit-host POST] 
+payout the host the deposit
+
+### api/admin/deposit-host [POST]
++ Request (application/json)
+
+    + Body
+
+            {
+              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700", 
+              "guest": {
+                "security_deposit": 70
+                },
+               "host": {
+                "security_deposit": 30
+                }
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "message": "the host has been paied " 
+            }
+
+            
+
++ Response 400 (application/json)
+
+    + Body
+
+             {
+                  "message": "Unauthenticated."
+             }
+               
+            
+
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                  "message": "Resource not found !."
+             }
+
+
+
+     
+
+
+##  deposit-guest [/api/admin/deposit-guest POST] 
+deposit-guest
+
+### api/admin/deposit-guest [POST]
++ Request (application/json)
+
+    + Body
+
+            {
+              "booking_id": "971ad04e-0ca1-4176-b912-083fe6522700", 
+              "guest": {
+                "security_deposit": 70
+                },
+               "host": {
+                "security_deposit": 30
+                }
+              
+            }
+ 
+
++ Response 200 (application/json)
+
+    
+    + Body
+
+            {
+                "message": "the guest has been paied " 
+            }
+
+            
+
++ Response 404 (application/json)
+
+    + Body
+
+             {
+                  "message": "Resource not found !."
              }
